@@ -15,18 +15,8 @@ double widthScaleFactor;
 double textScaleFactor;
 
 class Avatar extends StatefulWidget {
-  final bool cardOneCollapse;
-  final bool cardTwoCollapse;
-  final bool cardThreeCollapse;
-
   final pageController = PageController();
-
   final int numberOfPages = 6;
-  Avatar({
-    this.cardOneCollapse,
-    this.cardTwoCollapse,
-    this.cardThreeCollapse,
-  });
 
   @override
   _AvatarState createState() => _AvatarState();
@@ -136,11 +126,7 @@ class _AvatarState extends State<Avatar> {
                     onTap: () => Navigator.push(
                       context,
                       PageRouteWithoutTransition(
-                        builder: (context) => Home(
-                          cardOneCollapse: widget.cardOneCollapse,
-                          cardTwoCollapse: widget.cardTwoCollapse,
-                          cardThreeCollapse: widget.cardThreeCollapse,
-                        ),
+                        builder: (context) => Home(),
                       ),
                     ),
                   ),
@@ -337,11 +323,7 @@ class _AvatarState extends State<Avatar> {
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Home(
-            cardOneCollapse: widget.cardOneCollapse,
-            cardTwoCollapse: widget.cardTwoCollapse,
-            cardThreeCollapse: widget.cardThreeCollapse,
-          ),
+          builder: (context) => Home(),
         ),
       );
     } else {
@@ -365,11 +347,7 @@ class _AvatarState extends State<Avatar> {
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Home(
-            cardOneCollapse: widget.cardOneCollapse,
-            cardTwoCollapse: widget.cardTwoCollapse,
-            cardThreeCollapse: widget.cardThreeCollapse,
-          ),
+          builder: (context) => Home(),
         ),
       );
     }

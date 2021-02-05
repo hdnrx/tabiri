@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/home.dart';
 import 'package:tabiri_2/pages/protection/prevention/preventionOne.dart';
 import 'package:tabiri_2/pages/protection/prevention/preventionTwo.dart';
@@ -12,22 +13,9 @@ double widthScaleFactor;
 double textScaleFactor;
 
 class Prevention extends StatefulWidget {
-  final bool cardOneCollapse;
-  final bool cardTwoCollapse;
-  final bool cardThreeCollapse;
-
-  final bool screeningFinished;
-  final bool preventionFinished;
-
   final pageController = PageController();
 
   final int numberOfPages = 2;
-  Prevention(
-      {this.cardOneCollapse,
-      this.cardTwoCollapse,
-      this.cardThreeCollapse,
-      this.preventionFinished,
-      this.screeningFinished});
 
   @override
   _PreventionState createState() => _PreventionState();
@@ -121,11 +109,7 @@ class _PreventionState extends State<Prevention> {
                     onTap: () => Navigator.push(
                       context,
                       PageRouteWithoutTransition(
-                        builder: (context) => Home(
-                          cardOneCollapse: widget.cardOneCollapse,
-                          cardTwoCollapse: widget.cardTwoCollapse,
-                          cardThreeCollapse: widget.cardThreeCollapse,
-                        ),
+                        builder: (context) => Home(),
                       ),
                     ),
                   ),
@@ -319,12 +303,7 @@ class _PreventionState extends State<Prevention> {
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Protection(
-              cardOneCollapse: widget.cardOneCollapse,
-              cardTwoCollapse: widget.cardTwoCollapse,
-              cardThreeCollapse: widget.cardThreeCollapse,
-              screeningFinished: widget.screeningFinished,
-              preventionFinished: widget.preventionFinished),
+          builder: (context) => Protection(),
         ),
       );
     } else {
@@ -344,28 +323,20 @@ class _PreventionState extends State<Prevention> {
       setState(() {
         index++;
       });
-    } else if (widget.screeningFinished) {
+    } else if (DataManager.instance.screeningPathComplete) {
+      DataManager.instance.protectionPathComplete = true;
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Home(
-            cardOneCollapse: widget.cardOneCollapse,
-            cardTwoCollapse: widget.cardTwoCollapse,
-            cardThreeCollapse: true,
-          ),
+          builder: (context) => Home(),
         ),
       );
     } else {
+      DataManager.instance.preventionPathComplete = true;
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Protection(
-            cardOneCollapse: widget.cardOneCollapse,
-            cardTwoCollapse: widget.cardTwoCollapse,
-            cardThreeCollapse: widget.cardThreeCollapse,
-            screeningFinished: widget.screeningFinished,
-            preventionFinished: true,
-          ),
+          builder: (context) => Protection(),
         ),
       );
     }
@@ -376,7 +347,7 @@ class _PreventionState extends State<Prevention> {
       case 0:
         return AppLocalizations.of(context).preventionOne_buttonText;
       case 1:
-        if (widget.screeningFinished)
+        if (DataManager.instance.screeningPathComplete)
           return AppLocalizations.of(context).preventionTwo_buttonText_home;
         else
           return AppLocalizations.of(context)

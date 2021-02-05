@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/protection/protection.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -10,11 +11,6 @@ import 'avatar/avatar.dart';
 import 'information/information.dart';
 
 class Home extends StatefulWidget {
-  bool cardOneCollapse;
-  bool cardTwoCollapse;
-  bool cardThreeCollapse;
-  Home({this.cardOneCollapse, this.cardTwoCollapse, this.cardThreeCollapse});
-
   @override
   _HomeState createState() => _HomeState();
 }
@@ -160,11 +156,11 @@ class _HomeState extends State<Home> {
           child: child,
         );
       },
-      child: widget.cardOneCollapse
+      child: DataManager.instance.informationPathComplete
           ? collapsedCard(
               Color(0xFF2D8064),
               () => setState(
-                () => widget.cardOneCollapse = false,
+                () => DataManager.instance.informationPathComplete = false,
               ),
             )
           : expandedCard(
@@ -175,14 +171,11 @@ class _HomeState extends State<Home> {
               AppLocalizations.of(context).home_card_one_content,
               AppLocalizations.of(context).home_card_one_buttonText,
               buildRouteFunction(
-                Information(
-                  cardOneCollapse: widget.cardOneCollapse,
-                  cardTwoCollapse: widget.cardTwoCollapse,
-                  cardThreeCollapse: widget.cardThreeCollapse,
-                ),
+                Information(),
               ),
               AppLocalizations.of(context).home_card_one_actionText,
-              () => setState(() => widget.cardOneCollapse = true),
+              () => setState(
+                  () => DataManager.instance.informationPathComplete = true),
               AssetImage('assets/images/home/cardOneBackground.png'),
             ),
     );
@@ -197,11 +190,11 @@ class _HomeState extends State<Home> {
           child: child,
         );
       },
-      child: widget.cardTwoCollapse
+      child: DataManager.instance.avatarPathComplete
           ? collapsedCard(
               Color(0xFF418D87),
               () => setState(
-                () => widget.cardTwoCollapse = false,
+                () => DataManager.instance.avatarPathComplete = false,
               ),
             )
           : expandedCard(
@@ -212,14 +205,11 @@ class _HomeState extends State<Home> {
               AppLocalizations.of(context).home_card_two_content,
               AppLocalizations.of(context).home_card_two_buttonText,
               buildRouteFunction(
-                Avatar(
-                  cardOneCollapse: widget.cardOneCollapse,
-                  cardTwoCollapse: widget.cardTwoCollapse,
-                  cardThreeCollapse: widget.cardThreeCollapse,
-                ),
+                Avatar(),
               ),
               AppLocalizations.of(context).home_card_two_actionText,
-              () => setState(() => widget.cardTwoCollapse = true),
+              () => setState(
+                  () => DataManager.instance.avatarPathComplete = true),
               AssetImage('assets/images/home/cardTwoBackground.png'),
             ),
     );
@@ -234,11 +224,11 @@ class _HomeState extends State<Home> {
           child: child,
         );
       },
-      child: widget.cardThreeCollapse
+      child: DataManager.instance.protectionPathComplete
           ? collapsedCard(
               Color(0xFF83AA74),
               () => setState(
-                () => widget.cardThreeCollapse = false,
+                () => DataManager.instance.protectionPathComplete = false,
               ),
             )
           : expandedCard(
@@ -249,14 +239,11 @@ class _HomeState extends State<Home> {
               AppLocalizations.of(context).home_card_three_content,
               AppLocalizations.of(context).home_card_three_buttonText,
               buildRouteFunction(
-                Protection(
-                  cardOneCollapse: widget.cardOneCollapse,
-                  cardTwoCollapse: widget.cardTwoCollapse,
-                  cardThreeCollapse: widget.cardThreeCollapse,
-                ),
+                Protection(),
               ),
               AppLocalizations.of(context).home_card_three_actionText,
-              () => setState(() => widget.cardThreeCollapse = true),
+              () => setState(
+                  () => DataManager.instance.protectionPathComplete = true),
               AssetImage('assets/images/home/cardThreeBackground.png'),
             ),
     );

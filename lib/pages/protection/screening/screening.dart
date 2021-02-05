@@ -11,27 +11,16 @@ import 'package:tabiri_2/pages/protection/screening/screeningThree.dart';
 import 'package:tabiri_2/pages/protection/screening/screeningTwo.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
+import '../../../dataManager.dart';
+
 double heightScaleFactor;
 double widthScaleFactor;
 double textScaleFactor;
 
 class Screening extends StatefulWidget {
-  final bool cardOneCollapse;
-  final bool cardTwoCollapse;
-  final bool cardThreeCollapse;
-
-  final bool screeningFinished;
-  final bool preventionFinished;
-
   final pageController = PageController();
 
   final int numberOfPages = 6;
-  Screening(
-      {this.cardOneCollapse,
-      this.cardTwoCollapse,
-      this.cardThreeCollapse,
-      this.preventionFinished,
-      this.screeningFinished});
 
   @override
   _ScreeningState createState() => _ScreeningState();
@@ -129,11 +118,7 @@ class _ScreeningState extends State<Screening> {
                     onTap: () => Navigator.push(
                       context,
                       PageRouteWithoutTransition(
-                        builder: (context) => Home(
-                          cardOneCollapse: widget.cardOneCollapse,
-                          cardTwoCollapse: widget.cardTwoCollapse,
-                          cardThreeCollapse: widget.cardThreeCollapse,
-                        ),
+                        builder: (context) => Home(),
                       ),
                     ),
                   ),
@@ -326,12 +311,7 @@ class _ScreeningState extends State<Screening> {
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Protection(
-              cardOneCollapse: widget.cardOneCollapse,
-              cardTwoCollapse: widget.cardTwoCollapse,
-              cardThreeCollapse: widget.cardThreeCollapse,
-              screeningFinished: widget.screeningFinished,
-              preventionFinished: widget.preventionFinished),
+          builder: (context) => Protection(),
         ),
       );
     } else {
@@ -351,28 +331,20 @@ class _ScreeningState extends State<Screening> {
       setState(() {
         index++;
       });
-    } else if (widget.preventionFinished) {
+    } else if (DataManager.instance.preventionPathComplete) {
+      DataManager.instance.protectionPathComplete = true;
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Home(
-            cardOneCollapse: widget.cardOneCollapse,
-            cardTwoCollapse: widget.cardTwoCollapse,
-            cardThreeCollapse: true,
-          ),
+          builder: (context) => Home(),
         ),
       );
     } else {
+      DataManager.instance.screeningPathComplete = true;
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Protection(
-            cardOneCollapse: widget.cardOneCollapse,
-            cardTwoCollapse: widget.cardTwoCollapse,
-            cardThreeCollapse: widget.cardThreeCollapse,
-            screeningFinished: true,
-            preventionFinished: widget.preventionFinished,
-          ),
+          builder: (context) => Protection(),
         ),
       );
     }
@@ -391,7 +363,7 @@ class _ScreeningState extends State<Screening> {
       case 4:
         return AppLocalizations.of(context).screeningFive_buttonText;
       case 5:
-        if (widget.preventionFinished)
+        if (DataManager.instance.preventionPathComplete)
           return AppLocalizations.of(context).screeningSix_buttonText_home;
         else
           return AppLocalizations.of(context)

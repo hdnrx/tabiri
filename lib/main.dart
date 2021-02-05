@@ -32,20 +32,12 @@ class MyApp extends StatelessWidget {
         const Locale('en', ''), // English, no country code
         const Locale('de', ''),
       ],
-      home: Home(
-        cardOneCollapse: false,
-        cardTwoCollapse: false,
-        cardThreeCollapse: false,
-      ),
+      home: Home(),
       initialRoute: '/home',
       //initialRoute: '/test',
 
       routes: {
-        '/home': (context) => Home(
-              cardOneCollapse: false,
-              cardTwoCollapse: false,
-              cardThreeCollapse: false,
-            ),
+        '/home': (context) => Home(),
         '/information': (context) => Information(),
         '/information/1': (context) => InformationOne(),
         '/test': (context) => Test(),

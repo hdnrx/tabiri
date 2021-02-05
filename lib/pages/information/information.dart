@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/home.dart';
 import 'package:tabiri_2/pages/information/informationOne.dart';
 import 'package:tabiri_2/pages/information/informationThree.dart';
@@ -13,18 +14,12 @@ double widthScaleFactor;
 double textScaleFactor;
 
 class Information extends StatefulWidget {
-  final bool cardOneCollapse;
-  final bool cardTwoCollapse;
-  final bool cardThreeCollapse;
-
   final AutoSizeGroup buttonTextSize = AutoSizeGroup();
   final AutoSizeGroup headerTextSize = AutoSizeGroup();
 
   final pageController = PageController();
 
   final int numberOfPages = 3;
-  Information(
-      {this.cardOneCollapse, this.cardTwoCollapse, this.cardThreeCollapse});
 
   @override
   _InformationState createState() => _InformationState();
@@ -123,11 +118,7 @@ class _InformationState extends State<Information> {
                     onTap: () => Navigator.push(
                       context,
                       PageRouteWithoutTransition(
-                        builder: (context) => Home(
-                          cardOneCollapse: widget.cardOneCollapse,
-                          cardTwoCollapse: widget.cardTwoCollapse,
-                          cardThreeCollapse: widget.cardThreeCollapse,
-                        ),
+                        builder: (context) => Home(),
                       ),
                     ),
                   ),
@@ -395,11 +386,7 @@ class _InformationState extends State<Information> {
       Navigator.push(
         context,
         PageRouteWithoutTransition(
-          builder: (context) => Home(
-            cardOneCollapse: widget.cardOneCollapse,
-            cardTwoCollapse: widget.cardTwoCollapse,
-            cardThreeCollapse: widget.cardThreeCollapse,
-          ),
+          builder: (context) => Home(),
         ),
       );
     } else {
@@ -420,14 +407,11 @@ class _InformationState extends State<Information> {
         index++;
       });
     } else {
+      DataManager.instance.informationPathComplete = true;
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Home(
-            cardOneCollapse: true,
-            cardTwoCollapse: widget.cardTwoCollapse,
-            cardThreeCollapse: widget.cardThreeCollapse,
-          ),
+          builder: (context) => Home(),
         ),
       );
     }

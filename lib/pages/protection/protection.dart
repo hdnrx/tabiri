@@ -6,19 +6,6 @@ import 'package:tabiri_2/pages/protection/screening/screening.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
 class Protection extends StatefulWidget {
-  final bool cardOneCollapse;
-  final bool cardTwoCollapse;
-  final bool cardThreeCollapse;
-
-  final bool preventionFinished;
-  final bool screeningFinished;
-
-  Protection(
-      {@required this.cardOneCollapse,
-      @required this.cardTwoCollapse,
-      @required this.cardThreeCollapse,
-      this.preventionFinished = false,
-      this.screeningFinished = false});
   @override
   _ProtectionState createState() => _ProtectionState();
 }
@@ -104,11 +91,7 @@ class _ProtectionState extends State<Protection> {
                     onTap: () => Navigator.push(
                       context,
                       PageRouteWithoutTransition(
-                        builder: (context) => Home(
-                          cardOneCollapse: widget.cardOneCollapse,
-                          cardTwoCollapse: widget.cardTwoCollapse,
-                          cardThreeCollapse: widget.cardThreeCollapse,
-                        ),
+                        builder: (context) => Home(),
                       ),
                     ),
                   ),
@@ -227,11 +210,7 @@ class _ProtectionState extends State<Protection> {
             onTap: () => Navigator.push(
               context,
               PageRouteWithoutTransition(
-                builder: (context) => Home(
-                  cardOneCollapse: widget.cardOneCollapse,
-                  cardTwoCollapse: widget.cardTwoCollapse,
-                  cardThreeCollapse: widget.cardThreeCollapse,
-                ),
+                builder: (context) => Home(),
               ),
             ),
             child: Text(
@@ -350,13 +329,7 @@ class _ProtectionState extends State<Protection> {
                   () => Navigator.push(
                     context,
                     PageRouteWithTransition(
-                      builder: (context) => Screening(
-                        cardOneCollapse: widget.cardOneCollapse,
-                        cardTwoCollapse: widget.cardTwoCollapse,
-                        cardThreeCollapse: widget.cardThreeCollapse,
-                        preventionFinished: widget.preventionFinished,
-                        screeningFinished: widget.screeningFinished,
-                      ),
+                      builder: (context) => Screening(),
                     ),
                   ),
                 ),
@@ -411,12 +384,7 @@ class _ProtectionState extends State<Protection> {
                   () => Navigator.push(
                     context,
                     PageRouteWithTransition(
-                      builder: (context) => Prevention(
-                          cardOneCollapse: widget.cardOneCollapse,
-                          cardTwoCollapse: widget.cardTwoCollapse,
-                          cardThreeCollapse: widget.cardThreeCollapse,
-                          screeningFinished: widget.screeningFinished,
-                          preventionFinished: widget.preventionFinished),
+                      builder: (context) => Prevention(),
                     ),
                   ),
                 ),
