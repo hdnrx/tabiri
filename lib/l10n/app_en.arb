@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "home_card_one_title": "What is skin cancer?",
+  "home_card_one_content": "Skin Cancer in a nutshell",
+  "home_card_one_buttonText": "More information about skin cancer!",
+  "home_card_one_actionText": "No, nothing more about skin cancer",
+  "home_card_two_title": "What is my risk?",
+  "home_card_two_content": "Test your personal skin cancer risk by answering a few questions about your skin.",
+  "home_card_two_buttonText": "More about my personal risk",
+  "home_card_two_actionText": "No, nothing more about my personal risk",
+  "home_card_three_title": "How do i protect myself?",
+  "home_card_three_content": "Important information about skin cancer prevention.",
+  "home_card_three_buttonText": "More about prevention",
+  "home_card_three_actionText": "No, nothing more about prevention"
+  }
