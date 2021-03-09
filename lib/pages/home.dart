@@ -133,18 +133,9 @@ class _HomeState extends State<Home> {
           alignment: Alignment.centerRight,
           child: cardThree(),
         ),
+        appointmentWidget(),
       ],
     );
-  }
-
-  ///Route builder for button click
-  Function buildRouteFunction(Widget destinationWidget) {
-    return () => Navigator.push(
-          context,
-          PageRouteWithoutTransition(
-            builder: (context) => destinationWidget,
-          ),
-        );
   }
 
   Widget cardOne() {
@@ -460,6 +451,141 @@ class _HomeState extends State<Home> {
           ),
         ),
       ],
+    );
+  }
+
+  ///Route builder for button click
+  Function buildRouteFunction(Widget destinationWidget) {
+    return () => Navigator.push(
+          context,
+          PageRouteWithoutTransition(
+            builder: (context) => destinationWidget,
+          ),
+        );
+  }
+
+  ///Switches the appointment image to the right place if card collapses
+  Widget appointmentWidget() {
+    return AnimatedSwitcher(
+      duration: Duration(milliseconds: 400),
+      transitionBuilder: (child, animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
+      child:
+          // all cards are collapsed
+          DataManager.instance.informationPathComplete == true &&
+                  DataManager.instance.avatarPathComplete == true &&
+                  DataManager.instance.protectionPathComplete == true
+              ? Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: 590 * widthScaleFactor,
+                    height: 444 * heightScaleFactor,
+                    child: Image.asset(
+                      'assets/images/home/appointment.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                )
+              :
+              // left two cards are collapsed
+              DataManager.instance.informationPathComplete == true &&
+                      DataManager.instance.avatarPathComplete == true
+                  ? Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 315 * widthScaleFactor),
+                        child: Container(
+                          width: 590 * widthScaleFactor,
+                          height: 444 * heightScaleFactor,
+                          child: Image.asset(
+                            'assets/images/home/appointment.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    )
+                  : // right two cards are collapsed
+                  DataManager.instance.avatarPathComplete == true &&
+                          DataManager.instance.protectionPathComplete == true
+                      ? Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding:
+                                EdgeInsets.only(right: 315 * widthScaleFactor),
+                            child: Container(
+                              width: 590 * widthScaleFactor,
+                              height: 444 * heightScaleFactor,
+                              child: Image.asset(
+                                'assets/images/home/appointment.png',
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        )
+                      :
+                      // left and right are collapsed
+                      DataManager.instance.informationPathComplete == true &&
+                              DataManager.instance.protectionPathComplete ==
+                                  true
+                          ? Align(
+                              alignment: Alignment.centerLeft,
+                              child: Container(
+                                width: 590 * widthScaleFactor,
+                                height: 444 * heightScaleFactor,
+                                child: Image.asset(
+                                  'assets/images/home/appointment.png',
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            )
+                          :
+                          // left collapsed
+                          DataManager.instance.informationPathComplete == true
+                              ? Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Container(
+                                    width: 590 * widthScaleFactor,
+                                    height: 444 * heightScaleFactor,
+                                    child: Image.asset(
+                                      'assets/images/home/appointment.png',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                )
+                              :
+                              // middle collapsed
+                              DataManager.instance.avatarPathComplete == true
+                                  ? Align(
+                                      alignment: Alignment.center,
+                                      child: Container(
+                                        width: 590 * widthScaleFactor,
+                                        height: 444 * heightScaleFactor,
+                                        child: Image.asset(
+                                          'assets/images/home/appointment.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    )
+                                  :
+                                  // right collapsed
+                                  DataManager.instance.protectionPathComplete ==
+                                          true
+                                      ? Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Container(
+                                            width: 590 * widthScaleFactor,
+                                            height: 444 * heightScaleFactor,
+                                            child: Image.asset(
+                                              'assets/images/home/appointment.png',
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                        )
+                                      : SizedBox(),
     );
   }
 }

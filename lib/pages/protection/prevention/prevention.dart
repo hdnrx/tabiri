@@ -179,8 +179,28 @@ class _PreventionState extends State<Prevention> {
           ),
         ),
         Expanded(
-          flex: 18,
+          flex: 10,
           child: SizedBox(),
+        ),
+        Expanded(
+          flex: 8,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF578763),
+              borderRadius: BorderRadius.circular(30.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 10.0 * widthScaleFactor, // soften the shadow
+                  spreadRadius: 0, //extend the shadow
+                  offset: Offset(
+                    0, // Horizontal
+                    6.0, // Vertical
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ],
     );
@@ -217,6 +237,7 @@ class _PreventionState extends State<Prevention> {
 
   Widget footer() {
     return Container(
+      color: Color(0xFF578763),
       child: Padding(
         padding: EdgeInsets.fromLTRB(
             30 * widthScaleFactor,
@@ -234,7 +255,7 @@ class _PreventionState extends State<Prevention> {
                   textScaleFactor: textScaleFactor,
                   style: TextStyle(
                       fontSize: 34,
-                      color: Color(0xFF5D584E),
+                      color: Colors.white,
                       letterSpacing: 1.02,
                       fontFamily: 'Open Sans',
                       fontWeight: FontWeight.w900),
@@ -255,8 +276,8 @@ class _PreventionState extends State<Prevention> {
                       curve: Curves.ease);
                 },
                 effect: WormEffect(
-                  dotColor: Colors.black,
-                  activeDotColor: Colors.lime,
+                  dotColor: Colors.white,
+                  activeDotColor: Color(0xFF99BA8C),
                   strokeWidth: 1.0,
                   dotWidth: 10 * (1 + widthScaleFactor),
                   dotHeight: 10 * (1 + widthScaleFactor),

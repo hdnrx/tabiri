@@ -279,7 +279,7 @@ class _InformationState extends State<Information> {
                 },
                 effect: WormEffect(
                   dotColor: Colors.white,
-                  activeDotColor: Colors.lime,
+                  activeDotColor: Color(0xFF3a8e72),
                   strokeWidth: 1.0,
                   dotWidth: 10 * (1 + widthScaleFactor),
                   dotHeight: 10 * (1 + widthScaleFactor),

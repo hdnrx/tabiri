@@ -1,0 +1,578 @@
+@startuml
+set namespaceSeparator ::
+
+class "tabiri_2::dataManager.dart::Sex" {
+  +int index
+  {static} +List<Sex> values
+  {static} +Sex male
+  {static} +Sex female
+  {static} +Sex diverse
+}
+
+"tabiri_2::dataManager.dart::Sex" o-- "tabiri_2::dataManager.dart::Sex"
+
+class "tabiri_2::dataManager.dart::HairColor" {
+  +int index
+  {static} +List<HairColor> values
+  {static} +HairColor blond
+  {static} +HairColor orangeRed
+  {static} +HairColor lightBrown
+  {static} +HairColor darkBrown
+  {static} +HairColor black
+}
+
+"tabiri_2::dataManager.dart::HairColor" o-- "tabiri_2::dataManager.dart::HairColor"
+
+class "tabiri_2::dataManager.dart::SkinColor" {
+  +int index
+  {static} +List<SkinColor> values
+  {static} +SkinColor white
+  {static} +SkinColor beige
+  {static} +SkinColor brown
+  {static} +SkinColor black
+}
+
+"tabiri_2::dataManager.dart::SkinColor" o-- "tabiri_2::dataManager.dart::SkinColor"
+
+class "tabiri_2::dataManager.dart::DataManager" {
+  {static} +DataManager instance
+  +bool informationPathComplete
+  +bool avatarPathComplete
+  +bool protectionPathComplete
+  +bool screeningPathComplete
+  +bool preventionPathComplete
+  +int sex
+  +int age
+  +int hairColor
+  +int skinColor
+  +int numberSunburns
+  +int numberFreckles
+  +int numberBirthmarks
+  +int familySickness
+  +void reset()
+}
+
+"tabiri_2::dataManager.dart::DataManager" o-- "tabiri_2::dataManager.dart::DataManager"
+
+class "tabiri_2::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::main.dart::MyApp"
+
+class "tabiri_2::pages::avatar::avatar.dart::Avatar" {
+  +PageController pageController
+  +int numberOfPages
+  +_AvatarState createState()
+}
+
+"tabiri_2::pages::avatar::avatar.dart::Avatar" o-- "flutter::src::widgets::page_view.dart::PageController"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::pages::avatar::avatar.dart::Avatar"
+
+class "tabiri_2::pages::avatar::avatar.dart::_AvatarState" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +int index
+  +int value
+  +dynamic callback()
+  +Widget build()
+  +Widget footer()
+  +void handleBack()
+  +void handleContinue()
+  +dynamic getButtonText()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::pages::avatar::avatar.dart::_AvatarState"
+
+class "tabiri_2::pages::avatar::avatarBuilder.dart::AvatarBuilder" {
+  +int sex
+  +int age
+  +int hairColor
+  +int skinColor
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::avatar::avatarBuilder.dart::AvatarBuilder"
+
+class "tabiri_2::pages::avatar::avatarFive.dart::AvatarFive" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::avatar::avatarFive.dart::AvatarFive"
+
+class "tabiri_2::pages::avatar::avatarFour.dart::AvatarFour" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::avatar::avatarFour.dart::AvatarFour"
+
+class "tabiri_2::pages::avatar::avatarOne.dart::BestTutorSite" {
+  +int index
+  {static} +List<BestTutorSite> values
+  {static} +BestTutorSite javatpoint
+  {static} +BestTutorSite w3schools
+  {static} +BestTutorSite tutorialandexample
+}
+
+"tabiri_2::pages::avatar::avatarOne.dart::BestTutorSite" o-- "tabiri_2::pages::avatar::avatarOne.dart::BestTutorSite"
+
+class "tabiri_2::pages::avatar::avatarOne.dart::AvatarOne" {
+  +Function callback
+  +_MyStatefulWidgetState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::pages::avatar::avatarOne.dart::AvatarOne"
+
+class "tabiri_2::pages::avatar::avatarOne.dart::_MyStatefulWidgetState" {
+  +int value
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::pages::avatar::avatarOne.dart::_MyStatefulWidgetState"
+
+class "tabiri_2::pages::avatar::avatarSeven.dart::AvatarSeven" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::avatar::avatarSeven.dart::AvatarSeven"
+
+class "tabiri_2::pages::avatar::avatarSix.dart::AvatarSix" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::avatar::avatarSix.dart::AvatarSix"
+
+class "tabiri_2::pages::avatar::avatarThree.dart::AvatarThree" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::avatar::avatarThree.dart::AvatarThree"
+
+class "tabiri_2::pages::avatar::avatarTwo.dart::AvatarTwo" {
+  +_AvatarTwoState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::pages::avatar::avatarTwo.dart::AvatarTwo"
+
+class "tabiri_2::pages::avatar::avatarTwo.dart::_AvatarTwoState" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +int hairColorValue
+  +int skinColorValue
+  +Widget build()
+  +Widget header()
+  +Widget content()
+  +Widget avatar()
+  +Widget actionText()
+  +Widget radioPicker()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::pages::avatar::avatarTwo.dart::_AvatarTwoState"
+
+class "tabiri_2::pages::home.dart::Home" {
+  +_HomeState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::pages::home.dart::Home"
+
+class "tabiri_2::pages::home.dart::_HomeState" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +AutoSizeGroup titleSize
+  +AutoSizeGroup textSize
+  +AutoSizeGroup buttonTextSize
+  +AutoSizeGroup actionTextSize
+  +Widget build()
+  +Widget header()
+  +Widget content()
+  +Function buildRouteFunction()
+  +Widget cardOne()
+  +Widget cardTwo()
+  +Widget cardThree()
+  +Widget expandedCard()
+  +Widget collapsedCard()
+  +Widget button()
+  +Widget paragraph()
+}
+
+"tabiri_2::pages::home.dart::_HomeState" o-- "auto_size_text::auto_size_text.dart::AutoSizeGroup"
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::pages::home.dart::_HomeState"
+
+class "tabiri_2::pages::home.dart::CustomHero" {
+  +dynamic tag
+  +Color shuttleColor
+  +Widget child
+  +Widget build()
+}
+
+"tabiri_2::pages::home.dart::CustomHero" o-- "dart::ui::Color"
+"tabiri_2::pages::home.dart::CustomHero" o-- "flutter::src::widgets::framework.dart::Widget"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::home.dart::CustomHero"
+
+class "tabiri_2::pages::home.dart::TrianglePainter" {
+  +Color strokeColor
+  +PaintingStyle paintingStyle
+  +double strokeWidth
+  +void paint()
+  +Path getTrianglePath()
+  +bool shouldRepaint()
+}
+
+"tabiri_2::pages::home.dart::TrianglePainter" o-- "dart::ui::Color"
+"tabiri_2::pages::home.dart::TrianglePainter" o-- "dart::ui::PaintingStyle"
+"flutter::src::rendering::custom_paint.dart::CustomPainter" <|-- "tabiri_2::pages::home.dart::TrianglePainter"
+
+class "tabiri_2::pages::information::information.dart::Information" {
+  +AutoSizeGroup buttonTextSize
+  +AutoSizeGroup headerTextSize
+  +PageController pageController
+  +int numberOfPages
+  +_InformationState createState()
+}
+
+"tabiri_2::pages::information::information.dart::Information" o-- "auto_size_text::auto_size_text.dart::AutoSizeGroup"
+"tabiri_2::pages::information::information.dart::Information" o-- "flutter::src::widgets::page_view.dart::PageController"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::pages::information::information.dart::Information"
+
+class "tabiri_2::pages::information::information.dart::_InformationState" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +int index
+  +Widget build()
+  +Widget header()
+  +dynamic getTitle()
+  +Widget footer()
+  +void handleBack()
+  +void handleContinue()
+  +dynamic getButtonText()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::pages::information::information.dart::_InformationState"
+
+class "tabiri_2::pages::information::informationOne.dart::InformationOne" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget paragraph()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::information::informationOne.dart::InformationOne"
+
+class "tabiri_2::pages::information::informationThree.dart::InformationThree" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget paragraph()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::information::informationThree.dart::InformationThree"
+
+class "tabiri_2::pages::information::informationTwo.dart::InformationTwo" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget paragraph()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::information::informationTwo.dart::InformationTwo"
+
+class "tabiri_2::pages::protection::prevention::prevention.dart::Prevention" {
+  +PageController pageController
+  +int numberOfPages
+  +_PreventionState createState()
+}
+
+"tabiri_2::pages::protection::prevention::prevention.dart::Prevention" o-- "flutter::src::widgets::page_view.dart::PageController"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::pages::protection::prevention::prevention.dart::Prevention"
+
+class "tabiri_2::pages::protection::prevention::prevention.dart::_PreventionState" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +int index
+  +Widget build()
+  +Widget header()
+  +Widget getTitleTextWidget()
+  +Widget footer()
+  +void handleBack()
+  +void handleContinue()
+  +dynamic getButtonText()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::pages::protection::prevention::prevention.dart::_PreventionState"
+
+class "tabiri_2::pages::protection::prevention::preventionOne.dart::PreventionOne" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget paragraph()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::protection::prevention::preventionOne.dart::PreventionOne"
+
+class "tabiri_2::pages::protection::prevention::preventionTwo.dart::PreventionTwo" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget textColumn()
+  +Widget paragraph()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::protection::prevention::preventionTwo.dart::PreventionTwo"
+
+class "tabiri_2::pages::protection::protection.dart::Protection" {
+  +_ProtectionState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::pages::protection::protection.dart::Protection"
+
+class "tabiri_2::pages::protection::protection.dart::_ProtectionState" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget header()
+  +Widget footer()
+  +Widget content()
+  +Widget cardColumn()
+  +Widget cardOne()
+  +Widget cardTwo()
+  +Widget paragraph()
+  +Widget button()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::pages::protection::protection.dart::_ProtectionState"
+
+class "tabiri_2::pages::protection::screening::screening.dart::Screening" {
+  +PageController pageController
+  +int numberOfPages
+  +_ScreeningState createState()
+}
+
+"tabiri_2::pages::protection::screening::screening.dart::Screening" o-- "flutter::src::widgets::page_view.dart::PageController"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::pages::protection::screening::screening.dart::Screening"
+
+class "tabiri_2::pages::protection::screening::screening.dart::_ScreeningState" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +int index
+  +Widget build()
+  +Widget header()
+  +dynamic getTitle()
+  +Widget footer()
+  +void handleBack()
+  +void handleContinue()
+  +dynamic getButtonText()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::pages::protection::screening::screening.dart::_ScreeningState"
+
+class "tabiri_2::pages::protection::screening::screeningFive.dart::ScreeningFive" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget picture()
+  +Widget textColumn()
+  +Widget pointOne()
+  +Widget pointTwo()
+  +Widget pointThree()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::protection::screening::screeningFive.dart::ScreeningFive"
+
+class "tabiri_2::pages::protection::screening::screeningFour.dart::ScreeningFour" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget picture()
+  +Widget textColumn()
+  +Widget pointOne()
+  +Widget pointTwo()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::protection::screening::screeningFour.dart::ScreeningFour"
+
+class "tabiri_2::pages::protection::screening::screeningOne.dart::ScreeningOne" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget picture()
+  +Widget textColumn()
+  +Widget pointOne()
+  +Widget pointTwo()
+  +Widget pointThree()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::protection::screening::screeningOne.dart::ScreeningOne"
+
+class "tabiri_2::pages::protection::screening::screeningSix.dart::ScreeningSix" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget picture()
+  +Widget textColumn()
+  +Widget pointOne()
+  +Widget pointTwo()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::protection::screening::screeningSix.dart::ScreeningSix"
+
+class "tabiri_2::pages::protection::screening::screeningThree.dart::ScreeningThree" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget picture()
+  +Widget textColumn()
+  +Widget pointOne()
+  +Widget pointTwo()
+  +Widget pointThree()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::protection::screening::screeningThree.dart::ScreeningThree"
+
+class "tabiri_2::pages::protection::screening::screeningTwo.dart::ScreeningTwo" {
+  +double heightScaleFactor
+  +double widthScaleFactor
+  +double textScaleFactor
+  +Widget build()
+  +Widget content()
+  +Widget picture()
+  +Widget textColumn()
+  +Widget pointOne()
+  +Widget pointTwo()
+  +Widget pointThree()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::pages::protection::screening::screeningTwo.dart::ScreeningTwo"
+
+class "tabiri_2::test.dart::BestTutorSite" {
+  +int index
+  {static} +List<BestTutorSite> values
+  {static} +BestTutorSite javatpoint
+  {static} +BestTutorSite w3schools
+  {static} +BestTutorSite tutorialandexample
+}
+
+"tabiri_2::test.dart::BestTutorSite" o-- "tabiri_2::test.dart::BestTutorSite"
+
+class "tabiri_2::test.dart::Test" {
+  +_MyStatefulWidgetState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::test.dart::Test"
+
+class "tabiri_2::test.dart::_MyStatefulWidgetState" {
+  -BestTutorSite _site
+  +Widget build()
+}
+
+"tabiri_2::test.dart::_MyStatefulWidgetState" o-- "tabiri_2::test.dart::BestTutorSite"
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::test.dart::_MyStatefulWidgetState"
+
+class "tabiri_2::widgets::customRadio.dart::CustomRadio" {
+  +List<RadioItem> radioButtons
+  +Function onChanged
+  +State createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "tabiri_2::widgets::customRadio.dart::CustomRadio"
+
+class "tabiri_2::widgets::customRadio.dart::CustomRadioState" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State<T>" <|-- "tabiri_2::widgets::customRadio.dart::CustomRadioState"
+
+class "tabiri_2::widgets::customRadio.dart::RadioItemWidget" {
+  +RadioItem item
+  +Widget build()
+}
+
+"tabiri_2::widgets::customRadio.dart::RadioItemWidget" o-- "tabiri_2::widgets::customRadio.dart::RadioItem"
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "tabiri_2::widgets::customRadio.dart::RadioItemWidget"
+
+class "tabiri_2::widgets::customRadio.dart::RadioItem" {
+  +bool isSelected
+  +int value
+  +dynamic buttonText
+  +Color backgroundColor
+  +Color borderColor
+  +double height
+  +double width
+}
+
+"tabiri_2::widgets::customRadio.dart::RadioItem" o-- "dart::ui::Color"
+
+class "tabiri_2::widgets::routes.dart::PageRouteWithoutTransition" {
+  +Widget Function(BuildContext) builder
+  +Color barrierColor
+  +dynamic barrierLabel
+  +bool maintainState
+  +Duration transitionDuration
+  +Widget buildPage()
+}
+
+"tabiri_2::widgets::routes.dart::PageRouteWithoutTransition" o-- "flutter::src::widgets::framework.dart::Widget Function(BuildContext)"
+"tabiri_2::widgets::routes.dart::PageRouteWithoutTransition" o-- "dart::ui::Color"
+"flutter::src::widgets::pages.dart::PageRoute<T>" <|-- "tabiri_2::widgets::routes.dart::PageRouteWithoutTransition"
+
+class "tabiri_2::widgets::routes.dart::PageRouteWithTransition" {
+  +Widget Function(BuildContext) builder
+  +Color barrierColor
+  +dynamic barrierLabel
+  +bool maintainState
+  +Duration transitionDuration
+  +Widget buildPage()
+}
+
+"tabiri_2::widgets::routes.dart::PageRouteWithTransition" o-- "flutter::src::widgets::framework.dart::Widget Function(BuildContext)"
+"tabiri_2::widgets::routes.dart::PageRouteWithTransition" o-- "dart::ui::Color"
+"flutter::src::widgets::pages.dart::PageRoute<T>" <|-- "tabiri_2::widgets::routes.dart::PageRouteWithTransition"
+
+
+@enduml

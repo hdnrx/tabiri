@@ -19,44 +19,55 @@ class ScreeningFour extends StatelessWidget {
   }
 
   Widget content(BuildContext context) {
-    return Row(
+    return Column(
       children: [
         Expanded(
           flex: 15,
           child: SizedBox(),
         ),
         Expanded(
-          flex: 30,
-          child: Column(
+          flex: 85,
+          child: Row(
             children: [
               Expanded(
-                flex: 80,
-                child: picture(),
-              ),
-              Expanded(
-                flex: 20,
-                child: SizedBox(),
-              ),
-            ],
-          ),
-        ),
-        Expanded(flex: 5, child: SizedBox()),
-        Expanded(
-          flex: 40,
-          child: Column(
-            children: [
-              Expanded(
-                flex: 10,
+                flex: 15,
                 child: SizedBox(),
               ),
               Expanded(
-                flex: 90,
-                child: textColumn(context),
+                flex: 30,
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 80,
+                      child: picture(),
+                    ),
+                    Expanded(
+                      flex: 20,
+                      child: SizedBox(),
+                    ),
+                  ],
+                ),
               ),
+              Expanded(flex: 5, child: SizedBox()),
+              Expanded(
+                flex: 40,
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 10,
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 90,
+                      child: textColumn(context),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(flex: 10, child: SizedBox()),
             ],
           ),
         ),
-        Expanded(flex: 10, child: SizedBox()),
       ],
     );
   }

@@ -5,6 +5,8 @@ import 'package:tabiri_2/pages/protection/prevention/prevention.dart';
 import 'package:tabiri_2/pages/protection/screening/screening.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
+import '../../dataManager.dart';
+
 class Protection extends StatefulWidget {
   @override
   _ProtectionState createState() => _ProtectionState();
@@ -287,10 +289,88 @@ class _ProtectionState extends State<Protection> {
   }
 
   Widget cardOne() {
+    return AnimatedSwitcher(
+      duration: Duration(milliseconds: 500),
+      transitionBuilder: (child, animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
+      child: DataManager.instance.screeningPathComplete
+          ? collapsedCard(
+              Color(0xFF759A67),
+              () => setState(
+                () => DataManager.instance.screeningPathComplete = false,
+              ),
+            )
+          : expandedCard(
+              Color(0xFF759A67),
+              AppLocalizations.of(context).protectionOne_card_one_title,
+              AppLocalizations.of(context).protectionOne_card_one_content,
+              AppLocalizations.of(context).protectionOne_card_one_button,
+              buildRouteFunction(
+                Screening(),
+              ),
+              AppLocalizations.of(context).protectionOne_card_one_actionText,
+              () => setState(
+                  () => DataManager.instance.screeningPathComplete = true),
+              AssetImage(
+                  'assets/images/protection/screeningCardBackground.png'),
+            ),
+    );
+  }
+
+  Widget cardTwo() {
+    return AnimatedSwitcher(
+      duration: Duration(milliseconds: 500),
+      transitionBuilder: (child, animation) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
+      child: DataManager.instance.preventionPathComplete
+          ? collapsedCard(
+              Color(0xFF578763),
+              () => setState(
+                () => DataManager.instance.preventionPathComplete = false,
+              ),
+            )
+          : expandedCard(
+              Color(0xFF759A67),
+              AppLocalizations.of(context).protectionOne_card_two_title,
+              AppLocalizations.of(context).protectionOne_card_two_content,
+              AppLocalizations.of(context).protectionOne_card_two_button,
+              buildRouteFunction(
+                Prevention(),
+              ),
+              AppLocalizations.of(context).protectionOne_card_two_actionText,
+              () => setState(
+                  () => DataManager.instance.preventionPathComplete = true),
+              AssetImage(
+                  'assets/images/protection/preventionCardBackground.png'),
+            ),
+    );
+  }
+
+  Widget expandedCard(
+      Color color,
+      String title,
+      String text,
+      String buttonText,
+      Function buttonRoute,
+      String actionText,
+      Function actionFunction,
+      AssetImage backgroundImage) {
     return Container(
       decoration: BoxDecoration(
         color: Color(0xFF759A67),
         borderRadius: BorderRadius.circular(27.0),
+        image: DecorationImage(
+          image: backgroundImage,
+          fit: BoxFit.cover,
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black,
@@ -308,16 +388,17 @@ class _ProtectionState extends State<Protection> {
             20 * widthScaleFactor,
             40 * heightScaleFactor,
             20 * widthScaleFactor,
-            40 * heightScaleFactor),
+            20 * heightScaleFactor),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Flexible(
-              flex: 75,
+              flex: 60,
               child: paragraph(
-                  AppLocalizations.of(context).protectionOne_card_one_title,
-                  AppLocalizations.of(context).protectionOne_card_one_content),
+                title,
+                text,
+              ),
             ),
             Expanded(
               flex: 25,
@@ -325,12 +406,27 @@ class _ProtectionState extends State<Protection> {
                 padding: EdgeInsets.fromLTRB(
                     35 * widthScaleFactor, 0, 35 * widthScaleFactor, 0),
                 child: button(
-                  AppLocalizations.of(context).protectionOne_card_one_button,
-                  () => Navigator.push(
-                    context,
-                    PageRouteWithTransition(
-                      builder: (context) => Screening(),
-                    ),
+                  buttonText,
+                  buttonRoute,
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 10,
+              child: SizedBox(),
+            ),
+            Expanded(
+              flex: 10,
+              child: Center(
+                child: GestureDetector(
+                  onTap: actionFunction,
+                  child: Text(
+                    actionText,
+                    textScaleFactor: textScaleFactor,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'Open Sans'),
                   ),
                 ),
               ),
@@ -341,58 +437,61 @@ class _ProtectionState extends State<Protection> {
     );
   }
 
-  Widget cardTwo() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(0xFF578763),
-        borderRadius: BorderRadius.circular(27.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black,
-            blurRadius: 10.0 * widthScaleFactor, // soften the shadow
-            spreadRadius: 0, //extend the shadow
-            offset: Offset(
-              0, // Horizontal
-              6.0, // Vertical
-            ),
-          )
-        ],
-      ),
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(
-            20 * widthScaleFactor,
-            40 * heightScaleFactor,
-            20 * widthScaleFactor,
-            40 * heightScaleFactor),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-              flex: 75,
-              child: paragraph(
-                  AppLocalizations.of(context).protectionOne_card_two_title,
-                  AppLocalizations.of(context).protectionOne_card_two_content),
-            ),
-            Expanded(
-              flex: 25,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                    35 * widthScaleFactor, 0, 35 * widthScaleFactor, 0),
-                child: button(
-                  AppLocalizations.of(context).protectionOne_card_two_button,
-                  () => Navigator.push(
-                    context,
-                    PageRouteWithTransition(
-                      builder: (context) => Prevention(),
+  Widget collapsedCard(Color color, Function expandFunction) {
+    return Column(
+      children: [
+        Expanded(
+          flex: 90,
+          child: SizedBox(),
+        ),
+        Expanded(
+          flex: 10,
+          child: GestureDetector(
+            onTap: expandFunction,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 60,
+                  child: CustomPaint(
+                    size: Size(60 * widthScaleFactor, 20 * heightScaleFactor),
+                    painter: TrianglePainter(
+                      strokeColor: color,
+                      strokeWidth: 10,
+                      paintingStyle: PaintingStyle.fill,
                     ),
                   ),
                 ),
-              ),
+                Expanded(
+                  flex: 20,
+                  child: SizedBox(),
+                ),
+                Expanded(
+                  flex: 20,
+                  child: Container(
+                    width: 564 * widthScaleFactor,
+                    height: 10 * heightScaleFactor,
+                    decoration: BoxDecoration(
+                      color: color,
+                      borderRadius: BorderRadius.circular(27.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 6, // soften the shadow
+                          spreadRadius: 0, //extend the shadow
+                          offset: Offset(
+                            0, // Horizontal
+                            3, // Vertical
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 
@@ -446,5 +545,15 @@ class _ProtectionState extends State<Protection> {
         ),
       ),
     );
+  }
+
+  ///Route builder for button click
+  Function buildRouteFunction(Widget destinationWidget) {
+    return () => Navigator.push(
+          context,
+          PageRouteWithTransition(
+            builder: (context) => destinationWidget,
+          ),
+        );
   }
 }

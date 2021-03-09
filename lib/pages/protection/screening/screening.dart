@@ -196,13 +196,34 @@ class _ScreeningState extends State<Screening> {
           ),
         ),
         Expanded(
-          flex: 18,
+          flex: 10,
           child: SizedBox(),
+        ),
+        Expanded(
+          flex: 8,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF759A67),
+              borderRadius: BorderRadius.circular(30.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  blurRadius: 10.0 * widthScaleFactor, // soften the shadow
+                  spreadRadius: 0, //extend the shadow
+                  offset: Offset(
+                    0, // Horizontal
+                    6.0, // Vertical
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ],
     );
   }
 
+  /// returns title of actual page
   String getTitle(int index) {
     switch (index) {
       case 0:
@@ -224,7 +245,7 @@ class _ScreeningState extends State<Screening> {
 
   Widget footer() {
     return Container(
-      color: Color(0xFF2B6A55),
+      color: Color(0xFF759A67),
       child: Padding(
         padding: EdgeInsets.fromLTRB(
             30 * widthScaleFactor,
@@ -264,7 +285,7 @@ class _ScreeningState extends State<Screening> {
                 },
                 effect: WormEffect(
                   dotColor: Colors.white,
-                  activeDotColor: Colors.lime,
+                  activeDotColor: Color(0xFF99BA8C),
                   strokeWidth: 1.0,
                   dotWidth: 10 * (1 + widthScaleFactor),
                   dotHeight: 10 * (1 + widthScaleFactor),

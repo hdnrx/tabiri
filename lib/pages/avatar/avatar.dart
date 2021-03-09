@@ -4,6 +4,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tabiri_2/pages/avatar/avatarFive.dart';
 import 'package:tabiri_2/pages/avatar/avatarFour.dart';
 import 'package:tabiri_2/pages/avatar/avatarOne.dart';
+import 'package:tabiri_2/pages/avatar/avatarSeven.dart';
 import 'package:tabiri_2/pages/avatar/avatarSix.dart';
 import 'package:tabiri_2/pages/avatar/avatarThree.dart';
 import 'package:tabiri_2/pages/avatar/avatarTwo.dart';
@@ -16,7 +17,7 @@ double textScaleFactor;
 
 class Avatar extends StatefulWidget {
   final pageController = PageController();
-  final int numberOfPages = 6;
+  final int numberOfPages = 7;
 
   @override
   _AvatarState createState() => _AvatarState();
@@ -35,8 +36,6 @@ class _AvatarState extends State<Avatar> {
     });
   }
 
-  GlobalKey key = new GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     heightScaleFactor = MediaQuery.of(context).size.height / 1200;
@@ -45,198 +44,52 @@ class _AvatarState extends State<Avatar> {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Column(
-            children: [
-              Expanded(
-                flex: 15,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(60 * widthScaleFactor,
-                      50 * widthScaleFactor, 60 * widthScaleFactor, 0),
-                  child: header(),
-                ),
-              ),
-              Expanded(
-                flex: 75,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      60 * widthScaleFactor, 0, 60 * widthScaleFactor, 0),
-                  child: PageView(
-                    controller: widget.pageController,
-                    onPageChanged: (index) => setState(() {
-                      this.index = index;
-                    }),
-                    children: [
-                      AvatarOne(
-                        callback: callback,
-                        key: key,
-                      ),
-                      AvatarTwo(),
-                      AvatarThree(),
-                      AvatarFour(),
-                      AvatarFive(),
-                      AvatarSix(),
-                    ],
+          child: Hero(
+            tag: 'avatar',
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 90,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(
+                        60 * widthScaleFactor,
+                        60 * widthScaleFactor,
+                        60 * widthScaleFactor,
+                        60 * widthScaleFactor),
+                    child: PageView(
+                      controller: widget.pageController,
+                      onPageChanged: (index) => setState(() {
+                        this.index = index;
+                      }),
+                      children: [
+                        AvatarOne(
+                          callback: callback,
+                        ),
+                        AvatarTwo(),
+                        AvatarThree(),
+                        AvatarFour(),
+                        AvatarFive(),
+                        AvatarSix(),
+                        AvatarSeven(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 10,
-                child: footer(),
-              ),
-            ],
+                Expanded(
+                  flex: 10,
+                  child: footer(),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget header() {
-    return Column(
-      children: [
-        Expanded(
-          flex: 82,
-          child: Stack(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 10 * widthScaleFactor),
-                  child: InkWell(
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Image.asset(
-                            'assets/images/header/menu.png',
-                            height: 70 * widthScaleFactor,
-                            width: 70 * widthScaleFactor,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).button_home,
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                                color: Color(0xFF332E27),
-                                fontSize: 24,
-                                fontFamily: 'Open Sans'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    onTap: () => Navigator.push(
-                      context,
-                      PageRouteWithoutTransition(
-                        builder: (context) => Home(),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 70,
-                      child: Center(
-                        child: Text(
-                          getTitle(index),
-                          textScaleFactor: textScaleFactor,
-                          style: TextStyle(
-                              color: Color(0xFF5D584E),
-                              fontSize: 42,
-                              fontFamily: 'Open Sans',
-                              fontWeight: FontWeight.w900),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 30,
-                      child: SizedBox(),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: EdgeInsets.only(right: 10 * widthScaleFactor),
-                  child: Text(value.toString()),
-                  /*
-                  child: InkWell(
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Image.asset(
-                            'assets/images/header/exit.png',
-                            height: 70 * widthScaleFactor,
-                            width: 70 * widthScaleFactor,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).button_exit,
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                                color: Color(0xFF3E2A1E),
-                                fontSize: 24,
-                                fontFamily: 'Open Sans'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    //todo implement exit screen
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text("Not implemented"),
-                        content: Text("coming soon"),
-                        actions: [
-                          FlatButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text("Okay"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                   */
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 18,
-          child: SizedBox(),
-        ),
-      ],
-    );
-  }
-
-  String getTitle(int index) {
-    switch (index) {
-      case 0:
-        return AppLocalizations.of(context).screeningOne_title;
-      case 1:
-        return AppLocalizations.of(context).screeningTwo_title;
-      case 2:
-        return AppLocalizations.of(context).screeningThree_title;
-      case 3:
-        return AppLocalizations.of(context).screeningFour_title;
-      case 4:
-        return AppLocalizations.of(context).screeningFive_title;
-      case 5:
-        return AppLocalizations.of(context).screeningSix_title;
-      default:
-        return "";
-    }
-  }
-
   Widget footer() {
     return Container(
-      color: Color(0xFF2B6A55),
+      color: Color(0xFF295A56),
       child: Padding(
         padding: EdgeInsets.fromLTRB(
             30 * widthScaleFactor,
@@ -276,7 +129,7 @@ class _AvatarState extends State<Avatar> {
                 },
                 effect: WormEffect(
                   dotColor: Colors.white,
-                  activeDotColor: Colors.lime,
+                  activeDotColor: Color(0xFF418D87),
                   strokeWidth: 1.0,
                   dotWidth: 10 * (1 + widthScaleFactor),
                   dotHeight: 10 * (1 + widthScaleFactor),

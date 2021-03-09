@@ -44,9 +44,11 @@
     "protectionOne_card_one_title": "Vorsorge beim Arzt",
     "protectionOne_card_one_content": "Wie läuft ein Hautkrebs Screening ab?",
     "protectionOne_card_one_button": "Früherkennung",
+    "protectionOne_card_one_actionText": "Nein, nichts über Früherkennung",
     "protectionOne_card_two_title": "Sich selbst schützen",
     "protectionOne_card_two_content": "Was kann ich tun um mich zu schützen?",
     "protectionOne_card_two_button": "Vorbeugung",
+    "protectionOne_card_two_actionText": "Nein, nichts über Vorbeugung",
 
     "preventionOne_title": "Vorbeugung",
     "preventionOne_text_one_title": "Uv-strahlung als Grund für Hautkrebs",
@@ -198,5 +200,14 @@
     "screeningSix_text_two_highlightThree": "",
     "screeningSix_text_two_partFour": "",
     "screeningSix_buttonText_home": "Zum Hauptmenu",
-    "screeningSix_buttonText_protection": "Mehr über Vorbeugung"
+    "screeningSix_buttonText_protection": "Mehr über Vorbeugung",
+
+    "avatar_actionText_notSpecified" : "keine Angabe",
+
+    "avatarTwo_text" : "Was ist ihre natürliche Haarfarbe?",
+    "avatarTwo_radioOne_text" : "Blond",
+    "avatarTwo_radioTwo_text" : "Orange \n Rot",
+    "avatarTwo_radioThree_text" : "Hell \n Braun",
+    "avatarTwo_radioFour_text" : "Dunkel \n Braun",
+    "avatarTwo_radioFive_text" : "Schwarz"
 }

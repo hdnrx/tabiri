@@ -17,21 +17,23 @@ class DataManager {
   bool screeningPathComplete;
   bool preventionPathComplete;
 
-  // 0 - male, 1 - female, 2 - diverse
+  // -1 - no data, 1 - male, 2 - female, 3 - diverse,
   int sex;
+  // -1 - no data
   int age;
 
-  // 0 - blond, orangeRed, lightBrown, darkBrown, black
+  // -1 - no data, 0 - blond, 1 - orangeRed, 2 - lightBrown, 3 - darkBrown, 4 - black
   int hairColor;
-  // 0 - white,  1 - browned, 2 - olive, 3 - dark
+  // -1 - no data, 0 - white,  1 - browned, 2 - olive, 3 - dark
   int skinColor;
 
-  // 0 - none, 3 - many, 4 - no data
+  // -1 - no data, 0 - none, 2 - many
   int numberSunburns;
   int numberFreckles;
   int numberBirthmarks;
 
-  bool familySickness;
+  // -1 - no data, 0 - false, 1 - true,
+  int familySickness;
 
   /// constructor
   // factory in flutter doesn't always return a new instance, so it is perfect for Singleton
@@ -49,15 +51,15 @@ class DataManager {
     preventionPathComplete = false;
 
     // may be changed according to calculation model
-    sex = 0;
-    age = 20;
-    hairColor = 0;
-    skinColor = 0;
-    numberSunburns = 4;
-    numberFreckles = 4;
-    numberBirthmarks = 4;
+    sex = -1;
+    age = -1;
+    hairColor = -1;
+    skinColor = -1;
+    numberSunburns = -1;
+    numberFreckles = -1;
+    numberBirthmarks = -1;
 
-    familySickness = false;
+    familySickness = -1;
   }
 
   /// set values to default
@@ -69,14 +71,14 @@ class DataManager {
     preventionPathComplete = false;
 
     // may be changed according to calculation model
-    sex = 0;
-    age = 20;
-    hairColor = 0;
-    skinColor = 0;
-    numberSunburns = 4;
-    numberFreckles = 4;
-    numberBirthmarks = 4;
+    sex = -1;
+    age = -1;
+    hairColor = -1;
+    skinColor = -1;
+    numberSunburns = -1;
+    numberFreckles = -1;
+    numberBirthmarks = -1;
 
-    familySickness = false;
+    familySickness = -1;
   }
 }
