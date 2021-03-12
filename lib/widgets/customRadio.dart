@@ -30,6 +30,7 @@ class CustomRadioState extends State<CustomRadio> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemCount: widget.radioButtons.length,
       itemBuilder: (BuildContext context, int index) {
@@ -48,7 +49,10 @@ class CustomRadioState extends State<CustomRadio> {
                 },
                 child: Container(
                   padding: widget.edgeInsets,
-                  child: new RadioItemWidget(widget.radioButtons[index]),
+                  child: RadioItemWidget(
+                    item: widget.radioButtons[index],
+                    selectionBorderScale: widget.textScaleFactor,
+                  ),
                 ),
               ),
             ),
@@ -77,7 +81,8 @@ class CustomRadioState extends State<CustomRadio> {
 /// Single RadioButton
 class RadioItemWidget extends StatelessWidget {
   final RadioItem item;
-  RadioItemWidget(this.item);
+  final double selectionBorderScale;
+  RadioItemWidget({this.item, this.selectionBorderScale = 1.0});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,7 +93,8 @@ class RadioItemWidget extends StatelessWidget {
         color: item.backgroundColor,
         // highlight selected radio
         border: Border.all(
-            color: item.borderColor, width: item.isSelected ? 6.0 : 1.0),
+            color: item.borderColor,
+            width: item.isSelected ? 6.0 * selectionBorderScale : 1.0),
       ),
     );
   }

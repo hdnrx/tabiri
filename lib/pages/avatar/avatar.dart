@@ -62,9 +62,7 @@ class _AvatarState extends State<Avatar> {
                         this.index = index;
                       }),
                       children: [
-                        AvatarOne(
-                          callback: callback,
-                        ),
+                        AvatarOne(),
                         AvatarTwo(),
                         AvatarThree(),
                         AvatarFour(),
@@ -133,37 +131,41 @@ class _AvatarState extends State<Avatar> {
                   strokeWidth: 1.0,
                   dotWidth: 10 * (1 + widthScaleFactor),
                   dotHeight: 10 * (1 + widthScaleFactor),
+                  spacing: 18.0,
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: RaisedButton(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(36.0),
-                ),
-                onPressed: () => handleContinue(),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      30 * widthScaleFactor,
-                      10 * heightScaleFactor,
-                      30 * widthScaleFactor,
-                      10 * heightScaleFactor),
-                  child: FittedBox(
-                    child: Text(
-                      getButtonText(index),
-                      textScaleFactor: textScaleFactor,
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontFamily: 'Open Sans',
-                        color: Color(0xFF332E27),
+            // last page has no continue button
+            index != 6
+                ? Align(
+                    alignment: Alignment.centerRight,
+                    child: RaisedButton(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(36.0),
+                      ),
+                      onPressed: () => handleContinue(),
+                      child: Padding(
+                        padding: EdgeInsets.fromLTRB(
+                            30 * widthScaleFactor,
+                            10 * heightScaleFactor,
+                            30 * widthScaleFactor,
+                            10 * heightScaleFactor),
+                        child: FittedBox(
+                          child: Text(
+                            getButtonText(index),
+                            textScaleFactor: textScaleFactor,
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontFamily: 'Open Sans',
+                              color: Color(0xFF332E27),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ),
-            )
+                  )
+                : SizedBox(),
           ],
         ),
       ),
@@ -207,22 +209,6 @@ class _AvatarState extends State<Avatar> {
   }
 
   getButtonText(int index) {
-    switch (index) {
-      case 0:
-        return AppLocalizations.of(context).screeningOne_buttonText;
-      case 1:
-        return AppLocalizations.of(context).screeningTwo_buttonText;
-      case 2:
-        return AppLocalizations.of(context).screeningThree_buttonText;
-      case 3:
-        return AppLocalizations.of(context).screeningFour_buttonText;
-      case 4:
-        return AppLocalizations.of(context).screeningFive_buttonText;
-      case 5:
-        return AppLocalizations.of(context).screeningSix_buttonText_home;
-        break;
-      default:
-        return "";
-    }
+    return AppLocalizations.of(context).button_continue;
   }
 }

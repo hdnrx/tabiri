@@ -204,10 +204,21 @@
 
     "avatar_actionText_notSpecified" : "keine Angabe",
 
-    "avatarTwo_text" : "Was ist ihre natürliche Haarfarbe?",
-    "avatarTwo_radioOne_text" : "Blond",
-    "avatarTwo_radioTwo_text" : "Orange \n Rot",
-    "avatarTwo_radioThree_text" : "Hell \n Braun",
-    "avatarTwo_radioFour_text" : "Dunkel \n Braun",
-    "avatarTwo_radioFive_text" : "Schwarz"
+    "avatarOne_radio_title" : "Wie ist ihr Geschlecht?",
+    "avatarOne_radio_textOne" : "Männlich",
+    "avatarOne_radio_textTwo" : "Weiblich",
+    "avatarOne_radio_textThree" : "Divers",
+    "avatarOne_slider_title" : "Wie alt sind Sie?",
+    "avatarOne_slider_textOne" : "Unter\n35",
+    "avatarOne_slider_textTwo" : "45",
+    "avatarOne_slider_textThree" : "55",
+    "avatarOne_slider_textFour" : "65",
+    "avatarOne_slider_textFive" : "über\n75",
+
+    "avatarTwo_radio_title" : "Was ist ihre natürliche Haarfarbe?",
+    "avatarTwo_radio_textOne" : "Blond",
+    "avatarTwo_radio_textTwo" : "Orange\nRot",
+    "avatarTwo_radio_textThree" : "Hell\nBraun",
+    "avatarTwo_radio_textFour" : "Dunkel\nBraun",
+    "avatarTwo_radio_textFive" : "Schwarz"
 }

@@ -41,6 +41,7 @@ class PageRouteWithTransition extends PageRoute {
   @override
   bool get maintainState => true;
 
+  /// duration of the page transitions
   @override
   Duration get transitionDuration => Duration(milliseconds: 1000);
 

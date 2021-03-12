@@ -170,7 +170,7 @@ class _AvatarTwoState extends State<AvatarTwo> {
               Expanded(
                 flex: 15,
                 child: Text(
-                  AppLocalizations.of(context).avatarTwo_text,
+                  AppLocalizations.of(context).avatarTwo_radio_title,
                   textScaleFactor: textScaleFactor,
                   style: TextStyle(
                       color: Color(0xFF332E27),
@@ -197,8 +197,10 @@ class _AvatarTwoState extends State<AvatarTwo> {
   Widget avatar() {
     return AvatarBuilder(
       age: DataManager.instance.age,
-      sex: DataManager.instance.sex,
+      sex: DataManager.instance.gender,
       hairColor: DataManager.instance.hairColor,
+      portrait: true,
+      borderScale: textScaleFactor,
     );
   }
 
@@ -208,7 +210,7 @@ class _AvatarTwoState extends State<AvatarTwo> {
       new RadioItem(
           isSelected: false,
           value: 0,
-          buttonText: AppLocalizations.of(context).avatarTwo_radioOne_text,
+          buttonText: AppLocalizations.of(context).avatarTwo_radio_textOne,
           backgroundColor: Color(0xFFE6CD86),
           borderColor: Color(0xFFBFBA8D),
           height: 60 * widthScaleFactor,
@@ -216,7 +218,7 @@ class _AvatarTwoState extends State<AvatarTwo> {
       new RadioItem(
           isSelected: false,
           value: 1,
-          buttonText: AppLocalizations.of(context).avatarTwo_radioTwo_text,
+          buttonText: AppLocalizations.of(context).avatarTwo_radio_textTwo,
           backgroundColor: Color(0xFFDB7956),
           borderColor: Color(0xFFBA6242),
           height: 60 * widthScaleFactor,
@@ -224,7 +226,7 @@ class _AvatarTwoState extends State<AvatarTwo> {
       new RadioItem(
           isSelected: false,
           value: 2,
-          buttonText: AppLocalizations.of(context).avatarTwo_radioThree_text,
+          buttonText: AppLocalizations.of(context).avatarTwo_radio_textThree,
           backgroundColor: Color(0xFF865C38),
           borderColor: Color(0xFF6b492c),
           height: 60 * widthScaleFactor,
@@ -232,7 +234,7 @@ class _AvatarTwoState extends State<AvatarTwo> {
       new RadioItem(
           isSelected: false,
           value: 3,
-          buttonText: AppLocalizations.of(context).avatarTwo_radioFour_text,
+          buttonText: AppLocalizations.of(context).avatarTwo_radio_textFour,
           backgroundColor: Color(0xFF502519),
           borderColor: Color(0xFF725046),
           height: 60 * widthScaleFactor,
@@ -240,7 +242,7 @@ class _AvatarTwoState extends State<AvatarTwo> {
       new RadioItem(
           isSelected: false,
           value: 4,
-          buttonText: AppLocalizations.of(context).avatarTwo_radioFive_text,
+          buttonText: AppLocalizations.of(context).avatarTwo_radio_textFive,
           backgroundColor: Color(0xFF220909),
           borderColor: Color(0xFF4e3a3a),
           height: 60 * widthScaleFactor,

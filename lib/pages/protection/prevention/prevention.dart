@@ -281,6 +281,7 @@ class _PreventionState extends State<Prevention> {
                   strokeWidth: 1.0,
                   dotWidth: 10 * (1 + widthScaleFactor),
                   dotHeight: 10 * (1 + widthScaleFactor),
+                  spacing: 18.0,
                 ),
               ),
             ),

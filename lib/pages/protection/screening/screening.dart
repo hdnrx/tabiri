@@ -289,6 +289,7 @@ class _ScreeningState extends State<Screening> {
                   strokeWidth: 1.0,
                   dotWidth: 10 * (1 + widthScaleFactor),
                   dotHeight: 10 * (1 + widthScaleFactor),
+                  spacing: 18.0,
                 ),
               ),
             ),

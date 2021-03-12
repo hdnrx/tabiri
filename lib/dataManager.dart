@@ -1,4 +1,4 @@
-enum Sex { male, female, diverse }
+enum Gender { male, female, diverse }
 enum HairColor { blond, orangeRed, lightBrown, darkBrown, black }
 enum SkinColor { white, beige, brown, black }
 
@@ -17,19 +17,18 @@ class DataManager {
   bool screeningPathComplete;
   bool preventionPathComplete;
 
-  // -1 - no data, 1 - male, 2 - female, 3 - diverse,
-  int sex;
+  // -1 - no data, 0 - male, 1 - female, 2 - diverse,
+  int gender;
   // -1 - no data
   int age;
 
   // -1 - no data, 0 - blond, 1 - orangeRed, 2 - lightBrown, 3 - darkBrown, 4 - black
   int hairColor;
-  // -1 - no data, 0 - white,  1 - browned, 2 - olive, 3 - dark
-  int skinColor;
 
-  // -1 - no data, 0 - none, 2 - many
+  // -1 - no data, 0 - none, 1 - few(1-2), 2 - several(3-9), 3 - many(10+)
   int numberSunburns;
   int numberFreckles;
+  // -1 - no data, 0 - none, 1 - few(1-2), 2 - several(3-9), 3 - many(10+)
   int numberBirthmarks;
 
   // -1 - no data, 0 - false, 1 - true,
@@ -51,15 +50,13 @@ class DataManager {
     preventionPathComplete = false;
 
     // may be changed according to calculation model
-    sex = -1;
-    age = -1;
-    hairColor = -1;
-    skinColor = -1;
-    numberSunburns = -1;
-    numberFreckles = -1;
-    numberBirthmarks = -1;
-
-    familySickness = -1;
+    gender = 0;
+    age = 40;
+    hairColor = 0;
+    numberSunburns = 0;
+    numberFreckles = 0;
+    numberBirthmarks = 0;
+    familySickness = 0;
   }
 
   /// set values to default
@@ -71,14 +68,12 @@ class DataManager {
     preventionPathComplete = false;
 
     // may be changed according to calculation model
-    sex = -1;
-    age = -1;
-    hairColor = -1;
-    skinColor = -1;
-    numberSunburns = -1;
-    numberFreckles = -1;
-    numberBirthmarks = -1;
-
-    familySickness = -1;
+    gender = 0;
+    age = 40;
+    hairColor = 0;
+    numberSunburns = 0;
+    numberFreckles = 0;
+    numberBirthmarks = 0;
+    familySickness = 0;
   }
 }
