@@ -1,7 +1,3 @@
-enum Gender { male, female, diverse }
-enum HairColor { blond, orangeRed, lightBrown, darkBrown, black }
-enum SkinColor { white, beige, brown, black }
-
 /// Singleton to save and access App Information globally
 class DataManager {
   // singleton instance
@@ -17,22 +13,36 @@ class DataManager {
   bool screeningPathComplete;
   bool preventionPathComplete;
 
-  // -1 - no data, 0 - male, 1 - female, 2 - diverse,
+  /// -1 - no selection, 0 - male, 1 - female, 2 - diverse,
   int gender;
-  // -1 - no data
+
   int age;
 
-  // -1 - no data, 0 - blond, 1 - orangeRed, 2 - lightBrown, 3 - darkBrown, 4 - black
+  /// -1 - no selection, 0 - blond, 1 - orangeRed, 2 - lightBrown, 3 - darkBrown, 4 - black
   int hairColor;
 
-  // -1 - no data, 0 - none, 1 - few(1-2), 2 - several(3-9), 3 - many(10+)
+  /// -1 - no selection, 0 - none, 1 - few(1-2), 2 - several(3-9), 3 - many(10+), 4 - don't know
   int numberSunburns;
+
+  /// -1 - no selection
   int numberFreckles;
-  // -1 - no data, 0 - none, 1 - few(1-2), 2 - several(3-9), 3 - many(10+)
+
+  /// -1 - no selection, 0 - none, 1 - few(1-2), 2 - several(3-9), 3 - many(10+), 4 - don't know
   int numberBirthmarks;
 
-  // -1 - no data, 0 - false, 1 - true,
+  // skin cancer in family history
+  /// -1 - no selection, 0 - no, 1 - yes
   int familySickness;
+
+  /// show alert for first time avatar creation with warning
+  bool showAlert;
+
+  /// some flags for button enable
+  bool genderFlag;
+  bool ageFlag;
+  bool hairFlag;
+  bool sunBurnFlag;
+  bool birthmarkFlag;
 
   /// constructor
   // factory in flutter doesn't always return a new instance, so it is perfect for Singleton
@@ -50,13 +60,20 @@ class DataManager {
     preventionPathComplete = false;
 
     // may be changed according to calculation model
-    gender = 0;
-    age = 40;
-    hairColor = 0;
-    numberSunburns = 0;
-    numberFreckles = 0;
-    numberBirthmarks = 0;
-    familySickness = 0;
+    gender = -1;
+    age = 0;
+    hairColor = -1;
+    numberSunburns = -1;
+    numberBirthmarks = -1;
+    familySickness = -1;
+
+    showAlert = true;
+
+    genderFlag = false;
+    ageFlag = false;
+    hairFlag = false;
+    sunBurnFlag = false;
+    birthmarkFlag = false;
   }
 
   /// set values to default
@@ -68,12 +85,19 @@ class DataManager {
     preventionPathComplete = false;
 
     // may be changed according to calculation model
-    gender = 0;
-    age = 40;
-    hairColor = 0;
-    numberSunburns = 0;
-    numberFreckles = 0;
-    numberBirthmarks = 0;
-    familySickness = 0;
+    gender = -1;
+    age = 0;
+    hairColor = -1;
+    numberSunburns = -1;
+    numberBirthmarks = -1;
+    familySickness = -1;
+
+    showAlert = true;
+
+    genderFlag = false;
+    ageFlag = false;
+    hairFlag = false;
+    sunBurnFlag = false;
+    birthmarkFlag = false;
   }
 }

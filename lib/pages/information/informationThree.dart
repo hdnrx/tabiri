@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -83,48 +82,53 @@ class InformationThree extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-          child: Text(
-            AppLocalizations.of(context).informationThree_text_one_title,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 26,
-              color: Color(0xFF5D584E),
-              fontFamily: 'Open Sans',
-              fontWeight: FontWeight.w900,
+        Flexible(
+          flex: 0,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+            child: Text(
+              AppLocalizations.of(context).informationThree_text_one_title,
+              textScaleFactor: textScaleFactor,
+              style: TextStyle(
+                fontSize: 34,
+                fontFamily: 'Open Sans',
+                fontWeight: FontWeight.w900,
+                color: Color(0xFF5D584E),
+              ),
             ),
           ),
         ),
-        AutoSizeText.rich(
-          TextSpan(
-            style: TextStyle(
-              fontSize: 28,
-              fontFamily: 'Open Sans',
-              height: 1.5,
-              color: Color(0xFF5D584E),
+        Flexible(
+          child: RichText(
+            text: TextSpan(
+              style: TextStyle(
+                fontSize: 28,
+                fontFamily: 'Open Sans',
+                height: 1.5,
+                color: Color(0xFF5D584E),
+              ),
+              children: [
+                TextSpan(
+                    text: AppLocalizations.of(context)
+                        .informationThree_text_one_partOne),
+                TextSpan(
+                    text: AppLocalizations.of(context)
+                        .informationThree_text_one_highlightOne,
+                    style: highlight),
+                TextSpan(
+                    text: AppLocalizations.of(context)
+                        .informationThree_text_one_partTwo),
+                TextSpan(
+                    text: AppLocalizations.of(context)
+                        .informationThree_text_one_highlightTwo,
+                    style: highlight),
+                TextSpan(
+                    text: AppLocalizations.of(context)
+                        .informationThree_text_one_partThree),
+              ],
             ),
-            children: [
-              TextSpan(
-                  text: AppLocalizations.of(context)
-                      .informationThree_text_one_partOne),
-              TextSpan(
-                  text: AppLocalizations.of(context)
-                      .informationThree_text_one_highlightOne,
-                  style: highlight),
-              TextSpan(
-                  text: AppLocalizations.of(context)
-                      .informationThree_text_one_partTwo),
-              TextSpan(
-                  text: AppLocalizations.of(context)
-                      .informationThree_text_one_highlightTwo,
-                  style: highlight),
-              TextSpan(
-                  text: AppLocalizations.of(context)
-                      .informationThree_text_one_partThree),
-            ],
+            textScaleFactor: textScaleFactor,
           ),
-          textScaleFactor: textScaleFactor,
         ),
       ],
     );

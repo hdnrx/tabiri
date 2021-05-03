@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -77,27 +76,32 @@ class InformationOne extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-          child: AutoSizeText(
-            AppLocalizations.of(context).informationOne_text_one_title,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 26,
-              color: Color(0xFF5D584E),
-              fontFamily: 'Open Sans',
-              fontWeight: FontWeight.w900,
+        Flexible(
+          flex: 0,
+          child: Padding(
+            padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+            child: Text(
+              AppLocalizations.of(context).informationOne_text_one_title,
+              textScaleFactor: textScaleFactor,
+              style: TextStyle(
+                fontSize: 34,
+                color: Color(0xFF5D584E),
+                fontFamily: 'Open Sans',
+                fontWeight: FontWeight.w900,
+              ),
             ),
           ),
         ),
-        AutoSizeText(
-          AppLocalizations.of(context).informationOne_text_one_content,
-          textScaleFactor: textScaleFactor,
-          style: TextStyle(
-            fontSize: 28,
-            fontFamily: 'Open Sans',
-            height: 1.5,
-            color: Color(0xFF5D584E),
+        Flexible(
+          child: Text(
+            AppLocalizations.of(context).informationOne_text_one_content,
+            textScaleFactor: textScaleFactor,
+            style: TextStyle(
+              fontSize: 28,
+              fontFamily: 'Open Sans',
+              height: 1.5,
+              color: Color(0xFF5D584E),
+            ),
           ),
         ),
       ],

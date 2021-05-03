@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/pages/home.dart';
 import 'package:tabiri_2/pages/protection/prevention/prevention.dart';
 import 'package:tabiri_2/pages/protection/screening/screening.dart';
+import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
 import '../../dataManager.dart';
@@ -32,8 +33,8 @@ class _ProtectionState extends State<Protection> {
                 Expanded(
                   flex: 15,
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(60 * widthScaleFactor,
-                        50 * widthScaleFactor, 60 * widthScaleFactor, 0),
+                    padding: EdgeInsets.fromLTRB(30 * widthScaleFactor,
+                        30 * widthScaleFactor, 30 * widthScaleFactor, 0),
                     child: header(),
                   ),
                 ),
@@ -41,7 +42,7 @@ class _ProtectionState extends State<Protection> {
                   flex: 75,
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(
-                        60 * widthScaleFactor, 0, 60 * widthScaleFactor, 0),
+                        30 * widthScaleFactor, 0, 30 * widthScaleFactor, 0),
                     child: content(),
                   ),
                 ),
@@ -58,143 +59,9 @@ class _ProtectionState extends State<Protection> {
   }
 
   Widget header() {
-    return Column(
-      children: [
-        Expanded(
-          flex: 82,
-          child: Stack(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 10 * widthScaleFactor),
-                  child: InkWell(
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Image.asset(
-                            'assets/images/header/menu.png',
-                            height: 70 * widthScaleFactor,
-                            width: 70 * widthScaleFactor,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).button_home,
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                                color: Color(0xFF332E27),
-                                fontSize: 24,
-                                fontFamily: 'Open Sans'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    onTap: () => Navigator.push(
-                      context,
-                      PageRouteWithoutTransition(
-                        builder: (context) => Home(),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 70,
-                      child: Center(
-                        child: Text(
-                          AppLocalizations.of(context).protectionOne_title,
-                          textScaleFactor: textScaleFactor,
-                          style: TextStyle(
-                              color: Color(0xFF5D584E),
-                              fontSize: 42,
-                              fontWeight: FontWeight.w900,
-                              fontFamily: 'Open Sans'),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 30,
-                      child: SizedBox(),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: EdgeInsets.only(right: 10 * widthScaleFactor),
-                  child: InkWell(
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Image.asset(
-                            'assets/images/header/exit.png',
-                            height: 70 * widthScaleFactor,
-                            width: 70 * widthScaleFactor,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).button_exit,
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                                color: Color(0xFF3E2A1E),
-                                fontSize: 24,
-                                fontFamily: 'Open Sans'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    //todo implement exit screen
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text("Not implemented"),
-                        content: Text("coming soon"),
-                        actions: [
-                          FlatButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text("Okay"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 10,
-          child: SizedBox(),
-        ),
-        Expanded(
-          flex: 8,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(0xFF578763),
-              borderRadius: BorderRadius.circular(30.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 10.0 * widthScaleFactor, // soften the shadow
-                  spreadRadius: 0, //extend the shadow
-                  offset: Offset(
-                    0, // Horizontal
-                    6.0, // Vertical
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ],
+    return StandardHeader(
+      title: AppLocalizations.of(context).protection_title,
+      dividerLineColor: Color(0xFF578763),
     );
   }
 
@@ -306,13 +173,13 @@ class _ProtectionState extends State<Protection> {
             )
           : expandedCard(
               Color(0xFF759A67),
-              AppLocalizations.of(context).protectionOne_card_one_title,
-              AppLocalizations.of(context).protectionOne_card_one_content,
-              AppLocalizations.of(context).protectionOne_card_one_button,
+              AppLocalizations.of(context).protection_card_one_title,
+              AppLocalizations.of(context).protection_card_one_content,
+              AppLocalizations.of(context).protection_card_one_button,
               buildRouteFunction(
                 Screening(),
               ),
-              AppLocalizations.of(context).protectionOne_card_one_actionText,
+              AppLocalizations.of(context).protection_card_one_actionText,
               () => setState(
                   () => DataManager.instance.screeningPathComplete = true),
               AssetImage(
@@ -339,13 +206,13 @@ class _ProtectionState extends State<Protection> {
             )
           : expandedCard(
               Color(0xFF759A67),
-              AppLocalizations.of(context).protectionOne_card_two_title,
-              AppLocalizations.of(context).protectionOne_card_two_content,
-              AppLocalizations.of(context).protectionOne_card_two_button,
+              AppLocalizations.of(context).protection_card_two_title,
+              AppLocalizations.of(context).protection_card_two_content,
+              AppLocalizations.of(context).protection_card_two_button,
               buildRouteFunction(
                 Prevention(),
               ),
-              AppLocalizations.of(context).protectionOne_card_two_actionText,
+              AppLocalizations.of(context).protection_card_two_actionText,
               () => setState(
                   () => DataManager.instance.preventionPathComplete = true),
               AssetImage(
@@ -373,8 +240,8 @@ class _ProtectionState extends State<Protection> {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black,
-            blurRadius: 10.0 * widthScaleFactor, // soften the shadow
+            color: Colors.grey[800],
+            blurRadius: 6.0 * widthScaleFactor, // soften the shadow
             spreadRadius: 0, //extend the shadow
             offset: Offset(
               0, // Horizontal
@@ -385,9 +252,9 @@ class _ProtectionState extends State<Protection> {
       ),
       child: Padding(
         padding: EdgeInsets.fromLTRB(
-            20 * widthScaleFactor,
-            40 * heightScaleFactor,
-            20 * widthScaleFactor,
+            40 * widthScaleFactor,
+            35 * heightScaleFactor,
+            35 * widthScaleFactor,
             20 * heightScaleFactor),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -475,8 +342,8 @@ class _ProtectionState extends State<Protection> {
                       borderRadius: BorderRadius.circular(27.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 6, // soften the shadow
+                          color: Colors.grey[800],
+                          blurRadius: 6 * widthScaleFactor, // soften the shadow
                           spreadRadius: 0, //extend the shadow
                           offset: Offset(
                             0, // Horizontal
@@ -516,7 +383,7 @@ class _ProtectionState extends State<Protection> {
           text,
           textScaleFactor: textScaleFactor,
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 27,
             height: 1.5,
             color: Colors.white,
             fontFamily: 'Open Sans',

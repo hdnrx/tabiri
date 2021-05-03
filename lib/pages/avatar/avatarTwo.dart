@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/avatar/avatarBuilder.dart';
-import 'package:tabiri_2/pages/home.dart';
 import 'package:tabiri_2/widgets/customRadio.dart';
-import 'package:tabiri_2/widgets/routes.dart';
+import 'package:tabiri_2/widgets/header.dart';
 
 class AvatarTwo extends StatefulWidget {
+  final Function() notifyParent;
+  AvatarTwo({Key key, @required this.notifyParent}) : super(key: key);
+
   @override
   _AvatarTwoState createState() => _AvatarTwoState();
 }
@@ -28,11 +30,11 @@ class _AvatarTwoState extends State<AvatarTwo> {
         child: Column(
           children: [
             Flexible(
-              flex: 10,
+              flex: 16,
               child: header(),
             ),
             Expanded(
-              flex: 90,
+              flex: 84,
               child: content(),
             ),
           ],
@@ -42,90 +44,7 @@ class _AvatarTwoState extends State<AvatarTwo> {
   }
 
   Widget header() {
-    return Container(
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: EdgeInsets.only(left: 10 * widthScaleFactor),
-              child: InkWell(
-                child: Column(
-                  children: [
-                    Flexible(
-                      child: Image.asset(
-                        'assets/images/header/menu.png',
-                        height: 70 * widthScaleFactor,
-                        width: 70 * widthScaleFactor,
-                      ),
-                    ),
-                    Flexible(
-                      child: Text(
-                        AppLocalizations.of(context).button_home,
-                        textScaleFactor: textScaleFactor,
-                        style: TextStyle(
-                            color: Color(0xFF332E27),
-                            fontSize: 24,
-                            fontFamily: 'Open Sans'),
-                      ),
-                    ),
-                  ],
-                ),
-                onTap: () => Navigator.push(
-                  context,
-                  PageRouteWithoutTransition(
-                    builder: (context) => Home(),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-              padding: EdgeInsets.only(right: 10 * widthScaleFactor),
-              child: InkWell(
-                child: Column(
-                  children: [
-                    Flexible(
-                      child: Image.asset(
-                        'assets/images/header/exit.png',
-                        height: 70 * widthScaleFactor,
-                        width: 70 * widthScaleFactor,
-                      ),
-                    ),
-                    Flexible(
-                      child: Text(
-                        AppLocalizations.of(context).button_exit,
-                        textScaleFactor: textScaleFactor,
-                        style: TextStyle(
-                            color: Color(0xFF3E2A1E),
-                            fontSize: 24,
-                            fontFamily: 'Open Sans'),
-                      ),
-                    ),
-                  ],
-                ),
-                //todo implement exit screen
-                onTap: () => showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text("Not implemented"),
-                    content: Text("coming soon"),
-                    actions: [
-                      FlatButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: Text("Okay"),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+    return OnlyIconHeader();
   }
 
   Widget content() {
@@ -197,7 +116,7 @@ class _AvatarTwoState extends State<AvatarTwo> {
   Widget avatar() {
     return AvatarBuilder(
       age: DataManager.instance.age,
-      sex: DataManager.instance.gender,
+      gender: DataManager.instance.gender,
       hairColor: DataManager.instance.hairColor,
       portrait: true,
       borderScale: textScaleFactor,
@@ -258,6 +177,8 @@ class _AvatarTwoState extends State<AvatarTwo> {
       onChanged: (value) {
         setState(() {
           DataManager.instance.hairColor = value;
+          DataManager.instance.hairFlag = true;
+          widget.notifyParent();
         });
       },
       radioButtons: listOne,

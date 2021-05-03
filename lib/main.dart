@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
       ],
       home: Home(),
       initialRoute: '/home',
-      //initialRoute: '/test',
 
       routes: {
         '/home': (context) => Home(),

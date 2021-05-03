@@ -3,12 +3,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/avatar/avatarBuilder.dart';
-import 'package:tabiri_2/pages/home.dart';
 import 'package:tabiri_2/widgets/customRadio.dart';
-import 'package:tabiri_2/widgets/routes.dart';
-//import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/header.dart';
 
 class AvatarOne extends StatefulWidget {
+  final Function() notifyParent;
+  AvatarOne({Key key, @required this.notifyParent}) : super(key: key);
+
   @override
   _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
@@ -22,123 +23,36 @@ class _MyStatefulWidgetState extends State<AvatarOne> {
     heightScaleFactor = MediaQuery.of(context).size.height / 1200;
     widthScaleFactor = MediaQuery.of(context).size.width / 1920;
     textScaleFactor = (heightScaleFactor + widthScaleFactor) / 2;
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
+
+    /// show user warning if first time
+    if (DataManager.instance.showAlert) {
+      Future.delayed(
+        /// warning pops up after 500 milliseconds
+        Duration(milliseconds: 500),
+        () => showMyDialog(context),
+      );
+    }
+    return Stack(
+      children: [
+        Column(
           children: [
-            Column(
-              children: [
-                Expanded(
-                  flex: 16,
-                  child: header(),
-                ),
-                Expanded(
-                  flex: 84,
-                  child: SizedBox(),
-                ),
-              ],
+            Expanded(
+              flex: 16,
+              child: header(),
             ),
-            content(),
+            Expanded(
+              flex: 84,
+              child: SizedBox(),
+            ),
           ],
         ),
-      ),
+        content(),
+      ],
     );
   }
 
   Widget header() {
-    return Column(
-      children: [
-        Expanded(
-          flex: 82,
-          child: Stack(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 10 * widthScaleFactor),
-                  child: InkWell(
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Image.asset(
-                            'assets/images/header/menu.png',
-                            height: 70 * widthScaleFactor,
-                            width: 70 * widthScaleFactor,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).button_home,
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                                color: Color(0xFF332E27),
-                                fontSize: 24,
-                                fontFamily: 'Open Sans'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    onTap: () => Navigator.push(
-                      context,
-                      PageRouteWithoutTransition(
-                        builder: (context) => Home(),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: EdgeInsets.only(right: 10 * widthScaleFactor),
-                  child: InkWell(
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Image.asset(
-                            'assets/images/header/exit.png',
-                            height: 70 * widthScaleFactor,
-                            width: 70 * widthScaleFactor,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).button_exit,
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                                color: Color(0xFF3E2A1E),
-                                fontSize: 24,
-                                fontFamily: 'Open Sans'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    //todo implement exit screen
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text("Not implemented"),
-                        content: Text("coming soon"),
-                        actions: [
-                          FlatButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text("Okay"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 18,
-          child: SizedBox(),
-        ),
-      ],
-    );
+    return OnlyIconHeader();
   }
 
   Widget content() {
@@ -250,7 +164,7 @@ class _MyStatefulWidgetState extends State<AvatarOne> {
   Widget avatar() {
     return AvatarBuilder(
       age: DataManager.instance.age,
-      sex: DataManager.instance.gender,
+      gender: DataManager.instance.gender,
       hairColor: DataManager.instance.hairColor,
       portrait: false,
       borderScale: textScaleFactor,
@@ -284,7 +198,9 @@ class _MyStatefulWidgetState extends State<AvatarOne> {
       minorTicksPerInterval: 1,
       onChanged: (dynamic value) {
         setState(() {
-          DataManager().age = value.round();
+          DataManager.instance.age = value.round();
+          DataManager.instance.ageFlag = true;
+          widget.notifyParent();
         });
       },
     );
@@ -330,9 +246,128 @@ class _MyStatefulWidgetState extends State<AvatarOne> {
         onChanged: (value) {
           setState(() {
             DataManager.instance.gender = value;
+            DataManager.instance.genderFlag = true;
+            widget.notifyParent();
           });
         },
         radioButtons: listOne,
+      ),
+    );
+  }
+
+  /// show custom warning dialog
+  void showMyDialog(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              contentPadding: EdgeInsets.fromLTRB(
+                  40 * widthScaleFactor,
+                  100 * heightScaleFactor,
+                  40 * widthScaleFactor,
+                  100 * heightScaleFactor),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(27),
+              ),
+              content: Container(
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 20,
+                      child: Text(
+                        AppLocalizations.of(context).avatarOne_popup_title,
+                        textScaleFactor: textScaleFactor,
+                        style: TextStyle(
+                          color: Color(0xFF5D584E),
+                          fontSize: 34,
+                          fontFamily: 'Open Sans',
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 70,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            flex: 40,
+                            child: Image.asset(
+                                'assets/images/avatar/drawingBlock.png'),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: SizedBox(),
+                          ),
+                          Expanded(
+                            flex: 57,
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 10,
+                                  child: SizedBox(),
+                                ),
+                                Expanded(
+                                  flex: 90,
+                                  child: Text(
+                                    AppLocalizations.of(context)
+                                        .avatarOne_popup_text,
+                                    textScaleFactor: textScaleFactor,
+                                    style: TextStyle(
+                                      color: Color(0xFF5D584E),
+                                      fontSize: 28,
+                                      fontFamily: 'Open Sans',
+                                      height: 1.78,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      flex: 10,
+                      child: button(
+                        AppLocalizations.of(context).avatarOne_popup_button,
+                        () => Navigator.pop(context),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ));
+
+    /// disable warning
+    DataManager.instance.showAlert = false;
+  }
+
+  Widget button(String text, Function buttonFunction) {
+    return RaisedButton(
+      color: Color(0xFF295A56),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(36.0),
+      ),
+      onPressed: () => buttonFunction(),
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(
+            80 * widthScaleFactor,
+            10 * heightScaleFactor,
+            80 * widthScaleFactor,
+            10 * heightScaleFactor),
+        child: FittedBox(
+          child: Text(
+            text,
+            textScaleFactor: textScaleFactor,
+            style: TextStyle(
+              fontSize: 32,
+              fontFamily: 'Open Sans',
+              color: Colors.white,
+            ),
+          ),
+        ),
       ),
     );
   }

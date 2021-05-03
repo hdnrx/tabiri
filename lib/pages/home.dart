@@ -1,10 +1,10 @@
 import 'dart:math';
 
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/protection/protection.dart';
+import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
 import 'avatar/avatar.dart';
@@ -19,11 +19,6 @@ class _HomeState extends State<Home> {
   double heightScaleFactor;
   double widthScaleFactor;
   double textScaleFactor;
-
-  AutoSizeGroup titleSize = AutoSizeGroup();
-  AutoSizeGroup textSize = AutoSizeGroup();
-  AutoSizeGroup buttonTextSize = AutoSizeGroup();
-  AutoSizeGroup actionTextSize = AutoSizeGroup();
 
   @override
   Widget build(BuildContext context) {
@@ -61,60 +56,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget header() {
-    return Column(
-      children: [
-        Expanded(
-          flex: 86,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Flexible(
-                child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, '/test'),
-                    child: Image.asset('assets/images/logos/logo_tabiri.png')),
-              ),
-              Flexible(
-                child: Image.asset(
-                    'assets/images/logos/logo_hochschule-trier.png'),
-              ),
-              Flexible(
-                child: Image.asset(
-                    'assets/images/logos/logo_deutsche-krebshilfe.png'),
-              ),
-              Flexible(
-                child: Image.asset(
-                  'assets/images/logos/logo_uni-luebeck.png',
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 10,
-          child: SizedBox(),
-        ),
-        Expanded(
-          flex: 4,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(0xFF0E1E35),
-              borderRadius: BorderRadius.circular(30.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 10.0 * heightScaleFactor, // soften the shadow
-                  spreadRadius: 0, //extend the shadow
-                  offset: Offset(
-                    0, // Horizontal
-                    6.0 * heightScaleFactor, // Vertical
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
+    return LogoHeader();
   }
 
   Widget content(BuildContext context) {
@@ -265,7 +207,7 @@ class _HomeState extends State<Home> {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black,
+              color: Colors.grey[800],
               blurRadius: 10.0 * widthScaleFactor, // soften the shadow
               spreadRadius: 0, //extend the shadow
               offset: Offset(
@@ -373,7 +315,7 @@ class _HomeState extends State<Home> {
                       borderRadius: BorderRadius.circular(27.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black,
+                          color: Colors.grey[800],
                           blurRadius: 6, // soften the shadow
                           spreadRadius: 0, //extend the shadow
                           offset: Offset(
@@ -399,13 +341,14 @@ class _HomeState extends State<Home> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(36.0),
       ),
-      child: AutoSizeText(
-        text,
-        group: buttonTextSize,
-        textScaleFactor: textScaleFactor,
-        style: TextStyle(
-          color: Color(0xFF5D584E),
-          fontSize: 26,
+      child: FittedBox(
+        child: Text(
+          text,
+          textScaleFactor: textScaleFactor,
+          style: TextStyle(
+            color: Color(0xFF5D584E),
+            fontSize: 26,
+          ),
         ),
       ),
     );
@@ -417,9 +360,8 @@ class _HomeState extends State<Home> {
       children: [
         Expanded(
           flex: 20,
-          child: AutoSizeText(
+          child: Text(
             title,
-            group: titleSize,
             maxLines: 1,
             textScaleFactor: textScaleFactor,
             textAlign: TextAlign.start,
@@ -438,9 +380,8 @@ class _HomeState extends State<Home> {
         ),
         Expanded(
           flex: 70,
-          child: AutoSizeText(
+          child: Text(
             text,
-            group: textSize,
             textScaleFactor: textScaleFactor,
             style: TextStyle(
               fontSize: 28,

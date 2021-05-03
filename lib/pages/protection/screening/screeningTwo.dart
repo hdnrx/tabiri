@@ -111,7 +111,7 @@ class ScreeningTwo extends StatelessWidget {
             Expanded(
               flex: 90,
               child: Center(
-                child: Image.asset('assets/images/screening/Lichtlupe.png'),
+                child: Image.asset('assets/images/screening/lichtlupe.png'),
               ),
             ),
           ],

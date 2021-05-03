@@ -9,9 +9,11 @@ import 'package:tabiri_2/pages/protection/screening/screeningOne.dart';
 import 'package:tabiri_2/pages/protection/screening/screeningSix.dart';
 import 'package:tabiri_2/pages/protection/screening/screeningThree.dart';
 import 'package:tabiri_2/pages/protection/screening/screeningTwo.dart';
+import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
 import '../../../dataManager.dart';
+import '../../endScreen.dart';
 
 double heightScaleFactor;
 double widthScaleFactor;
@@ -45,8 +47,8 @@ class _ScreeningState extends State<Screening> {
               Expanded(
                 flex: 15,
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(60 * widthScaleFactor,
-                      50 * widthScaleFactor, 60 * widthScaleFactor, 0),
+                  padding: EdgeInsets.fromLTRB(30 * widthScaleFactor,
+                      30 * widthScaleFactor, 30 * widthScaleFactor, 0),
                   child: header(),
                 ),
               ),
@@ -54,7 +56,7 @@ class _ScreeningState extends State<Screening> {
                 flex: 75,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(
-                      60 * widthScaleFactor, 0, 60 * widthScaleFactor, 0),
+                      30 * widthScaleFactor, 0, 30 * widthScaleFactor, 0),
                   child: PageView(
                     controller: widget.pageController,
                     onPageChanged: (index) => setState(() {
@@ -83,143 +85,9 @@ class _ScreeningState extends State<Screening> {
   }
 
   Widget header() {
-    return Column(
-      children: [
-        Expanded(
-          flex: 82,
-          child: Stack(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 10 * widthScaleFactor),
-                  child: InkWell(
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Image.asset(
-                            'assets/images/header/menu.png',
-                            height: 70 * widthScaleFactor,
-                            width: 70 * widthScaleFactor,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).button_home,
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                                color: Color(0xFF332E27),
-                                fontSize: 24,
-                                fontFamily: 'Open Sans'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    onTap: () => Navigator.push(
-                      context,
-                      PageRouteWithoutTransition(
-                        builder: (context) => Home(),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 70,
-                      child: Center(
-                        child: Text(
-                          getTitle(index),
-                          textScaleFactor: textScaleFactor,
-                          style: TextStyle(
-                              color: Color(0xFF5D584E),
-                              fontSize: 42,
-                              fontFamily: 'Open Sans',
-                              fontWeight: FontWeight.w900),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 30,
-                      child: SizedBox(),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: EdgeInsets.only(right: 10 * widthScaleFactor),
-                  child: InkWell(
-                    child: Column(
-                      children: [
-                        Flexible(
-                          child: Image.asset(
-                            'assets/images/header/exit.png',
-                            height: 70 * widthScaleFactor,
-                            width: 70 * widthScaleFactor,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            AppLocalizations.of(context).button_exit,
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                                color: Color(0xFF3E2A1E),
-                                fontSize: 24,
-                                fontFamily: 'Open Sans'),
-                          ),
-                        ),
-                      ],
-                    ),
-                    //todo implement exit screen
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: Text("Not implemented"),
-                        content: Text("coming soon"),
-                        actions: [
-                          FlatButton(
-                            onPressed: () => Navigator.pop(context),
-                            child: Text("Okay"),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          flex: 10,
-          child: SizedBox(),
-        ),
-        Expanded(
-          flex: 8,
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(0xFF759A67),
-              borderRadius: BorderRadius.circular(30.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 10.0 * widthScaleFactor, // soften the shadow
-                  spreadRadius: 0, //extend the shadow
-                  offset: Offset(
-                    0, // Horizontal
-                    6.0, // Vertical
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      ],
+    return StandardHeader(
+      title: getTitle(index),
+      dividerLineColor: Color(0xFF2D8064),
     );
   }
 
@@ -353,6 +221,16 @@ class _ScreeningState extends State<Screening> {
       setState(() {
         index++;
       });
+    } else if (DataManager.instance.preventionPathComplete &&
+        DataManager.instance.informationPathComplete &&
+        DataManager.instance.avatarPathComplete) {
+      DataManager.instance.protectionPathComplete = true;
+      Navigator.push(
+        context,
+        PageRouteWithTransition(
+          builder: (context) => EndScreen(),
+        ),
+      );
     } else if (DataManager.instance.preventionPathComplete) {
       DataManager.instance.protectionPathComplete = true;
       Navigator.push(

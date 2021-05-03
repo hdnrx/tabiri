@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/avatar/avatarFive.dart';
 import 'package:tabiri_2/pages/avatar/avatarFour.dart';
 import 'package:tabiri_2/pages/avatar/avatarOne.dart';
@@ -52,21 +53,29 @@ class _AvatarState extends State<Avatar> {
                   flex: 90,
                   child: Padding(
                     padding: EdgeInsets.fromLTRB(
-                        60 * widthScaleFactor,
-                        60 * widthScaleFactor,
-                        60 * widthScaleFactor,
-                        60 * widthScaleFactor),
+                        30 * widthScaleFactor,
+                        30 * widthScaleFactor,
+                        30 * widthScaleFactor,
+                        30 * widthScaleFactor),
                     child: PageView(
                       controller: widget.pageController,
                       onPageChanged: (index) => setState(() {
                         this.index = index;
                       }),
                       children: [
-                        AvatarOne(),
-                        AvatarTwo(),
-                        AvatarThree(),
+                        AvatarOne(
+                          notifyParent: refresh,
+                        ),
+                        AvatarTwo(
+                          notifyParent: refresh,
+                        ),
+                        AvatarThree(
+                          notifyParent: refresh,
+                        ),
                         AvatarFour(),
-                        AvatarFive(),
+                        AvatarFive(
+                          notifyParent: refresh,
+                        ),
                         AvatarSix(),
                         AvatarSeven(),
                       ],
@@ -117,6 +126,8 @@ class _AvatarState extends State<Avatar> {
               child: SmoothPageIndicator(
                 controller: widget.pageController,
                 count: widget.numberOfPages,
+                // disabled because you shouldn't be able to skip pages here
+                /*
                 onDotClicked: (index) {
                   setState(() {
                     this.index = index;
@@ -125,6 +136,7 @@ class _AvatarState extends State<Avatar> {
                       duration: Duration(milliseconds: 500),
                       curve: Curves.ease);
                 },
+                 */
                 effect: WormEffect(
                   dotColor: Colors.white,
                   activeDotColor: Color(0xFF418D87),
@@ -139,31 +151,7 @@ class _AvatarState extends State<Avatar> {
             index != 6
                 ? Align(
                     alignment: Alignment.centerRight,
-                    child: RaisedButton(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(36.0),
-                      ),
-                      onPressed: () => handleContinue(),
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(
-                            30 * widthScaleFactor,
-                            10 * heightScaleFactor,
-                            30 * widthScaleFactor,
-                            10 * heightScaleFactor),
-                        child: FittedBox(
-                          child: Text(
-                            getButtonText(index),
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                              fontSize: 32,
-                              fontFamily: 'Open Sans',
-                              color: Color(0xFF332E27),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    child: button(index),
                   )
                 : SizedBox(),
           ],
@@ -192,6 +180,8 @@ class _AvatarState extends State<Avatar> {
 
   ///handle continue button click
   void handleContinue() {
+    // disable warning for first avatar path visit
+    DataManager.instance.showAlert = false;
     if (index < widget.numberOfPages - 1) {
       widget.pageController.animateToPage(index + 1,
           duration: Duration(milliseconds: 500), curve: Curves.ease);
@@ -208,7 +198,100 @@ class _AvatarState extends State<Avatar> {
     }
   }
 
+  Widget button(int page) {
+    return buttonEnabled(page)
+        ? RaisedButton(
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(36.0),
+            ),
+            onPressed: () => handleContinue(),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                  30 * widthScaleFactor,
+                  10 * heightScaleFactor,
+                  30 * widthScaleFactor,
+                  10 * heightScaleFactor),
+              child: FittedBox(
+                child: Text(
+                  getButtonText(index),
+                  textScaleFactor: textScaleFactor,
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontFamily: 'Open Sans',
+                    color: Color(0xFF332E27),
+                  ),
+                ),
+              ),
+            ),
+          )
+        : RaisedButton(
+            color: Colors.grey,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(36.0),
+            ),
+            onPressed: () => showMyDialog(context),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                  30 * widthScaleFactor,
+                  10 * heightScaleFactor,
+                  30 * widthScaleFactor,
+                  10 * heightScaleFactor),
+              child: FittedBox(
+                child: Text(
+                  getButtonText(index),
+                  textScaleFactor: textScaleFactor,
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontFamily: 'Open Sans',
+                    color: Color(0xFF332E27),
+                  ),
+                ),
+              ),
+            ),
+          );
+  }
+
+  /// check if user did put in necessary data
+  bool buttonEnabled(int page) {
+    DataManager data = DataManager.instance;
+    if (page == 0) {
+      return data.genderFlag && data.ageFlag;
+    } else if (page == 1) {
+      return data.hairFlag;
+    } else if (page == 2) {
+      return data.sunBurnFlag;
+    } else if (page == 4) {
+      return data.birthmarkFlag;
+    } else {
+      return true;
+    }
+  }
+
+  /// show dialog if user clicks on disabled button
+  void showMyDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        content: Text(
+          AppLocalizations.of(context).avatar_popup_warning,
+          textScaleFactor: textScaleFactor,
+        ),
+        actions: [
+          FlatButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Okay"),
+          ),
+        ],
+      ),
+    );
+  }
+
   getButtonText(int index) {
     return AppLocalizations.of(context).button_continue;
+  }
+
+  refresh() {
+    setState(() {});
   }
 }
