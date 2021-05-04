@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/pages/result/result.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -141,30 +142,18 @@ class ResultCheck extends StatelessWidget {
   }
 
   Widget button(String text, Function buttonFunction, Color color) {
-    return RaisedButton(
-      onPressed: buttonFunction,
-      color: color,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(36.0),
-      ),
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(
-            30 * widthScaleFactor,
-            15 * heightScaleFactor,
-            30 * widthScaleFactor,
-            15 * heightScaleFactor),
-        child: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            text,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 28,
-            ),
-          ),
-        ),
-      ),
+    return CustomElevatedButton(
+      text: text,
+      textSize: 28,
+      textColor: Colors.white,
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          15 * heightScaleFactor,
+          30 * widthScaleFactor,
+          15 * heightScaleFactor),
+      buttonColor: color,
     );
   }
 

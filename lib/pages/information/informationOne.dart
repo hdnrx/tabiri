@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customText.dart';
 
 class InformationOne extends StatelessWidget {
   double heightScaleFactor;
@@ -46,7 +47,11 @@ class InformationOne extends StatelessWidget {
                 child: Column(
                   children: [
                     Expanded(
-                      flex: 80,
+                      flex: 20,
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 60,
                       child: paragraph(context),
                     ),
                     Expanded(
@@ -72,39 +77,17 @@ class InformationOne extends StatelessWidget {
   }
 
   Widget paragraph(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Flexible(
-          flex: 0,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-            child: Text(
-              AppLocalizations.of(context).informationOne_text_one_title,
-              textScaleFactor: textScaleFactor,
-              style: TextStyle(
-                fontSize: 34,
-                color: Color(0xFF5D584E),
-                fontFamily: 'Open Sans',
-                fontWeight: FontWeight.w900,
-              ),
-            ),
-          ),
-        ),
-        Flexible(
-          child: Text(
-            AppLocalizations.of(context).informationOne_text_one_content,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 28,
-              fontFamily: 'Open Sans',
-              height: 1.5,
-              color: Color(0xFF5D584E),
-            ),
-          ),
-        ),
-      ],
+    return CustomParagraph(
+      title: AppLocalizations.of(context).informationOne_text_one_title,
+      text: AppLocalizations.of(context).informationOne_text_one_content,
+      titleSize: 34,
+      textSize: 28,
+      textScaleFactor: textScaleFactor,
+      titleFontColor: Color(0xFF5D584E),
+      textFontColor: Color(0xFF5D584E),
+      titleFontWeight: FontWeight.w900,
+      textHeight: 1.5,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
     );
   }
 }

@@ -172,19 +172,6 @@ class _MyStatefulWidgetState extends State<AvatarOne> {
   }
 
   Widget ageSlider() {
-    /*
-    return Slider(
-        min: 1.0,
-        max: 100.0,
-        //divisions: 5,
-        label: DataManager().age.toString(),
-        value: DataManager().age.toDouble(),
-        onChanged: (double value) {
-          setState(() {
-            DataManager().age = value.round();
-          });
-        });
-     */
     return SfSlider(
       min: 0.0,
       max: 100.0,

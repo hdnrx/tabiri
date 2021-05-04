@@ -9,6 +9,7 @@ import 'package:tabiri_2/pages/protection/screening/screeningOne.dart';
 import 'package:tabiri_2/pages/protection/screening/screeningSix.dart';
 import 'package:tabiri_2/pages/protection/screening/screeningThree.dart';
 import 'package:tabiri_2/pages/protection/screening/screeningTwo.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -163,35 +164,26 @@ class _ScreeningState extends State<Screening> {
             ),
             Align(
               alignment: Alignment.centerRight,
-              child: RaisedButton(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(36.0),
-                ),
-                onPressed: () => handleContinue(),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      30 * widthScaleFactor,
-                      10 * heightScaleFactor,
-                      30 * widthScaleFactor,
-                      10 * heightScaleFactor),
-                  child: FittedBox(
-                    child: Text(
-                      getButtonText(index),
-                      textScaleFactor: textScaleFactor,
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontFamily: 'Open Sans',
-                        color: Color(0xFF332E27),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              child: button(getButtonText(index), () => handleContinue()),
             )
           ],
         ),
       ),
+    );
+  }
+
+  Widget button(String text, Function buttonFunction) {
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      textColor: Color(0xFF332E27),
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          10 * heightScaleFactor,
+          30 * widthScaleFactor,
+          10 * heightScaleFactor),
     );
   }
 

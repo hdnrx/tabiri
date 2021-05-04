@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customText.dart';
 import 'package:tabiri_2/widgets/header.dart';
 
 class AvatarSix extends StatelessWidget {
@@ -101,77 +102,45 @@ class AvatarSix extends StatelessWidget {
       fontSize: 28,
       fontFamily: 'Open Sans',
       height: 1.5,
-      color: Color(0xFF3E2A1E),
+      color: Colors.black,
     );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Flexible(
-          flex: 0,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-            child: Text(
-              AppLocalizations.of(context).avatarSix_text_one_title,
-              textScaleFactor: textScaleFactor,
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'Open Sans',
-                fontWeight: FontWeight.w900,
-                color: Color(0xFF3E2A1E),
-              ),
-            ),
-          ),
-        ),
-        Flexible(
-          child: RichText(
-            text: TextSpan(
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'Open Sans',
-                height: 1.5,
-                color: Color(0xFF3E2A1E),
-              ),
-              children: [
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_partOne),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_highlightOne,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_partTwo),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_highlightTwo,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_partThree),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_highlightThree,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_partFour),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_highlightFour,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarSix_text_one_partFive),
-              ],
-            ),
-            textScaleFactor: textScaleFactor,
-          ),
-        ),
+    return CustomRichParagraph(
+      title: AppLocalizations.of(context).avatarSix_text_one_title,
+      titleSize: 28,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+      titleFontWeight: FontWeight.w900,
+      titleFontColor: Color(0xFF3E2A1E),
+      textSize: 28,
+      textHeight: 1.5,
+      textFontColor: Color(0xFF3E2A1E),
+      children: <InlineSpan>[
+        TextSpan(text: AppLocalizations.of(context).avatarSix_text_one_partOne),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarSix_text_one_highlightOne,
+            style: highlight),
+        TextSpan(text: AppLocalizations.of(context).avatarSix_text_one_partTwo),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarSix_text_one_highlightTwo,
+            style: highlight),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarSix_text_one_partThree),
+        TextSpan(
+            text:
+                AppLocalizations.of(context).avatarSix_text_one_highlightThree,
+            style: highlight),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarSix_text_one_partFour),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarSix_text_one_highlightFour,
+            style: highlight),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarSix_text_one_partFive),
       ],
     );
   }
 
+  /// without title
   Widget paragraphTwo(BuildContext context) {
     TextStyle highlight = TextStyle(
       fontWeight: FontWeight.w600,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customText.dart';
 
 class PreventionOne extends StatelessWidget {
   double heightScaleFactor;
@@ -63,33 +64,17 @@ class PreventionOne extends StatelessWidget {
   }
 
   Widget paragraph(String title, String text) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-          child: Text(
-            title,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 28,
-              color: Color(0xFF332E27),
-              fontFamily: 'Open Sans',
-              fontWeight: FontWeight.w900,
-            ),
-          ),
-        ),
-        Text(
-          text,
-          textScaleFactor: textScaleFactor,
-          style: TextStyle(
-            fontSize: 28,
-            height: 1.5,
-            color: Color(0xFF5D584E),
-            fontFamily: 'Open Sans',
-          ),
-        ),
-      ],
+    return CustomParagraph(
+      title: title,
+      text: text,
+      titleSize: 28,
+      textSize: 28,
+      textScaleFactor: textScaleFactor,
+      titleFontWeight: FontWeight.w900,
+      textHeight: 1.5,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+      titleFontColor: Color(0xFF332E27),
+      textFontColor: Color(0xFF5D584E),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/home.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -103,32 +104,19 @@ class EndScreen extends StatelessWidget {
 
   Widget button(String text, Function buttonFunction, Color backgroundColor,
       Color textColor) {
-    return RaisedButton(
-      color: backgroundColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(36.0),
-      ),
-      onPressed: () => buttonFunction(),
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(
-            60 * widthScaleFactor,
-            15 * heightScaleFactor,
-            60 * widthScaleFactor,
-            15 * heightScaleFactor),
-        child: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            text,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 32,
-              fontFamily: 'Open Sans',
-              fontWeight: FontWeight.w600,
-              color: textColor,
-            ),
-          ),
-        ),
-      ),
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      textColor: textColor,
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      buttonColor: backgroundColor,
+      textWeight: FontWeight.w600,
+      padding: EdgeInsets.fromLTRB(
+          60 * widthScaleFactor,
+          15 * heightScaleFactor,
+          60 * widthScaleFactor,
+          15 * heightScaleFactor),
     );
   }
 

@@ -3,6 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/pages/home.dart';
 import 'package:tabiri_2/pages/protection/prevention/prevention.dart';
 import 'package:tabiri_2/pages/protection/screening/screening.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
+import 'package:tabiri_2/widgets/customText.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -363,54 +365,28 @@ class _ProtectionState extends State<Protection> {
   }
 
   Widget paragraph(String title, String text) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-          child: Text(
-            title,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 34,
-              color: Colors.white,
-              fontFamily: 'Open Sans',
-              fontWeight: FontWeight.w900,
-            ),
-          ),
-        ),
-        Text(
-          text,
-          textScaleFactor: textScaleFactor,
-          style: TextStyle(
-            fontSize: 27,
-            height: 1.5,
-            color: Colors.white,
-            fontFamily: 'Open Sans',
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ],
+    return CustomParagraph(
+      title: title,
+      text: text,
+      titleSize: 34,
+      textSize: 28,
+      textScaleFactor: textScaleFactor,
+      titleFontWeight: FontWeight.w900,
+      textFontWeight: FontWeight.w600,
+      textHeight: 1.5,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+      titleFontColor: Colors.white,
+      textFontColor: Colors.white,
     );
   }
 
   Widget button(String text, Function buttonFunction) {
-    return RaisedButton(
-      onPressed: buttonFunction,
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(36.0),
-      ),
-      child: FittedBox(
-        child: Text(
-          text,
-          textScaleFactor: textScaleFactor,
-          style: TextStyle(
-            color: Color(0xFF5D584E),
-            fontSize: 28,
-          ),
-        ),
-      ),
+    return CustomElevatedButton(
+      text: text,
+      textSize: 28,
+      textColor: Color(0xFF5D584E),
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
     );
   }
 

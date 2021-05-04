@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/protection/protection.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
+import 'package:tabiri_2/widgets/customText.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -336,62 +338,28 @@ class _HomeState extends State<Home> {
   }
 
   Widget button(String text, Function buttonFunction) {
-    return RaisedButton(
-      onPressed: buttonFunction,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(36.0),
-      ),
-      child: FittedBox(
-        child: Text(
-          text,
-          textScaleFactor: textScaleFactor,
-          style: TextStyle(
-            color: Color(0xFF5D584E),
-            fontSize: 26,
-          ),
-        ),
-      ),
+    return CustomElevatedButton(
+      text: text,
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      textSize: 26,
+      textColor: Color(0xFF5D584E),
     );
   }
 
   Widget paragraph(String title, String text) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          flex: 20,
-          child: Text(
-            title,
-            maxLines: 1,
-            textScaleFactor: textScaleFactor,
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: 34,
-              fontFamily: 'Open Sans',
-              color: Colors.white,
-              letterSpacing: 1.02,
-              fontWeight: FontWeight.w900,
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 10,
-          child: SizedBox(),
-        ),
-        Expanded(
-          flex: 70,
-          child: Text(
-            text,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 28,
-              fontFamily: 'Open Sans',
-              color: Color(0xCCFFFFFF),
-              height: 1.5,
-            ),
-          ),
-        ),
-      ],
+    return CustomParagraph(
+      textScaleFactor: textScaleFactor,
+      text: text,
+      title: title,
+      titleFontWeight: FontWeight.w900,
+      titleLetterSpacing: 1.02,
+      textHeight: 1.5,
+      titleSize: 34,
+      textSize: 28,
+      padding: EdgeInsets.only(bottom: 24 * heightScaleFactor),
+      textFontColor: Colors.white,
+      titleFontColor: Colors.white,
     );
   }
 
@@ -531,6 +499,7 @@ class _HomeState extends State<Home> {
   }
 }
 
+/// Hero Transition with rotation
 class CustomHero extends StatelessWidget {
   final String tag;
   final Color shuttleColor;
@@ -569,7 +538,7 @@ class CustomHero extends StatelessWidget {
   }
 }
 
-///Helper class to paint triangle
+///Helper class to paint triangle for collapsed card
 class TrianglePainter extends CustomPainter {
   final Color strokeColor;
   final PaintingStyle paintingStyle;

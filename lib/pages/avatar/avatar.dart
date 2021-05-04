@@ -10,6 +10,7 @@ import 'package:tabiri_2/pages/avatar/avatarSix.dart';
 import 'package:tabiri_2/pages/avatar/avatarThree.dart';
 import 'package:tabiri_2/pages/avatar/avatarTwo.dart';
 import 'package:tabiri_2/pages/home.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
 double heightScaleFactor;
@@ -29,13 +30,6 @@ class _AvatarState extends State<Avatar> {
   double widthScaleFactor;
   double textScaleFactor;
   int index = 0;
-
-  int value = 12;
-  callback(newValue) {
-    setState(() {
-      value = newValue;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +56,8 @@ class _AvatarState extends State<Avatar> {
                       onPageChanged: (index) => setState(() {
                         this.index = index;
                       }),
+                      // no scroll for avatar
+                      physics: NeverScrollableScrollPhysics(),
                       children: [
                         AvatarOne(
                           notifyParent: refresh,
@@ -200,55 +196,31 @@ class _AvatarState extends State<Avatar> {
 
   Widget button(int page) {
     return buttonEnabled(page)
-        ? RaisedButton(
-            color: Colors.white,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(36.0),
-            ),
-            onPressed: () => handleContinue(),
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                  30 * widthScaleFactor,
-                  10 * heightScaleFactor,
-                  30 * widthScaleFactor,
-                  10 * heightScaleFactor),
-              child: FittedBox(
-                child: Text(
-                  getButtonText(index),
-                  textScaleFactor: textScaleFactor,
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontFamily: 'Open Sans',
-                    color: Color(0xFF332E27),
-                  ),
-                ),
-              ),
-            ),
+        ? CustomElevatedButton(
+            text: getButtonText(index),
+            textSize: 32,
+            textColor: Color(0xFF332E27),
+            buttonFunction: () => handleContinue(),
+            textScaleFactor: textScaleFactor,
+            buttonColor: Colors.white,
+            padding: EdgeInsets.fromLTRB(
+                30 * widthScaleFactor,
+                10 * heightScaleFactor,
+                30 * widthScaleFactor,
+                10 * heightScaleFactor),
           )
-        : RaisedButton(
-            color: Colors.grey,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(36.0),
-            ),
-            onPressed: () => showMyDialog(context),
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(
-                  30 * widthScaleFactor,
-                  10 * heightScaleFactor,
-                  30 * widthScaleFactor,
-                  10 * heightScaleFactor),
-              child: FittedBox(
-                child: Text(
-                  getButtonText(index),
-                  textScaleFactor: textScaleFactor,
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontFamily: 'Open Sans',
-                    color: Color(0xFF332E27),
-                  ),
-                ),
-              ),
-            ),
+        : CustomElevatedButton(
+            text: getButtonText(index),
+            textSize: 32,
+            textColor: Color(0xFF332E27),
+            buttonFunction: () => showMyDialog(context),
+            textScaleFactor: textScaleFactor,
+            buttonColor: Colors.grey,
+            padding: EdgeInsets.fromLTRB(
+                30 * widthScaleFactor,
+                10 * heightScaleFactor,
+                30 * widthScaleFactor,
+                10 * heightScaleFactor),
           );
   }
 
@@ -276,6 +248,10 @@ class _AvatarState extends State<Avatar> {
         content: Text(
           AppLocalizations.of(context).avatar_popup_warning,
           textScaleFactor: textScaleFactor,
+          style: TextStyle(
+            fontSize: 28,
+            fontFamily: 'Open Sans',
+          ),
         ),
         actions: [
           FlatButton(

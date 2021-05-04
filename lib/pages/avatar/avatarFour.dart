@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customText.dart';
 import 'package:tabiri_2/widgets/header.dart';
 
 class AvatarFour extends StatelessWidget {
@@ -122,59 +123,31 @@ class AvatarFour extends StatelessWidget {
       fontSize: 28,
       fontFamily: 'Open Sans',
       height: 1.5,
-      color: Color(0xFF5D584E),
+      color: Colors.black,
     );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Flexible(
-          flex: 0,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-            child: Text(
-              AppLocalizations.of(context).avatarFour_text_one_title,
-              textScaleFactor: textScaleFactor,
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'Open Sans',
-                fontWeight: FontWeight.w900,
-                color: Color(0xFF48443C),
-              ),
-            ),
-          ),
-        ),
-        Flexible(
-          child: RichText(
-            text: TextSpan(
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'Open Sans',
-                height: 1.5,
-                color: Color(0xFF5D584E),
-              ),
-              children: [
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_one_partOne),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_one_highlightOne,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_one_partTwo),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_one_highlightTwo,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_one_partThree),
-              ],
-            ),
-            textScaleFactor: textScaleFactor,
-          ),
-        ),
+    return CustomRichParagraph(
+      title: AppLocalizations.of(context).avatarFour_text_one_title,
+      titleSize: 28,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+      titleFontWeight: FontWeight.w900,
+      titleFontColor: Color(0xFF48443C),
+      textSize: 28,
+      textHeight: 1.5,
+      textFontColor: Color(0xFF5D584E),
+      children: <InlineSpan>[
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_one_partOne),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_one_highlightOne,
+            style: highlight),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_one_partTwo),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_one_highlightTwo,
+            style: highlight),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_one_partThree),
       ],
     );
   }
@@ -185,59 +158,31 @@ class AvatarFour extends StatelessWidget {
       fontSize: 28,
       fontFamily: 'Open Sans',
       height: 1.5,
-      color: Color(0xFF48443C),
+      color: Colors.black,
     );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Flexible(
-          flex: 0,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-            child: Text(
-              AppLocalizations.of(context).avatarFour_text_two_title,
-              textScaleFactor: textScaleFactor,
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'Open Sans',
-                fontWeight: FontWeight.w900,
-                color: Color(0xFF332E27),
-              ),
-            ),
-          ),
-        ),
-        Flexible(
-          child: RichText(
-            text: TextSpan(
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'Open Sans',
-                height: 1.5,
-                color: Color(0xFF5D584E),
-              ),
-              children: [
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_two_partOne),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_two_highlightOne,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_two_partTwo),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_two_highlightTwo,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .avatarFour_text_two_partThree),
-              ],
-            ),
-            textScaleFactor: textScaleFactor,
-          ),
-        ),
+    return CustomRichParagraph(
+      title: AppLocalizations.of(context).avatarFour_text_two_title,
+      titleSize: 28,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+      titleFontWeight: FontWeight.w900,
+      titleFontColor: Color(0xFF48443C),
+      textSize: 28,
+      textHeight: 1.5,
+      textFontColor: Color(0xFF5D584E),
+      children: <InlineSpan>[
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_two_partOne),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_two_highlightOne,
+            style: highlight),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_two_partTwo),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_two_highlightTwo,
+            style: highlight),
+        TextSpan(
+            text: AppLocalizations.of(context).avatarFour_text_two_partThree),
       ],
     );
   }

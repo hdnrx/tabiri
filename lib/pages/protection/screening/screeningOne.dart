@@ -48,7 +48,10 @@ class ScreeningOne extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(flex: 5, child: SizedBox()),
+              Expanded(
+                flex: 5,
+                child: SizedBox(),
+              ),
               Expanded(
                 flex: 40,
                 child: Column(

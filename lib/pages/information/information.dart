@@ -7,6 +7,7 @@ import 'package:tabiri_2/pages/home.dart';
 import 'package:tabiri_2/pages/information/informationOne.dart';
 import 'package:tabiri_2/pages/information/informationThree.dart';
 import 'package:tabiri_2/pages/information/informationTwo.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -162,30 +163,16 @@ class _InformationState extends State<Information> {
             index == 0 || index == 1
                 ? Align(
                     alignment: Alignment.centerRight,
-                    child: RaisedButton(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(36.0),
-                      ),
-                      onPressed: () => handleContinue(),
-                      child: Padding(
-                        padding: EdgeInsets.fromLTRB(
-                            30 * widthScaleFactor,
-                            10 * heightScaleFactor,
-                            30 * widthScaleFactor,
-                            10 * heightScaleFactor),
-                        child: FittedBox(
-                          child: Text(
-                            getButtonText(index),
-                            textScaleFactor: textScaleFactor,
-                            style: TextStyle(
-                              fontSize: 32,
-                              fontFamily: 'Open Sans',
-                              color: Color(0xFF332E27),
-                            ),
-                          ),
-                        ),
-                      ),
+                    child: CustomElevatedButton(
+                      textScaleFactor: textScaleFactor,
+                      text: getButtonText(index),
+                      padding: EdgeInsets.fromLTRB(
+                          30 * widthScaleFactor,
+                          10 * heightScaleFactor,
+                          30 * widthScaleFactor,
+                          10 * heightScaleFactor),
+                      buttonFunction: () => handleContinue(),
+                      textSize: 32,
                     ),
                   )
                 :
@@ -194,57 +181,29 @@ class _InformationState extends State<Information> {
                 Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      RaisedButton(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(36.0),
-                        ),
-                        onPressed: () => handleContinue(),
-                        child: Padding(
+                      CustomElevatedButton(
+                        textScaleFactor: textScaleFactor,
+                        text: getButtonText(index)[0],
+                        padding: EdgeInsets.fromLTRB(
+                            30 * widthScaleFactor,
+                            10 * heightScaleFactor,
+                            30 * widthScaleFactor,
+                            10 * heightScaleFactor),
+                        buttonFunction: () => handleContinue(),
+                        textSize: 32,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 54 * widthScaleFactor),
+                        child: CustomElevatedButton(
+                          textScaleFactor: textScaleFactor,
+                          text: getButtonText(index)[1],
                           padding: EdgeInsets.fromLTRB(
                               30 * widthScaleFactor,
                               10 * heightScaleFactor,
                               30 * widthScaleFactor,
                               10 * heightScaleFactor),
-                          child: FittedBox(
-                            child: Text(
-                              getButtonText(index)[0],
-                              textScaleFactor: textScaleFactor,
-                              style: TextStyle(
-                                fontSize: 32,
-                                fontFamily: 'Open Sans',
-                                color: Color(0xFF332E27),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 54 * widthScaleFactor),
-                        child: RaisedButton(
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(36.0),
-                          ),
-                          onPressed: () => handleContinue(),
-                          child: Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                30 * widthScaleFactor,
-                                10 * heightScaleFactor,
-                                30 * widthScaleFactor,
-                                10 * heightScaleFactor),
-                            child: FittedBox(
-                              child: Text(
-                                getButtonText(index)[1],
-                                textScaleFactor: textScaleFactor,
-                                style: TextStyle(
-                                  fontSize: 32,
-                                  fontFamily: 'Open Sans',
-                                  color: Color(0xFF332E27),
-                                ),
-                              ),
-                            ),
-                          ),
+                          buttonFunction: () => handleContinue(),
+                          textSize: 32,
                         ),
                       ),
                     ],

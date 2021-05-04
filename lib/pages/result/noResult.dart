@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/pages/result/result.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -170,6 +171,19 @@ class NoResult extends StatelessWidget {
 
   Widget button(String text, Function buttonFunction, Color backgroundColor,
       Color textColor) {
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      textColor: textColor,
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      buttonColor: backgroundColor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          10 * heightScaleFactor,
+          30 * widthScaleFactor,
+          10 * heightScaleFactor),
+    );
     return RaisedButton(
       color: backgroundColor,
       shape: RoundedRectangleBorder(

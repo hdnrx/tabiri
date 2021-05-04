@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/result/resultCheck.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -148,30 +149,17 @@ class _AvatarSevenState extends State<AvatarSeven> {
   }
 
   Widget button(String text, Function buttonFunction) {
-    return RaisedButton(
-      onPressed: buttonFunction(),
-      color: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(36.0),
-      ),
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(
-            30 * widthScaleFactor,
-            15 * heightScaleFactor,
-            30 * widthScaleFactor,
-            15 * heightScaleFactor),
-        child: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Text(
-            text,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              color: Color(0xFF5D584E),
-              fontSize: 28,
-            ),
-          ),
-        ),
-      ),
+    return CustomElevatedButton(
+      text: text,
+      textSize: 28,
+      textColor: Color(0xFF5D584E),
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          15 * heightScaleFactor,
+          30 * widthScaleFactor,
+          15 * heightScaleFactor),
     );
   }
 
@@ -187,39 +175,39 @@ class _AvatarSevenState extends State<AvatarSeven> {
     );
   }
 
-  Function handleNoClick(BuildContext context) {
+  void handleNoClick(BuildContext context) {
     setState(() {
       DataManager().familySickness = 0;
     });
-    return () => Navigator.push(
-          context,
-          PageRouteWithTransition(
-            builder: (context) => ResultCheck(),
-          ),
-        );
+    Navigator.push(
+      context,
+      PageRouteWithTransition(
+        builder: (context) => ResultCheck(),
+      ),
+    );
   }
 
-  Function handleYesClick(BuildContext context) {
+  void handleYesClick(BuildContext context) {
     setState(() {
       DataManager().familySickness = 1;
     });
-    return () => Navigator.push(
-          context,
-          PageRouteWithTransition(
-            builder: (context) => ResultCheck(),
-          ),
-        );
+    Navigator.push(
+      context,
+      PageRouteWithTransition(
+        builder: (context) => ResultCheck(),
+      ),
+    );
   }
 
-  Function handleNoDataClick(BuildContext context) {
+  void handleNoDataClick(BuildContext context) {
     setState(() {
       DataManager().familySickness = 0;
     });
-    return () => Navigator.push(
-          context,
-          PageRouteWithTransition(
-            builder: (context) => ResultCheck(),
-          ),
-        );
+    Navigator.push(
+      context,
+      PageRouteWithTransition(
+        builder: (context) => ResultCheck(),
+      ),
+    );
   }
 }

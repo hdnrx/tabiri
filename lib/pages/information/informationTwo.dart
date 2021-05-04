@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customText.dart';
 
 class InformationTwo extends StatelessWidget {
   double heightScaleFactor;
@@ -79,57 +80,32 @@ class InformationTwo extends StatelessWidget {
       height: 1.5,
       color: Color(0xFF5D584E),
     );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Flexible(
-          flex: 0,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
-            child: Text(
-              AppLocalizations.of(context).informationTwo_text_one_title,
-              textScaleFactor: textScaleFactor,
-              style: TextStyle(
-                fontSize: 34,
-                fontFamily: 'Open Sans',
-                fontWeight: FontWeight.w900,
-                color: Color(0xFF5D584E),
-              ),
-            ),
-          ),
-        ),
-        Flexible(
-          child: RichText(
-            text: TextSpan(
-              style: TextStyle(
-                fontSize: 28,
-                fontFamily: 'Open Sans',
-                height: 1.5,
-                color: Color(0xFF5D584E),
-              ),
-              children: [
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .informationTwo_text_one_partOne),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .informationTwo_text_one_highlightOne,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .informationTwo_text_one_partTwo),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .informationTwo_text_one_highlightTwo,
-                    style: highlight),
-                TextSpan(
-                    text: AppLocalizations.of(context)
-                        .informationTwo_text_one_partThree),
-              ],
-            ),
-            textScaleFactor: textScaleFactor,
-          ),
-        ),
+    return CustomRichParagraph(
+      title: AppLocalizations.of(context).informationTwo_text_one_title,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+      textScaleFactor: textScaleFactor,
+      titleSize: 34,
+      titleFontWeight: FontWeight.w900,
+      titleFontColor: Color(0xFF5D584E),
+      textSize: 28,
+      textHeight: 1.5,
+      textFontColor: Color(0xFF5D584E),
+      children: <InlineSpan>[
+        TextSpan(
+            text: AppLocalizations.of(context).informationTwo_text_one_partOne),
+        TextSpan(
+            text: AppLocalizations.of(context)
+                .informationTwo_text_one_highlightOne,
+            style: highlight),
+        TextSpan(
+            text: AppLocalizations.of(context).informationTwo_text_one_partTwo),
+        TextSpan(
+            text: AppLocalizations.of(context)
+                .informationTwo_text_one_highlightTwo,
+            style: highlight),
+        TextSpan(
+            text:
+                AppLocalizations.of(context).informationTwo_text_one_partThree),
       ],
     );
   }
