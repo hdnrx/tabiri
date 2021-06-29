@@ -81,12 +81,12 @@ class InformationOne extends StatelessWidget {
       title: AppLocalizations.of(context).informationOne_text_one_title,
       text: AppLocalizations.of(context).informationOne_text_one_content,
       titleSize: 34,
-      textSize: 28,
+      textSize: 24,
       textScaleFactor: textScaleFactor,
       titleFontColor: Color(0xFF5D584E),
       textFontColor: Color(0xFF5D584E),
       titleFontWeight: FontWeight.w900,
-      textHeight: 1.5,
+      textHeight: 1.2,
       padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
     );
   }
