@@ -141,14 +141,6 @@ class ScreeningTwo extends StatelessWidget {
           padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
           child: pointOne(context),
         ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointTwo(context),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointThree(context),
-        ),
       ],
     );
   }
@@ -170,126 +162,14 @@ class ScreeningTwo extends StatelessWidget {
           color: Color(0xFF5D584E),
         ),
         children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
           TextSpan(
               text: AppLocalizations.of(context).screeningTwo_text_one_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_one_highlightOne,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningTwo_text_one_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_one_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_one_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_one_highlightThree,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_one_partFour),
         ],
       ),
       textScaleFactor: textScaleFactor,
     );
   }
 
-  Widget pointTwo(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningTwo_text_two_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_two_highlightOne,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningTwo_text_two_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_two_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_two_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_two_highlightThree,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_two_partFour),
-        ],
-      ),
-      textScaleFactor: textScaleFactor,
-    );
-  }
 
-  Widget pointThree(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_three_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_highlightOne,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_three_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_highlightThree,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_partFour),
-        ],
-      ),
-      textScaleFactor: textScaleFactor,
-    );
-  }
+
 }
