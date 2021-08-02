@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -22,64 +23,139 @@ class InformationFive extends StatelessWidget {
 
   Widget content(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
-          flex: 15,
-          child: SizedBox(),
-        ),
-        Expanded(
-          flex: 65,
-          child: Row(
-            children: [
-              Expanded(
-                flex: 50,
-                child: Image.asset(
-                  'assets/images/information/haut_doppel_dark.png',
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Expanded(
-                flex: 3,
-                child: SizedBox(),
-              ),
-              Expanded(
-                flex: 32,
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 10,
-                      child: SizedBox(),
-                    ),
-                    Expanded(
-                      flex: 90,
-                      child: paragraph(context),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 15,
-                child: SizedBox(),
-              ),
-            ],
-          ),
-        ),
         Expanded(
           flex: 10,
           child: SizedBox(),
+        ),
+        Expanded(
+          flex: 15,
+          child: Text(
+                  AppLocalizations.of(context).informationFive_text_title,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w800,
+                    fontFamily: 'Roboto',
+                    letterSpacing: 0.5,
+                    fontSize: 20,
+              ),
+          ),
+        ),
+        Expanded(
+            flex: 45,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 20,
+                  child: SizedBox(),
+                ),
+                Expanded(
+                  flex: 20,
+                  child: Padding(
+                      padding: EdgeInsets.all(30),
+                      child: Image.asset('images/ABCD-rules/Skinspot_change_color.png',
+                      fit: BoxFit.contain,
+                      ),
+                  ),
+                ),
+                Expanded(
+                  flex: 20,
+                  child: Padding(
+                    padding: EdgeInsets.all(30),
+                    child: Image.asset('images/ABCD-rules/Skinspot_change_different.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 20,
+                  child: Padding(
+                    padding: EdgeInsets.all(30),
+                    child: Image.asset('images/ABCD-rules/Skinspot_change_pain.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 20,
+                  child: SizedBox(),
+                ),
+              ],
+            )
+        ),
+        Expanded(
+          flex: 20,
+          child: Row(
+            children: [
+              Expanded(
+                flex: 20,
+                child: SizedBox(),
+              ),
+              Expanded(
+                flex: 20,
+                child: Text(
+                  AppLocalizations.of(context).informationFive_text_1,
+                  style: TextStyle(
+                    color: Colors.black,
+                    //fontWeight: FontWeight.w800,
+                    fontFamily: 'Roboto',
+                    letterSpacing: 0.5,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 20,
+                child: Text(
+                  AppLocalizations.of(context).informationFive_text_2,
+                  style: TextStyle(
+                    color: Colors.black,
+                    //fontWeight: FontWeight.w800,
+                    fontFamily: 'Roboto',
+                    letterSpacing: 0.5,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 20,
+                child: Text(
+                  AppLocalizations.of(context).informationFive_text_3,
+                  style: TextStyle(
+                    color: Colors.black,
+                    //fontWeight: FontWeight.w800,
+                    fontFamily: 'Roboto',
+                    letterSpacing: 0.5,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 20,
+                child: SizedBox(),
+              ),
+            ],
+          )
+        ),
+        Expanded(
+          flex: 10,
+          child: Text(
+            AppLocalizations.of(context).informationFive_text,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w800,
+              fontFamily: 'Roboto',
+              letterSpacing: 0.5,
+              fontSize: 20,
+            ),
+          ),
         ),
       ],
     );
   }
 
   Widget paragraph(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.5,
-      color: Color(0xFF5D584E),
-    );
     return CustomRichParagraph(
       title: AppLocalizations.of(context).informationFive_text_title,
       padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),

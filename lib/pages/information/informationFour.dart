@@ -22,52 +22,200 @@ class InformationFour extends StatelessWidget {
 
   Widget content(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          flex: 5,
+          flex: 15,
           child: SizedBox(),
         ),
         Expanded(
-          flex: 65,
-          child: Row(
-            children: [
-              Expanded(
-                flex: 50,
-                child: Image.asset(
-                  'assets/images/information/haut_doppel_dark.png',
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Expanded(
-                flex: 3,
-                child: SizedBox(),
-              ),
-              Expanded(
-                flex: 32,
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 10,
-                      child: SizedBox(),
-                    ),
-                    Expanded(
-                      flex: 90,
-                      child: paragraph(context),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                flex: 15,
-                child: SizedBox(),
-              ),
-            ],
+          flex: 6,
+          child: Text(
+            AppLocalizations.of(context).informationFour_text_title,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w800,
+              fontFamily: 'Roboto',
+              letterSpacing: 0.5,
+              fontSize: 20,
+            ),
           ),
         ),
         Expanded(
-          flex: 10,
-          child: SizedBox(),
+          flex: 9,
+          child: Text(
+            AppLocalizations.of(context).informationFour_A_title,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w800,
+              fontFamily: 'Roboto',
+              letterSpacing: 0.5,
+              fontSize: 28,
+            ),
+          ),
         ),
+        Expanded(
+            flex: 45,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 20,
+                  child: SizedBox(),
+                ),
+                Expanded(
+                  flex: 30,
+                  child: Padding(
+                    padding: EdgeInsets.all(30),
+                    child: Image.asset('images/ABCD-rules/Skinspot_A.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 30,
+                  child: Text(
+                    AppLocalizations.of(context).informationFour_A_text,
+                    style: TextStyle(
+                      color: Colors.black,
+                      //fontWeight: FontWeight.w800,
+                      fontFamily: 'Roboto',
+                      letterSpacing: 0.5,
+                      fontSize: 28
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 20,
+                  child: SizedBox(),
+                ),
+            ],
+            )
+        ),Expanded(
+            flex: 10,
+            child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 30,
+                  child: SizedBox(),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Text(
+                    AppLocalizations.of(context).informationFour_A_title,
+                    style: TextStyle(
+                      color: Colors.black,
+                      //fontWeight: FontWeight.w800,
+                      fontFamily: 'Roboto',
+                      letterSpacing: 0.5,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Text(
+                    AppLocalizations.of(context).informationFour_B_title,
+                    style: TextStyle(
+                      color: Colors.black,
+                      //fontWeight: FontWeight.w800,
+                      fontFamily: 'Roboto',
+                      letterSpacing: 0.5,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Text(
+                    AppLocalizations.of(context).informationFour_C_title,
+                    style: TextStyle(
+                      color: Colors.black,
+                      //fontWeight: FontWeight.w800,
+                      fontFamily: 'Roboto',
+                      letterSpacing: 0.5,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Text(
+                    AppLocalizations.of(context).informationFour_D_title,
+                    style: TextStyle(
+                      color: Colors.black,
+                      //fontWeight: FontWeight.w800,
+                      fontFamily: 'Roboto',
+                      letterSpacing: 0.5,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 30,
+                  child: SizedBox(),
+                ),
+              ],
+            )
+        ),
+
+        Expanded(
+            flex: 10,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  flex: 30,
+                  child: SizedBox(),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: Image.asset('images/ABCD-rules/Skinspot_A.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: Image.asset('images/ABCD-rules/Skinspot_B.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: Image.asset('images/ABCD-rules/Skinspot_C.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: Padding(
+                    padding: EdgeInsets.all(5),
+                    child: Image.asset('images/ABCD-rules/Skinspot_D.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 30,
+                  child: SizedBox(),
+                ),
+              ],
+            )
+        ),
+        Expanded(
+            flex: 10,
+            child: SizedBox(),
+        ),
+
       ],
     );
   }
@@ -94,7 +242,7 @@ class InformationFour extends StatelessWidget {
 
         TextSpan(
             text:
-                AppLocalizations.of(context).informationFour_text),
+                AppLocalizations.of(context).informationFour_text_title),
       ],
     );
   }

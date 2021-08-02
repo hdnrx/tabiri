@@ -170,7 +170,6 @@ class ScreeningFive extends StatelessWidget {
           color: Color(0xFF5D584E),
         ),
         children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
           TextSpan(
               text:
                   AppLocalizations.of(context).screeningFive_text_one_partOne),
@@ -218,7 +217,6 @@ class ScreeningFive extends StatelessWidget {
           color: Color(0xFF5D584E),
         ),
         children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
           TextSpan(
               text:
                   AppLocalizations.of(context).screeningFive_text_two_partOne),
@@ -266,7 +264,6 @@ class ScreeningFive extends StatelessWidget {
           color: Color(0xFF5D584E),
         ),
         children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
           TextSpan(
               text: AppLocalizations.of(context)
                   .screeningFive_text_three_partOne),

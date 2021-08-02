@@ -108,9 +108,9 @@ class _InformationState extends State<Information> {
       case 2:
         return AppLocalizations.of(context).informationThree_title;
       case 3:
-        return AppLocalizations.of(context).informationThree_title;
+        return AppLocalizations.of(context).informationFour_title;
       case 4:
-        return AppLocalizations.of(context).informationThree_title;
+        return AppLocalizations.of(context).informationFive_title;
       default:
         return "";
     }

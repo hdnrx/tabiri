@@ -1,5 +1,8 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 
 class ScreeningTwo extends StatelessWidget {
   double heightScaleFactor;
@@ -48,7 +51,9 @@ class ScreeningTwo extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(flex: 5, child: SizedBox()),
+              Expanded(
+                  flex: 5,
+                  child: SizedBox()),
               Expanded(
                 flex: 40,
                 child: Column(
@@ -59,12 +64,37 @@ class ScreeningTwo extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 90,
-                      child: textColumn(context),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 90,
+                            child: textColumn(context),
+                          ),
+                          Expanded(
+                              flex: 10,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 50,
+                                    child: button("Nein, danke", () => handleJa()),
+                                  ),
+                                  Expanded(
+                                    flex: 50,
+                                    child: button("Ja", () => handleJa())
+                                  )
+                                  ],
+                              ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-              Expanded(flex: 10, child: SizedBox()),
+
+              Expanded(
+                  flex: 10,
+                  child: SizedBox()),
             ],
           ),
         ),
@@ -111,7 +141,7 @@ class ScreeningTwo extends StatelessWidget {
             Expanded(
               flex: 90,
               child: Center(
-                child: Image.asset('assets/images/screening/lichtlupe.png'),
+                child: Image.asset('assets/images/screening/Doctor_control.png'),
               ),
             ),
           ],
@@ -130,7 +160,7 @@ class ScreeningTwo extends StatelessWidget {
             AppLocalizations.of(context).screeningTwo_text_one_title,
             textScaleFactor: textScaleFactor,
             style: TextStyle(
-              fontSize: 34,
+              fontSize: 28,
               fontFamily: 'Open Sans',
               fontWeight: FontWeight.w900,
               color: Color(0xFF332E27),
@@ -170,6 +200,31 @@ class ScreeningTwo extends StatelessWidget {
     );
   }
 
+  Widget button(String text, Function buttonFunction) {
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      textColor: Color(0xFF332E27),
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          10 * heightScaleFactor,
+          30 * widthScaleFactor,
+          10 * heightScaleFactor),
+    );
+  }
+
+
+  void handleJa()
+  {
+
+  }
+
+  void handleNein()
+  {
+
+  }
 
 
 }

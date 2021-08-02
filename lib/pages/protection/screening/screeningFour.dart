@@ -8,8 +8,14 @@ class ScreeningFour extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    heightScaleFactor = MediaQuery.of(context).size.height / 1200;
-    widthScaleFactor = MediaQuery.of(context).size.width / 1920;
+    heightScaleFactor = MediaQuery
+        .of(context)
+        .size
+        .height / 1200;
+    widthScaleFactor = MediaQuery
+        .of(context)
+        .size
+        .width / 1920;
     textScaleFactor = (heightScaleFactor + widthScaleFactor) / 2;
     return Scaffold(
       body: SafeArea(
@@ -111,7 +117,7 @@ class ScreeningFour extends StatelessWidget {
             Expanded(
               flex: 90,
               child: Center(
-                child: Image.asset('assets/images/screening/rückenmelanom.png'),
+                child: Image.asset('assets/images/screening/microscope.png'),
               ),
             ),
           ],
@@ -127,7 +133,9 @@ class ScreeningFour extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(bottom: 50 * heightScaleFactor),
           child: Text(
-            AppLocalizations.of(context).screeningFour_text_one_title,
+            AppLocalizations
+                .of(context)
+                .screeningFour_text_one_title,
             textScaleFactor: textScaleFactor,
             style: TextStyle(
               fontSize: 34,
@@ -138,110 +146,116 @@ class ScreeningFour extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointOne(context),
+            padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
+            child: Text(
+                  AppLocalizations
+                    .of(context)
+                    .screeningFour_text_one_text,
+                  style: TextStyle(
+                  fontSize: 26,
+                  fontFamily: 'Open Sans',
+                  color: Color(0xFF332E27),
+          ),
         ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointTwo(context),
         ),
       ],
     );
   }
+//
+//   Widget pointOne(BuildContext context) {
+//     TextStyle highlight = TextStyle(
+//       fontWeight: FontWeight.w900,
+//       fontSize: 28,
+//       fontFamily: 'Open Sans',
+//       height: 1.70,
+//       color: Color(0xFF5D584E),
+//     );
+//     return RichText(
+//       text: TextSpan(
+//         style: TextStyle(
+//           fontSize: 28,
+//           fontFamily: 'Open Sans',
+//           height: 1.70,
+//           color: Color(0xFF5D584E),
+//         ),
+//         children: [
+//           TextSpan(text: String.fromCharCode(0x2022) + " "),
+//           TextSpan(
+//               text:
+//                   AppLocalizations.of(context).screeningFour_text_one_partOne),
+//           TextSpan(
+//               text: AppLocalizations.of(context)
+//                   .screeningFour_text_one_highlightOne,
+//               style: highlight),
+//           TextSpan(
+//               text:
+//                   AppLocalizations.of(context).screeningFour_text_one_partTwo),
+//           TextSpan(
+//               text: AppLocalizations.of(context)
+//                   .screeningFour_text_one_highlightTwo,
+//               style: highlight),
+//           TextSpan(
+//               text: AppLocalizations.of(context)
+//                   .screeningFour_text_one_partThree),
+//           TextSpan(
+//               text: AppLocalizations.of(context)
+//                   .screeningFour_text_one_highlightThree,
+//               style: highlight),
+//           TextSpan(
+//               text:
+//                   AppLocalizations.of(context).screeningFour_text_one_partFour),
+//         ],
+//       ),
+//       textScaleFactor: textScaleFactor,
+//     );
+//   }
+//
+//   Widget pointTwo(BuildContext context) {
+//     TextStyle highlight = TextStyle(
+//       fontWeight: FontWeight.w900,
+//       fontSize: 28,
+//       fontFamily: 'Open Sans',
+//       height: 1.70,
+//       color: Color(0xFF5D584E),
+//     );
+//     return RichText(
+//       text: TextSpan(
+//         style: TextStyle(
+//           fontSize: 28,
+//           fontFamily: 'Open Sans',
+//           height: 1.70,
+//           color: Color(0xFF5D584E),
+//         ),
+//         children: [
+//           TextSpan(text: String.fromCharCode(0x2022) + " "),
+//           TextSpan(
+//               text:
+//                   AppLocalizations.of(context).screeningFour_text_two_partOne),
+//           TextSpan(
+//               text: AppLocalizations.of(context)
+//                   .screeningFour_text_two_highlightOne,
+//               style: highlight),
+//           TextSpan(
+//               text:
+//                   AppLocalizations.of(context).screeningFour_text_two_partTwo),
+//           TextSpan(
+//               text: AppLocalizations.of(context)
+//                   .screeningFour_text_two_highlightTwo,
+//               style: highlight),
+//           TextSpan(
+//               text: AppLocalizations.of(context)
+//                   .screeningFour_text_two_partThree),
+//           TextSpan(
+//               text: AppLocalizations.of(context)
+//                   .screeningFour_text_two_highlightThree,
+//               style: highlight),
+//           TextSpan(
+//               text:
+//                   AppLocalizations.of(context).screeningFour_text_two_partFour),
+//         ],
+//       ),
+//       textScaleFactor: textScaleFactor,
+//     );
+//   }
 
-  Widget pointOne(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningFour_text_one_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningFour_text_one_highlightOne,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningFour_text_one_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningFour_text_one_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningFour_text_one_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningFour_text_one_highlightThree,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningFour_text_one_partFour),
-        ],
-      ),
-      textScaleFactor: textScaleFactor,
-    );
-  }
-
-  Widget pointTwo(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningFour_text_two_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningFour_text_two_highlightOne,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningFour_text_two_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningFour_text_two_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningFour_text_two_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningFour_text_two_highlightThree,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningFour_text_two_partFour),
-        ],
-      ),
-      textScaleFactor: textScaleFactor,
-    );
-  }
 }

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
+import 'package:tabiri_2/widgets/routes.dart';
+
+import '../../home.dart';
 
 class ScreeningOne extends StatelessWidget {
   double heightScaleFactor;
@@ -61,17 +65,41 @@ class ScreeningOne extends StatelessWidget {
                       child: SizedBox(),
                     ),
                     Expanded(
-                      flex: 90,
+                      flex: 80,
                       child: textColumn(context),
+                    ),
+                    Expanded(
+                      flex: 10,
+                      child: button("Die ABCD-Regel", () => handleABCD()),
                     ),
                   ],
                 ),
               ),
-              Expanded(flex: 10, child: SizedBox()),
+
+              Expanded
+                (
+                  flex: 10,
+                  child: SizedBox(),
+              ),
             ],
           ),
         )
       ],
+    );
+  }
+
+  Widget button(String text, Function buttonFunction) {
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      textColor: Color(0xFF332E27),
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          10 * heightScaleFactor,
+          30 * widthScaleFactor,
+          10 * heightScaleFactor),
     );
   }
 
@@ -114,7 +142,7 @@ class ScreeningOne extends StatelessWidget {
             Expanded(
               flex: 90,
               child: Center(
-                child: Image.asset('assets/images/screening/termin.png'),
+                child: Image.asset('assets/images/screening/Self_control.png'),
               ),
             ),
           ],
@@ -174,3 +202,17 @@ class ScreeningOne extends StatelessWidget {
     );
   }
 }
+
+void handleABCD() {
+
+    // widget.pageController.animateToPage(index + 1,
+    //     duration: Duration(milliseconds: 500), curve: Curves.ease);
+    //
+    // Navigator.push(
+    //   context,
+    //   PageRouteWithTransition(
+    //     builder: (context) => Home(),
+    //   ),
+    // );
+  }
+
