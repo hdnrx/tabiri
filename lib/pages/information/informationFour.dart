@@ -66,7 +66,7 @@ class InformationFour extends StatelessWidget {
                   flex: 30,
                   child: Padding(
                     padding: EdgeInsets.all(30),
-                    child: Image.asset('images/ABCD-rules/Skinspot_A.png',
+                    child: Image.asset('images/ABCDrules/Skinspot_A.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -172,7 +172,7 @@ class InformationFour extends StatelessWidget {
                   flex: 10,
                   child: Padding(
                     padding: EdgeInsets.all(5),
-                    child: Image.asset('images/ABCD-rules/Skinspot_A.png',
+                    child: Image.asset('images/ABCDrules/Skinspot_A.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -181,7 +181,7 @@ class InformationFour extends StatelessWidget {
                   flex: 10,
                   child: Padding(
                     padding: EdgeInsets.all(5),
-                    child: Image.asset('images/ABCD-rules/Skinspot_B.png',
+                    child: Image.asset('images/ABCDrules/Skinspot_B.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -190,7 +190,7 @@ class InformationFour extends StatelessWidget {
                   flex: 10,
                   child: Padding(
                     padding: EdgeInsets.all(5),
-                    child: Image.asset('images/ABCD-rules/Skinspot_C.png',
+                    child: Image.asset('images/ABCDrules/Skinspot_C.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -199,7 +199,7 @@ class InformationFour extends StatelessWidget {
                   flex: 10,
                   child: Padding(
                     padding: EdgeInsets.all(5),
-                    child: Image.asset('images/ABCD-rules/Skinspot_D.png',
+                    child: Image.asset('images/ABCDrules/Skinspot_D.png',
                       fit: BoxFit.contain,
                     ),
                   ),

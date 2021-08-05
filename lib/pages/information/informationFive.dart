@@ -36,7 +36,7 @@ class InformationFive extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w800,
-                    fontFamily: 'Roboto',
+                    fontFamily: 'OpenSans',
                     letterSpacing: 0.5,
                     fontSize: 20,
               ),
@@ -54,7 +54,7 @@ class InformationFive extends StatelessWidget {
                   flex: 20,
                   child: Padding(
                       padding: EdgeInsets.all(30),
-                      child: Image.asset('images/ABCD-rules/Skinspot_change_color.png',
+                      child: Image.asset('images/ABCDrules/Skinspot_change_different.png',
                       fit: BoxFit.contain,
                       ),
                   ),
@@ -63,7 +63,7 @@ class InformationFive extends StatelessWidget {
                   flex: 20,
                   child: Padding(
                     padding: EdgeInsets.all(30),
-                    child: Image.asset('images/ABCD-rules/Skinspot_change_different.png',
+                    child: Image.asset('images/ABCDrules/Skinspot_change_color.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -72,7 +72,7 @@ class InformationFive extends StatelessWidget {
                   flex: 20,
                   child: Padding(
                     padding: EdgeInsets.all(30),
-                    child: Image.asset('images/ABCD-rules/Skinspot_change_pain.png',
+                    child: Image.asset('images/ABCDrules/Skinspot_change_pain.png',
                       fit: BoxFit.contain,
                     ),
                   ),

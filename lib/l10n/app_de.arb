@@ -178,8 +178,8 @@
     "avatarOne_slider_textThree" : "55",
     "avatarOne_slider_textFour" : "65",
     "avatarOne_slider_textFive" : "über\n75",
-    "avatarOne_popup_title" : "Risiko Rechner für Schwarzen Hautkrebs",
-    "avatarOne_popup_text" : "Dieser Risiko-Rechner bezieht sich ausschließlich auf den schwarzen Hautkrebs (malignes Melanom)",
+    "avatarOne_popup_title" : "Ihr persönliches Risiko",
+    "avatarOne_popup_text" : "Es folgen einige Fragen zu persönlichen Risikofaktoren für Hautkrebs. Ermittelt wird das Risiko für den besonders gefährlichen schwarzen Hautkrebs. \nFür Menschen mit schwarzer Hautfarbe ist der Rechner nicht anwendbar. Ihr Risiko an schwarzem Hautkrebs zu erkranken ist sehr gering.",
     "avatarOne_popup_button" : "Verstanden",
 
     "avatarTwo_radio_title" : "Was ist ihre natürliche Haarfarbe?",
@@ -230,7 +230,7 @@
     "avatarSix_text_one_partFive": "",
     "avatarSix_text_two": "Hautkrebs ist behandelbar. Wenn man ihn schnell findet, sind die Heilungschancen groß. Deshalb ist Vorsorge so wichtig.",
 
-    "avatarSeven_text": "Hatten sie bereits Hautkrebs Erkrankungen in ihrer Familie?",
+    "avatarSeven_text": "Hatte jemand in Ihrer Familie (Eltern, Geschwister) schon einmal schwarzen Hautkrebs?",
     "avatarSeven_button_no": "Nein",
     "avatarSeven_button_yes": "Ja",
     "avatarSeven_actionText": "Keine Angabe",
