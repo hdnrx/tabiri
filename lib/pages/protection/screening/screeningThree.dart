@@ -122,39 +122,6 @@ class ScreeningThree extends StatelessWidget {
     );
   }
 
-  Widget textColumn(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 50 * heightScaleFactor),
-          child: Text(
-            AppLocalizations.of(context).screeningThree_text_one_title,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 34,
-              fontFamily: 'Open Sans',
-              fontWeight: FontWeight.w900,
-              color: Color(0xFF332E27),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointOne(context),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointTwo(context),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointThree(context),
-        ),
-      ],
-    );
-  }
-
   Widget pointOne(BuildContext context) {
     TextStyle highlight = TextStyle(
       fontWeight: FontWeight.w900,
@@ -166,7 +133,7 @@ class ScreeningThree extends StatelessWidget {
     return RichText(
       text: TextSpan(
         style: TextStyle(
-          fontSize: 28,
+          fontSize: 26,
           fontFamily: 'Open Sans',
           height: 1.70,
           color: Color(0xFF5D584E),
@@ -220,31 +187,9 @@ class ScreeningThree extends StatelessWidget {
           color: Color(0xFF5D584E),
         ),
         children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
           TextSpan(
               text:
-                  AppLocalizations.of(context).screeningThree_text_two_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_two_highlightOne,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningThree_text_two_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_two_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_two_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_two_highlightThree,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_two_partFour),
+                  AppLocalizations.of(context).screeningThree_text_two_partOne)
         ],
       ),
       textScaleFactor: textScaleFactor,
@@ -296,6 +241,40 @@ class ScreeningThree extends StatelessWidget {
         ],
       ),
       textScaleFactor: textScaleFactor,
+    );
+  }
+
+  Widget textColumn(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(bottom: 50 * heightScaleFactor),
+          child: Text(
+            AppLocalizations.of(context).screeningThree_text_one_title,
+            textScaleFactor: textScaleFactor,
+            style: TextStyle(
+              fontSize: 34,
+              fontFamily: 'Open Sans',
+              fontWeight: FontWeight.w900,
+              color: Color(0xFF332E27),
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
+          child: Text(
+              AppLocalizations.of(context).screeningThree_text_one_partOne,
+              style: TextStyle(
+                fontSize: 28,
+                fontFamily: 'Open Sans',
+                color: Color(0xFF332E27),
+              ),
+          ),
+        )     ,
+
+
+      ],
     );
   }
 }

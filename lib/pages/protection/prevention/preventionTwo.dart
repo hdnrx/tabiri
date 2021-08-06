@@ -66,26 +66,6 @@ class PreventionTwo extends StatelessWidget {
               AppLocalizations.of(context).preventionTwo_text_one_content),
         ),
         Expanded(
-          flex: 3,
-          child: SizedBox(),
-        ),
-        Flexible(
-          flex: 30,
-          child: paragraph(
-              AppLocalizations.of(context).preventionTwo_text_two_title,
-              AppLocalizations.of(context).preventionTwo_text_two_content),
-        ),
-        Expanded(
-          flex: 3,
-          child: SizedBox(),
-        ),
-        Flexible(
-          flex: 30,
-          child: paragraph(
-              AppLocalizations.of(context).preventionTwo_text_three_title,
-              AppLocalizations.of(context).preventionTwo_text_three_content),
-        ),
-        Expanded(
           flex: 4,
           child: SizedBox(),
         ),

@@ -303,7 +303,7 @@ class _MyStatefulWidgetState extends State<AvatarOne> {
                                     textScaleFactor: textScaleFactor,
                                     style: TextStyle(
                                       color: Color(0xFF5D584E),
-                                      fontSize: 28,
+                                      fontSize: 24,
                                       fontFamily: 'Open Sans',
                                       height: 1.78,
                                     ),

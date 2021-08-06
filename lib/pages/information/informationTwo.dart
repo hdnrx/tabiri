@@ -87,7 +87,7 @@ class InformationTwo extends StatelessWidget {
       titleSize: 34,
       titleFontWeight: FontWeight.w900,
       titleFontColor: Color(0xFF5D584E),
-      textSize: 28,
+      textSize: 24,
       textHeight: 1.5,
       textFontColor: Color(0xFF5D584E),
       children: <InlineSpan>[

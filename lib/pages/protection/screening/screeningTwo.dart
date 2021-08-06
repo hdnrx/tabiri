@@ -1,5 +1,8 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 
 class ScreeningTwo extends StatelessWidget {
   double heightScaleFactor;
@@ -48,7 +51,9 @@ class ScreeningTwo extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(flex: 5, child: SizedBox()),
+              Expanded(
+                  flex: 5,
+                  child: SizedBox()),
               Expanded(
                 flex: 40,
                 child: Column(
@@ -59,12 +64,37 @@ class ScreeningTwo extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 90,
-                      child: textColumn(context),
+                      child: Column(
+                        children: [
+                          Expanded(
+                            flex: 90,
+                            child: textColumn(context),
+                          ),
+                          Expanded(
+                              flex: 10,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 50,
+                                    child: button("Nein, danke", () => handleJa()),
+                                  ),
+                                  Expanded(
+                                    flex: 50,
+                                    child: button("Ja", () => handleJa())
+                                  )
+                                  ],
+                              ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-              Expanded(flex: 10, child: SizedBox()),
+
+              Expanded(
+                  flex: 10,
+                  child: SizedBox()),
             ],
           ),
         ),
@@ -111,7 +141,7 @@ class ScreeningTwo extends StatelessWidget {
             Expanded(
               flex: 90,
               child: Center(
-                child: Image.asset('assets/images/screening/lichtlupe.png'),
+                child: Image.asset('assets/images/screening/Doctor_control.png'),
               ),
             ),
           ],
@@ -130,7 +160,7 @@ class ScreeningTwo extends StatelessWidget {
             AppLocalizations.of(context).screeningTwo_text_one_title,
             textScaleFactor: textScaleFactor,
             style: TextStyle(
-              fontSize: 34,
+              fontSize: 28,
               fontFamily: 'Open Sans',
               fontWeight: FontWeight.w900,
               color: Color(0xFF332E27),
@@ -140,14 +170,6 @@ class ScreeningTwo extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
           child: pointOne(context),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointTwo(context),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointThree(context),
         ),
       ],
     );
@@ -170,126 +192,39 @@ class ScreeningTwo extends StatelessWidget {
           color: Color(0xFF5D584E),
         ),
         children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
           TextSpan(
               text: AppLocalizations.of(context).screeningTwo_text_one_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_one_highlightOne,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningTwo_text_one_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_one_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_one_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_one_highlightThree,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_one_partFour),
         ],
       ),
       textScaleFactor: textScaleFactor,
     );
   }
 
-  Widget pointTwo(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningTwo_text_two_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_two_highlightOne,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningTwo_text_two_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_two_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_two_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_two_highlightThree,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_two_partFour),
-        ],
-      ),
+  Widget button(String text, Function buttonFunction) {
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      textColor: Color(0xFF332E27),
+      buttonFunction: buttonFunction,
       textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          10 * heightScaleFactor,
+          30 * widthScaleFactor,
+          10 * heightScaleFactor),
     );
   }
 
-  Widget pointThree(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_three_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_highlightOne,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningTwo_text_three_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_highlightThree,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningTwo_text_three_partFour),
-        ],
-      ),
-      textScaleFactor: textScaleFactor,
-    );
+
+  void handleJa()
+  {
+
   }
+
+  void handleNein()
+  {
+
+  }
+
+
 }

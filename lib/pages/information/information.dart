@@ -4,9 +4,11 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/endScreen.dart';
 import 'package:tabiri_2/pages/home.dart';
+import 'package:tabiri_2/pages/information/informationFive.dart';
 import 'package:tabiri_2/pages/information/informationOne.dart';
 import 'package:tabiri_2/pages/information/informationThree.dart';
 import 'package:tabiri_2/pages/information/informationTwo.dart';
+import 'package:tabiri_2/pages/information/informationFour.dart';
 import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
@@ -18,7 +20,7 @@ double textScaleFactor;
 class Information extends StatefulWidget {
   final pageController = PageController();
 
-  final int numberOfPages = 3;
+  final int numberOfPages = 5;
 
   @override
   _InformationState createState() => _InformationState();
@@ -72,6 +74,8 @@ class _InformationState extends State<Information> {
                         InformationOne(),
                         InformationTwo(),
                         InformationThree(),
+                        InformationFour(),
+                        InformationFive(),
                       ],
                     ),
                   ),
@@ -103,6 +107,10 @@ class _InformationState extends State<Information> {
         return AppLocalizations.of(context).informationTwo_title;
       case 2:
         return AppLocalizations.of(context).informationThree_title;
+      case 3:
+        return AppLocalizations.of(context).informationFour_title;
+      case 4:
+        return AppLocalizations.of(context).informationFive_title;
       default:
         return "";
     }
@@ -158,9 +166,13 @@ class _InformationState extends State<Information> {
                 ),
               ),
             ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: button(getButtonText(index), () => handleContinue()),
+            )
 
-            //check if one or more buttons are to show
-            index == 0 || index == 1
+            /*//check if one or more buttons are to show
+            index == 0 || index == 3
                 ? Align(
                     alignment: Alignment.centerRight,
                     child: CustomElevatedButton(
@@ -207,10 +219,25 @@ class _InformationState extends State<Information> {
                         ),
                       ),
                     ],
-                  ),
+                  ),*/
           ],
         ),
       ),
+    );
+  }
+
+  Widget button(String text, Function buttonFunction) {
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      textColor: Color(0xFF332E27),
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          10 * heightScaleFactor,
+          30 * widthScaleFactor,
+          10 * heightScaleFactor),
     );
   }
 
@@ -267,10 +294,11 @@ class _InformationState extends State<Information> {
       case 1:
         return AppLocalizations.of(context).informationTwo_buttonText;
       case 2:
-        return [
-          AppLocalizations.of(context).informationThree_button_one_text,
-          AppLocalizations.of(context).informationThree_button_two_text
-        ];
+        return AppLocalizations.of(context).informationThree_button_two_text;
+      case 3:
+        return AppLocalizations.of(context).informationThree_button_two_text;
+      case 4:
+        return AppLocalizations.of(context).informationThree_button_two_text;
       default:
         return "";
     }
