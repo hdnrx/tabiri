@@ -65,15 +65,21 @@ class StandardHeader extends StatelessWidget {
               Expanded(
                 flex: 70,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(
-                      flex: 90,
+                      flex:20,
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 70,
                       child: Text(
                         title,
                         textScaleFactor: textScaleFactor,
                         style: TextStyle(
                             color: Color(0xFF5D584E),
-                            fontSize: 42,
+                            fontSize: 48,
                             fontFamily: 'Open Sans',
                             fontWeight: FontWeight.w900),
                       ),

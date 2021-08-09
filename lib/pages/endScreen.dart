@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/home.dart';
 import 'package:tabiri_2/widgets/customButton.dart';
+import 'package:tabiri_2/widgets/customText.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -49,56 +50,74 @@ class EndScreen extends StatelessWidget {
   Widget header(BuildContext context) {
     return LogoHeader();
   }
-
   Widget content(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        Align(
-          alignment: Alignment.center,
-          child: Column(
+        Expanded(
+          flex: 15,
+          child: SizedBox(),
+        ),
+        Expanded(
+          flex: 65,
+          child: Row(
             children: [
               Expanded(
-                flex: 30,
+                flex: 40,
+                child: Image.asset(
+                  'assets/images/home/placeholder.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Expanded(
+                flex: 3,
                 child: SizedBox(),
               ),
               Expanded(
-                flex: 40,
-                child: paragraph(AppLocalizations.of(context).endScreen_text),
+                flex: 42,
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 20,
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 60,
+                      child: paragraph(context),
+                    ),
+                    Expanded(
+                      flex: 20,
+                      child: SizedBox(),
+                    ),
+                  ],
+                ),
               ),
               Expanded(
-                flex: 30,
+                flex: 15,
                 child: SizedBox(),
               ),
             ],
           ),
         ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: button(AppLocalizations.of(context).endScreen_button_again,
-              () => handleAgain(context), Colors.white, Colors.black),
-        ),
-        Align(
-          alignment: Alignment.bottomRight,
-          child: button(AppLocalizations.of(context).button_exit,
-              () => handleExit(context), Colors.red, Colors.white),
+        Expanded(
+          flex: 10,
+          child: SizedBox(),
         ),
       ],
     );
   }
 
-  Widget paragraph(String text) {
-    return Text(
-      text,
+  Widget paragraph(BuildContext context) {
+    return CustomParagraph(
+      title: AppLocalizations.of(context).endScreen_title,
+      text: AppLocalizations.of(context).endScreen_text,
+      titleSize: 34,
+      textSize: 24,
       textScaleFactor: textScaleFactor,
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        color: Colors.black,
-        wordSpacing: 1.02,
-        height: 2,
-        fontSize: 34,
-        fontFamily: 'Open Sans',
-        fontWeight: FontWeight.w600,
-      ),
+      titleFontColor: Color(0xFF5D584E),
+      textFontColor: Color(0xFF5D584E),
+      titleFontWeight: FontWeight.w900,
+      textHeight: 1.2,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
     );
   }
 

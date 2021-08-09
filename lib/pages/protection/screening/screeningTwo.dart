@@ -76,11 +76,11 @@ class ScreeningTwo extends StatelessWidget {
                                 children: [
                                   Expanded(
                                     flex: 50,
-                                    child: button("Nein, danke", () => handleJa()),
+                                    child: SizedBox(),//button("Nein, danke", () => handleJa()),
                                   ),
                                   Expanded(
                                     flex: 50,
-                                    child: button("Ja", () => handleJa())
+                                    child: SizedBox(),//button("Ja", () => handleJa())
                                   )
                                   ],
                               ),

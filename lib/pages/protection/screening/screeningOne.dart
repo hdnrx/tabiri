@@ -70,7 +70,7 @@ class ScreeningOne extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 10,
-                      child: button("Die ABCD-Regel", () => handleABCD()),
+                      child: SizedBox(),//button("Die ABCD-Regel", () => handleABCD()),
                     ),
                   ],
                 ),

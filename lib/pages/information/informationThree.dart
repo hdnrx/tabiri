@@ -32,7 +32,7 @@ class InformationThree extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                flex: 50,
+                flex: 40,
                 child: Image.asset(
                   'assets/images/information/haut_doppel_dark.png',
                   fit: BoxFit.contain,
@@ -43,7 +43,7 @@ class InformationThree extends StatelessWidget {
                 child: SizedBox(),
               ),
               Expanded(
-                flex: 32,
+                flex: 42,
                 child: Column(
                   children: [
                     Expanded(

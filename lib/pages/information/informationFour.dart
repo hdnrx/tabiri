@@ -35,7 +35,7 @@ class InformationFour extends StatelessWidget {
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w800,
-              fontFamily: 'Roboto',
+              fontFamily: 'Open Sans',
               letterSpacing: 0.5,
               fontSize: 20,
             ),
@@ -48,7 +48,7 @@ class InformationFour extends StatelessWidget {
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w800,
-              fontFamily: 'Roboto',
+              fontFamily: 'Open Sans',
               letterSpacing: 0.5,
               fontSize: 28,
             ),
@@ -59,33 +59,33 @@ class InformationFour extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  flex: 20,
+                  flex: 30,
                   child: SizedBox(),
                 ),
                 Expanded(
-                  flex: 30,
+                  flex: 20,
                   child: Padding(
                     padding: EdgeInsets.all(30),
-                    child: Image.asset('images/ABCDrules/Skinspot_A.png',
+                    child: Image.asset('assets/images/ABCDrules/Skinspot_A.png',
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
                 Expanded(
-                  flex: 30,
+                  flex: 20,
                   child: Text(
                     AppLocalizations.of(context).informationFour_A_text,
                     style: TextStyle(
                       color: Colors.black,
                       //fontWeight: FontWeight.w800,
-                      fontFamily: 'Roboto',
+                      fontFamily: 'Open Sans',
                       letterSpacing: 0.5,
-                      fontSize: 28
+                      fontSize: 24
                     ),
                   ),
                 ),
                 Expanded(
-                  flex: 20,
+                  flex: 30,
                   child: SizedBox(),
                 ),
             ],
@@ -106,7 +106,7 @@ class InformationFour extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       //fontWeight: FontWeight.w800,
-                      fontFamily: 'Roboto',
+                      fontFamily: 'Open Sans',
                       letterSpacing: 0.5,
                       fontSize: 20,
                     ),
@@ -119,7 +119,7 @@ class InformationFour extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       //fontWeight: FontWeight.w800,
-                      fontFamily: 'Roboto',
+                      fontFamily: 'Open Sans',
                       letterSpacing: 0.5,
                       fontSize: 20,
                     ),
@@ -132,7 +132,7 @@ class InformationFour extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       //fontWeight: FontWeight.w800,
-                      fontFamily: 'Roboto',
+                      fontFamily: 'Open Sans',
                       letterSpacing: 0.5,
                       fontSize: 20,
                     ),
@@ -145,7 +145,7 @@ class InformationFour extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       //fontWeight: FontWeight.w800,
-                      fontFamily: 'Roboto',
+                      fontFamily: 'Open Sans',
                       letterSpacing: 0.5,
                       fontSize: 20,
                     ),
@@ -232,7 +232,7 @@ class InformationFour extends StatelessWidget {
       title: AppLocalizations.of(context).informationFour_text_title,
       padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
       textScaleFactor: textScaleFactor,
-      titleSize: 34,
+      titleSize: 28,
       titleFontWeight: FontWeight.w900,
       titleFontColor: Color(0xFF5D584E),
       textSize: 22,

@@ -22,11 +22,11 @@ class ScreeningThree extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          flex: 15,
+          flex: 5,
           child: SizedBox(),
         ),
         Expanded(
-          flex: 85,
+          flex: 95,
           child: Row(
             children: [
               Expanded(
@@ -139,31 +139,11 @@ class ScreeningThree extends StatelessWidget {
           color: Color(0xFF5D584E),
         ),
         children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
           TextSpan(
               text:
-                  AppLocalizations.of(context).screeningThree_text_one_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_one_highlightOne,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningThree_text_one_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_one_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_one_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_one_highlightThree,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_one_partFour),
+                  AppLocalizations.of(context).screeningThree_text_one_partOne
+            ),
+
         ],
       ),
       textScaleFactor: textScaleFactor,
@@ -213,31 +193,9 @@ class ScreeningThree extends StatelessWidget {
           color: Color(0xFF5D584E),
         ),
         children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
           TextSpan(
               text: AppLocalizations.of(context)
                   .screeningThree_text_three_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_three_highlightOne,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_three_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_three_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_three_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_three_highlightThree,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_three_partFour),
         ],
       ),
       textScaleFactor: textScaleFactor,
@@ -248,19 +206,19 @@ class ScreeningThree extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 50 * heightScaleFactor),
-          child: Text(
-            AppLocalizations.of(context).screeningThree_text_one_title,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 34,
-              fontFamily: 'Open Sans',
-              fontWeight: FontWeight.w900,
-              color: Color(0xFF332E27),
-            ),
-          ),
-        ),
+        // Padding(
+        //   padding: EdgeInsets.only(bottom: 50 * heightScaleFactor),
+        //   child: Text(
+        //     AppLocalizations.of(context).screeningThree_text_one_title,
+        //     textScaleFactor: textScaleFactor,
+        //     style: TextStyle(
+        //       fontSize: 34,
+        //       fontFamily: 'Open Sans',
+        //       fontWeight: FontWeight.w900,
+        //       color: Color(0xFF332E27),
+        //     ),
+        //   ),
+        // ),
         Padding(
           padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
           child: Text(

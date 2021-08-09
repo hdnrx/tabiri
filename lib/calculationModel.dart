@@ -10,7 +10,7 @@ class CalculationModel {
     return instance;
   }
 
-  CalculationModel.internal() {}
+  CalculationModel.internal();
 
   /// regression coefficient according to calculation model
 

@@ -47,38 +47,46 @@ class InformationFive extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  flex: 20,
+                  flex: 10,
                   child: SizedBox(),
                 ),
                 Expanded(
                   flex: 20,
                   child: Padding(
                       padding: EdgeInsets.all(30),
-                      child: Image.asset('images/ABCDrules/Skinspot_change_different.png',
+                      child: Image.asset('assets/images/ABCDrules/Skinspot_change_different.png',
                       fit: BoxFit.contain,
                       ),
                   ),
                 ),
                 Expanded(
-                  flex: 20,
-                  child: Padding(
-                    padding: EdgeInsets.all(30),
-                    child: Image.asset('images/ABCDrules/Skinspot_change_color.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                  flex: 10,
+                  child: SizedBox(),
                 ),
                 Expanded(
                   flex: 20,
                   child: Padding(
                     padding: EdgeInsets.all(30),
-                    child: Image.asset('images/ABCDrules/Skinspot_change_pain.png',
+                    child: Image.asset('assets/images/ABCDrules/Skinspot_change_color.png',
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
                 Expanded(
+                  flex: 10,
+                  child: SizedBox(),
+                ),
+                Expanded(
                   flex: 20,
+                  child: Padding(
+                    padding: EdgeInsets.all(30),
+                    child: Image.asset('assets/images/ABCDrules/Skinspot_change_pain.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
                   child: SizedBox(),
                 ),
               ],
@@ -89,7 +97,7 @@ class InformationFive extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                flex: 20,
+                flex: 10,
                 child: SizedBox(),
               ),
               Expanded(
@@ -99,24 +107,35 @@ class InformationFive extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.black,
                     //fontWeight: FontWeight.w800,
-                    fontFamily: 'Roboto',
+                    fontFamily: 'Open Sans',
                     letterSpacing: 0.5,
                     fontSize: 20,
                   ),
                 ),
               ),
               Expanded(
+                flex: 10,
+                child: SizedBox(),
+              ),
+              Expanded(
                 flex: 20,
-                child: Text(
+                child: FittedBox(
+                  fit: BoxFit.fill,
+                  child:Text(
                   AppLocalizations.of(context).informationFive_text_2,
                   style: TextStyle(
                     color: Colors.black,
                     //fontWeight: FontWeight.w800,
-                    fontFamily: 'Roboto',
+                    fontFamily: 'Open Sans',
                     letterSpacing: 0.5,
                     fontSize: 20,
                   ),
                 ),
+              ),
+              ),
+              Expanded(
+                flex: 10,
+                child: SizedBox(),
               ),
               Expanded(
                 flex: 20,
@@ -125,14 +144,14 @@ class InformationFive extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.black,
                     //fontWeight: FontWeight.w800,
-                    fontFamily: 'Roboto',
+                    fontFamily: 'Open Sans',
                     letterSpacing: 0.5,
                     fontSize: 20,
                   ),
                 ),
               ),
               Expanded(
-                flex: 20,
+                flex: 10,
                 child: SizedBox(),
               ),
             ],
@@ -145,7 +164,7 @@ class InformationFive extends StatelessWidget {
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w800,
-              fontFamily: 'Roboto',
+              fontFamily: 'Open Sans',
               letterSpacing: 0.5,
               fontSize: 20,
             ),

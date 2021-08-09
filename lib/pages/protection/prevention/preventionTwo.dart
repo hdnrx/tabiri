@@ -78,7 +78,7 @@ class PreventionTwo extends StatelessWidget {
       title: title,
       text: text,
       titleSize: 28,
-      textSize: 28,
+      textSize: 24,
       textScaleFactor: textScaleFactor,
       titleFontWeight: FontWeight.w900,
       textHeight: 1.5,

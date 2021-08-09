@@ -157,7 +157,7 @@ class _ProtectionState extends State<Protection> {
     );
   }
 
-  Widget cardOne() {
+  Widget cardTwo() {
     return AnimatedSwitcher(
       duration: Duration(milliseconds: 500),
       transitionBuilder: (child, animation) {
@@ -190,7 +190,7 @@ class _ProtectionState extends State<Protection> {
     );
   }
 
-  Widget cardTwo() {
+  Widget cardOne() {
     return AnimatedSwitcher(
       duration: Duration(milliseconds: 500),
       transitionBuilder: (child, animation) {
