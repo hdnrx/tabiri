@@ -95,7 +95,7 @@ class _AvatarFive extends State<AvatarFive> {
                         textScaleFactor: textScaleFactor,
                         style: TextStyle(
                             color: Color(0xFF332E27),
-                            fontSize: 34,
+                            fontSize: 30,
                             fontFamily: 'Open Sans',
                             fontWeight: FontWeight.w600),
                       ),

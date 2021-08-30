@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/customText.dart';
 
 class InformationFour extends StatelessWidget {
@@ -101,55 +102,30 @@ class InformationFour extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 10,
-                  child: Text(
-                    AppLocalizations.of(context).informationFour_A_title,
-                    style: TextStyle(
-                      color: Colors.black,
-                      //fontWeight: FontWeight.w800,
-                      fontFamily: 'Open Sans',
-                      letterSpacing: 0.5,
-                      fontSize: 20,
-                    ),
+                  child: button(AppLocalizations.of(context).informationFour_A_title, () => handleJa()
                   ),
+                  // Text(
+                  //   AppLocalizations.of(context).informationFour_A_title,
+                  //   style: TextStyle(
+                  //     color: Colors.black,
+                  //     //fontWeight: FontWeight.w800,
+                  //     fontFamily: 'Open Sans',
+                  //     letterSpacing: 0.5,
+                  //     fontSize: 20,
+                  //   ),
+                  // ),
                 ),
                 Expanded(
                   flex: 10,
-                  child: Text(
-                    AppLocalizations.of(context).informationFour_B_title,
-                    style: TextStyle(
-                      color: Colors.black,
-                      //fontWeight: FontWeight.w800,
-                      fontFamily: 'Open Sans',
-                      letterSpacing: 0.5,
-                      fontSize: 20,
-                    ),
-                  ),
+                  child: button(AppLocalizations.of(context).informationFour_B_title, () => handleJa()),
                 ),
                 Expanded(
                   flex: 10,
-                  child: Text(
-                    AppLocalizations.of(context).informationFour_C_title,
-                    style: TextStyle(
-                      color: Colors.black,
-                      //fontWeight: FontWeight.w800,
-                      fontFamily: 'Open Sans',
-                      letterSpacing: 0.5,
-                      fontSize: 20,
-                    ),
-                  ),
+                  child: button(AppLocalizations.of(context).informationFour_C_title, () => handleJa()),
                 ),
                 Expanded(
                   flex: 10,
-                  child: Text(
-                    AppLocalizations.of(context).informationFour_D_title,
-                    style: TextStyle(
-                      color: Colors.black,
-                      //fontWeight: FontWeight.w800,
-                      fontFamily: 'Open Sans',
-                      letterSpacing: 0.5,
-                      fontSize: 20,
-                    ),
-                  ),
+                  child: button(AppLocalizations.of(context).informationFour_D_title, () => handleJa()),
                 ),
                 Expanded(
                   flex: 30,
@@ -161,55 +137,56 @@ class InformationFour extends StatelessWidget {
 
         Expanded(
             flex: 10,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  flex: 30,
-                  child: SizedBox(),
-                ),
-                Expanded(
-                  flex: 10,
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Image.asset('images/ABCDrules/Skinspot_A.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 10,
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Image.asset('images/ABCDrules/Skinspot_B.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 10,
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Image.asset('images/ABCDrules/Skinspot_C.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 10,
-                  child: Padding(
-                    padding: EdgeInsets.all(5),
-                    child: Image.asset('images/ABCDrules/Skinspot_D.png',
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 30,
-                  child: SizedBox(),
-                ),
-              ],
-            )
+            child: SizedBox(),
+            // child: Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Expanded(
+            //       flex: 30,
+            //       child: SizedBox(),
+            //     ),
+            //     Expanded(
+            //       flex: 10,
+            //       child: Padding(
+            //         padding: EdgeInsets.all(5),
+            //         child: Image.asset('images/ABCDrules/Skinspot_A.png',
+            //           fit: BoxFit.contain,
+            //         ),
+            //       ),
+            //     ),
+            //     Expanded(
+            //       flex: 10,
+            //       child: Padding(
+            //         padding: EdgeInsets.all(5),
+            //         child: Image.asset('images/ABCDrules/Skinspot_B.png',
+            //           fit: BoxFit.contain,
+            //         ),
+            //       ),
+            //     ),
+            //     Expanded(
+            //       flex: 10,
+            //       child: Padding(
+            //         padding: EdgeInsets.all(5),
+            //         child: Image.asset('images/ABCDrules/Skinspot_C.png',
+            //           fit: BoxFit.contain,
+            //         ),
+            //       ),
+            //     ),
+            //     Expanded(
+            //       flex: 10,
+            //       child: Padding(
+            //         padding: EdgeInsets.all(5),
+            //         child: Image.asset('images/ABCDrules/Skinspot_D.png',
+            //           fit: BoxFit.contain,
+            //         ),
+            //       ),
+            //     ),
+            //     Expanded(
+            //       flex: 30,
+            //       child: SizedBox(),
+            //     ),
+            //   ],
+            // )
         ),
         Expanded(
             flex: 10,
@@ -246,4 +223,21 @@ class InformationFour extends StatelessWidget {
       ],
     );
   }
+
+  Widget button(String text, Function buttonFunction) {
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      textColor: Color(0xFF332E27),
+      buttonFunction: buttonFunction,
+      textScaleFactor: textScaleFactor,
+      padding: EdgeInsets.fromLTRB(
+          30 * widthScaleFactor,
+          10 * heightScaleFactor,
+          30 * widthScaleFactor,
+          10 * heightScaleFactor),
+    );
+  }
+
+  handleJa() {}
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/calculationModel.dart';
+import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/widgets/header.dart';
 
 class ResultOne extends StatelessWidget {
@@ -109,7 +110,8 @@ class ResultOne extends StatelessWidget {
 
   Widget text(BuildContext context) {
     return Text(
-      AppLocalizations.of(context).resultOne_text,
+      //AppLocalizations.of(context).resultOne_text,
+      getPersonalText(),
       textScaleFactor: textScaleFactor,
       style: TextStyle(
         color: Color(0xFF3E2A1E),
@@ -123,17 +125,17 @@ class ResultOne extends StatelessWidget {
   Widget image(int score) {
     switch (score) {
       case 0:
-        return Image.asset('assets/images/result/unknownRisk.png');
+        return Image.asset('assets/images/Risiko_Ergebnis/RiskResult_low.png');
       case 1:
-        return Image.asset('assets/images/result/lowRisk.png');
+        return Image.asset('assets/images/Risiko_Ergebnis/RiskResult_moderate.png');
       case 2:
-        return Image.asset('assets/images/result/mediumRisk.png');
+        return Image.asset('assets/images/Risiko_Ergebnis/RiskResult_medium.png');
       case 3:
-        return Image.asset('assets/images/result/highRisk.png');
+        return Image.asset('assets/images/Risiko_Ergebnis/RiskResult_high.png');
       case 4:
-        return Image.asset('assets/images/result/veryHighRisk.png');
+        return Image.asset('assets/images/Risiko_Ergebnis/RiskResult_veryhigh.png');
       default:
-        return Image.asset('assets/images/result/unknownRisk.png');
+        return Image.asset('assets/images/Risiko_Ergebnis/ErgebnisUnbekannt.svg');
     }
   }
 
@@ -156,16 +158,143 @@ class ResultOne extends StatelessWidget {
         ),
         Flexible(
           flex: 20,
-          child: IconButton(
-            onPressed: handleContinue,
-            icon: Image.asset('assets/images/result/downButton.png'),
-            iconSize: 80 * textScaleFactor,
-            padding: EdgeInsets.fromLTRB(
-                0, 0, 60 * widthScaleFactor, 60 * heightScaleFactor),
-            autofocus: true,
-          ),
+            child: SizedBox(),
+          // IconButton(
+          //   onPressed: handleContinue,
+          //   icon: Image.asset('assets/images/result/downButton.png'),
+          //   iconSize: 80 * textScaleFactor,
+          //   padding: EdgeInsets.fromLTRB(
+          //       0, 0, 60 * widthScaleFactor, 60 * heightScaleFactor),
+          //   autofocus: true,
+          // ),
         ),
       ],
     );
   }
+
+String getPersonalText()
+{
+  String Text = "Aufgrund Ihrer persönlichen Angaben: ";
+  String sex;
+  String age = "Alter " + DataManager.instance.age.toString()  + " Jahre, ";
+  String family;
+  String sunburn;
+  String birthmarks;
+  String hair;
+  String risk;
+
+
+  switch (DataManager.instance.gender){
+    case 0:
+      sex = "weibliches Geschlecht, ";
+      break;
+    case 1:
+      sex = "männliches Geschlecht, ";
+      break;
+    case 2:
+      sex = "diverses Geschlecht, ";
+      break;
+    default:
+      sex = "kein Geschlecht angegeben, ";
+      break;
+  }
+
+  if (DataManager.instance.familySickness == 0)
+    family = "kein Melanom in der Familie, ";
+  else
+    family = "Melanome in der Familie, ";
+
+  switch(DataManager.instance.numberSunburns){
+    case 0:
+        sunburn = "keine schmerzhaften Sonnenbrände, ";
+        break;
+    case 1:
+      sunburn = "wenige schmerzhafte Sonnenbrände, ";
+      break;
+    case 2:
+      sunburn = "einige schmerzhafte Sonnenbrände, ";
+      break;
+    case 3:
+      sunburn = "viele schmerzhafte Sonnenbrände, ";
+      break;
+    case 4:
+      sunburn = "keine Angabe zu schmerzhaften Sonnenbränden, ";
+      break;
+    default:
+      sunburn = "keine Angabe zu schmerzhaften  Sonnenbränden, ";
+      break;
+  }
+
+  switch(DataManager.instance.numberBirthmarks){
+    case 0:
+      birthmarks = "keine Muttermale auf dem linken Arm, ";
+      break;
+    case 1:
+      birthmarks = "wenige Muttermale auf dem linken Arm, ";
+      break;
+    case 2:
+      birthmarks = "einige Muttermale auf dem linken Arm, ";
+      break;
+    case 3:
+      birthmarks = "viele Muttermale auf dem linken Arm, ";
+      break;
+    case 4:
+      birthmarks = "keine Angabe zu Muttermalen auf dem linken Arm, ";
+      break;
+    default:
+      birthmarks = "keine Angabe zu Muttermalen auf dem linken Arm, ";
+      break;
+  }
+
+
+  switch(DataManager.instance.hairColor){
+    case 0:
+      hair = "blonde Haare, ";
+      break;
+    case 1:
+      hair = "orange oder rote Haare, ";
+      break;
+    case 2:
+      hair = "hellbraune Haare, ";
+      break;
+    case 3:
+      hair = "dunkelbraune Haare, ";
+      break;
+    case 4:
+      hair = "schwarze Haare, ";
+      break;
+    default:
+      hair = "keine Angabe zur Haarfarbe, ";
+      break;
+  }
+
+  switch(CalculationModel.instance.getRiskPlacement()){
+    case 1:
+      risk = "niedriges ";
+      break;
+    // case TODO:
+    //   risk = "eher niedriges ";
+    //   break;
+    case 2:
+      risk = "moderates ";
+      break;
+    case 3:
+      risk = "erhöhtes ";
+      break;
+    case 4:
+      risk = "deutlisch erhöhtes ";
+      break;
+    default:
+      risk = "auf Grund unzureichender Angaben ein unbestimmtes ";
+      break;
+  }
+
+  String riskStatement = "haben Sie ein " + risk + "Risiko an schwarzem Hautkrebs zu erkranken.";
+
+  return Text + sex + age +family+sunburn+birthmarks+hair+riskStatement;
+
 }
+
+}
+
+

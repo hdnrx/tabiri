@@ -393,10 +393,9 @@ class _HomeState extends State<Home> {
                   child: Container(
                     width: 590 * widthScaleFactor,
                     height: 444 * heightScaleFactor,
-                    child: Image.asset(
-                      'assets/images/home/appointment.png',
-                      fit: BoxFit.contain,
-                    ),
+                    child: SizedBox(),//Image.asset('assets/images/home/appointment.png',
+                      // fit: BoxFit.contain,
+
                   ),
                 )
               :

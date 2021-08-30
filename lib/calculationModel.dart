@@ -116,8 +116,7 @@ class CalculationModel {
 
   /// score points for family sickness
   int getFamilySicknessPoints() {
-    return _getPoints(
-        familySicknessFactor[DataManager.instance.familySickness]);
+    return _getPoints(familySicknessFactor[DataManager.instance.familySickness]);
   }
 
   /// score points for number of sunburns

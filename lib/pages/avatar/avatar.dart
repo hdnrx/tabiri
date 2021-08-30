@@ -3,13 +3,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/avatar/avatarFive.dart';
-import 'package:tabiri_2/pages/avatar/avatarFour.dart';
 import 'package:tabiri_2/pages/avatar/avatarOne.dart';
 import 'package:tabiri_2/pages/avatar/avatarSeven.dart';
-import 'package:tabiri_2/pages/avatar/avatarSix.dart';
 import 'package:tabiri_2/pages/avatar/avatarThree.dart';
 import 'package:tabiri_2/pages/avatar/avatarTwo.dart';
 import 'package:tabiri_2/pages/home.dart';
+import 'package:tabiri_2/pages/result/result.dart';
 import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
@@ -19,7 +18,7 @@ double textScaleFactor;
 
 class Avatar extends StatefulWidget {
   final pageController = PageController();
-  final int numberOfPages = 7;
+  final int numberOfPages = 5;
 
   @override
   _AvatarState createState() => _AvatarState();
@@ -68,11 +67,11 @@ class _AvatarState extends State<Avatar> {
                         AvatarThree(
                           notifyParent: refresh,
                         ),
-                        AvatarFour(),
+                        //AvatarFour(),
                         AvatarFive(
                           notifyParent: refresh,
                         ),
-                        AvatarSix(),
+                        //AvatarSix(),
                         AvatarSeven(),
                       ],
                     ),
@@ -188,7 +187,7 @@ class _AvatarState extends State<Avatar> {
       Navigator.push(
         context,
         PageRouteWithTransition(
-          builder: (context) => Home(),
+          builder: (context) => Result(),
         ),
       );
     }

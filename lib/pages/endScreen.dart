@@ -86,7 +86,7 @@ class EndScreen extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 20,
-                      child: SizedBox(),
+                      child: button("Zurück zum Anfang", () => handleExit(context)),
                     ),
                   ],
                 ),
@@ -121,15 +121,14 @@ class EndScreen extends StatelessWidget {
     );
   }
 
-  Widget button(String text, Function buttonFunction, Color backgroundColor,
-      Color textColor) {
+  Widget button(String text, Function buttonFunction) {
     return CustomElevatedButton(
       text: text,
       textSize: 32,
-      textColor: textColor,
+      //textColor: textColor,
       buttonFunction: buttonFunction,
       textScaleFactor: textScaleFactor,
-      buttonColor: backgroundColor,
+  //    buttonColor: backgroundColor,
       textWeight: FontWeight.w600,
       padding: EdgeInsets.fromLTRB(
           60 * widthScaleFactor,

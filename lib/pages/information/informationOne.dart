@@ -79,7 +79,7 @@ class InformationOne extends StatelessWidget {
   Widget paragraph(BuildContext context) {
     return CustomParagraph(
       title: AppLocalizations.of(context).informationOne_text_one_title,
-      text: AppLocalizations.of(context).informationOne_text_one_content,
+      text:  AppLocalizations.of(context).informationOne_text_one_content,
       titleSize: 34,
       textSize: 24,
       textScaleFactor: textScaleFactor,

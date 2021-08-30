@@ -15,7 +15,7 @@ double textScaleFactor;
 class Result extends StatefulWidget {
   final pageController = PageController();
 
-  final int numberOfPages = 3;
+  final int numberOfPages = 1;
 
   @override
   _Result createState() => _Result();
@@ -45,14 +45,14 @@ class _Result extends State<Result> {
               handleContinue: handleContinue,
               handleBack: handleBack,
             ),
-            ResultTwo(
-              handleContinue: handleContinue,
-              handleBack: handleBack,
-            ),
-            ResultThree(
-              handleContinue: handleContinue,
-              handleBack: handleBack,
-            ),
+            // ResultTwo(
+            //   handleContinue: handleContinue,
+            //   handleBack: handleBack,
+            // ),
+            // ResultThree(
+            //   handleContinue: handleContinue,
+            //   handleBack: handleBack,
+            // ),
           ],
         ),
       ),

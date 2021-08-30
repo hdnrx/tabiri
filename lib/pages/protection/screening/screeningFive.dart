@@ -47,7 +47,7 @@ class ScreeningFive extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                flex: 17,
+                flex: 10,
                 child: SizedBox(),
               ),
               Expanded(
@@ -67,7 +67,7 @@ class ScreeningFive extends StatelessWidget {
               ),
               Expanded(flex: 6, child: SizedBox()),
               Expanded(
-                flex: 30,
+                flex: 50,
                 child: Column(
                   children: [
                     Expanded(
@@ -82,7 +82,7 @@ class ScreeningFive extends StatelessWidget {
                 ),
               ),
               Expanded(
-                  flex: 17,
+                  flex: 10,
                   child: SizedBox()),
             ],
           ),
@@ -150,8 +150,12 @@ class ScreeningFive extends StatelessWidget {
         ),
         children: [
           TextSpan(
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
               text:
-                  AppLocalizations.of(context).screeningFive_text_one_partOne),
+                  AppLocalizations.of(context).screeningFive_text_one_partOne
+              ),
           TextSpan(
               text:
                   AppLocalizations.of(context).screeningFive_text_one_partTwo),
