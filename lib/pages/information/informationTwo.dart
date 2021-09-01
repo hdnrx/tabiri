@@ -93,19 +93,7 @@ class InformationTwo extends StatelessWidget {
       children: <InlineSpan>[
         TextSpan(
             text: AppLocalizations.of(context).informationTwo_text_one_partOne),
-        TextSpan(
-            text: AppLocalizations.of(context)
-                .informationTwo_text_one_highlightOne,
-            style: highlight),
-        TextSpan(
-            text: AppLocalizations.of(context).informationTwo_text_one_partTwo),
-        TextSpan(
-            text: AppLocalizations.of(context)
-                .informationTwo_text_one_highlightTwo,
-            style: highlight),
-        TextSpan(
-            text:
-                AppLocalizations.of(context).informationTwo_text_one_partThree),
+
       ],
     );
   }

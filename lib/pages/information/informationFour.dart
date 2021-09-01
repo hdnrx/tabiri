@@ -102,7 +102,7 @@ class InformationFour extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_A_title, () => handleJa()
+                  child: button(AppLocalizations.of(context).informationFour_A_title, () => handleA()
                   ),
                   // Text(
                   //   AppLocalizations.of(context).informationFour_A_title,
@@ -117,15 +117,15 @@ class InformationFour extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_B_title, () => handleJa()),
+                  child: button(AppLocalizations.of(context).informationFour_B_title, () => handleB()),
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_C_title, () => handleJa()),
+                  child: button(AppLocalizations.of(context).informationFour_C_title, () => handleC()),
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_D_title, () => handleJa()),
+                  child: button(AppLocalizations.of(context).informationFour_D_title, () => handleD()),
                 ),
                 Expanded(
                   flex: 30,
@@ -239,5 +239,8 @@ class InformationFour extends StatelessWidget {
     );
   }
 
-  handleJa() {}
+  handleA() {}
+  handleB() {}
+  handleC() {}
+  handleD() {}
 }

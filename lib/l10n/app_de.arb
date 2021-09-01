@@ -24,7 +24,7 @@
 
     "informationOne_title": "Was ist Hautkrebs?",
     "informationOne_text_one_title": "Wie entsteht Hautkrebs?",
-    "informationOne_text_one_content": "Hautkrebs entsteht, wenn sich Zellen der Haut unkontrolliert vermehren und dadurch den Körper schädigen. Wenn pigment-bildende Hautzellen (Melanozyten) entarten, spricht man von „schwarzem Hautkrebs“, wenn andere Hautzellen entarten von „weißem Hautkrebs“.\n\nZählt man beide Formen von Hautkrebs zusammen, ist Hautkrebs die häufigste Krebsart überhaupt.",
+    "informationOne_text_one_content": "Hautkrebs entsteht, wenn sich Zellen der Haut unkontrolliert vermehren und dadurch den Körper schädigen. Wenn pigment-bildende Hautzellen (Melanozyten) entarten, spricht man von „schwarzem Hautkrebs“, wenn andere Hautzellen entarten von \n„weißem Hautkrebs“.\n\nZählt man beide Formen von Hautkrebs zusammen, ist Hautkrebs die häufigste Krebsart überhaupt.",
     "informationOne_buttonText": "Okay",
     "informationTwo_title": "Was ist Hautkrebs?",
     "informationTwo_text_one_title": "Weißer Hautkrebs",
@@ -122,7 +122,7 @@
     "screeningFive_text_one_title": "Durch das Screening kann Hautkrebs frühzeitig entdeckt und oft besser behandelt werden.\n Im besten Fall kann es Ihr Leben retten!",
     "screeningFive_text_one_partOne": "Was ist zu bedenken?\n",
     "screeningFive_text_one_partTwo": "Trotz aller Sorgfalt ist es möglich, dass bei der Untersuchung ein Hautkrebs übersehen wird.\n\n",
-    "screeningFive_text_one_partThree": "Screeninguntersuchungen können \"falschen Alarm\" auslösen. Es dauert ein paar Tage, bis das endgültige Ergebnis vorliegt. Diese Wartezeit kann belastend sein.\n\n",
+    "screeningFive_text_one_partThree": "Screeninguntersuchungen können „falschen Alarm“ auslösen. Es dauert ein paar Tage, bis das endgültige Ergebnis vorliegt. Diese Wartezeit kann belastend sein.\n\n",
     "screeningFive_text_one_partFour": "Es kann passieren, dass ein Hautkrebs endeckt wird, der Ihnen nie Probleme gemacht hätte - etwa, weil er langsam wächst oder sich sogar von alleine zurückbildet.",
     "screeningFive_buttonText": "Okay",
 

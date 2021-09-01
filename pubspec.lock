@@ -117,6 +117,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  highlight_text:
+    dependency: "direct main"
+    description:
+      name: highlight_text
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
   integration_test:
     dependency: "direct dev"
     description: flutter
@@ -269,3 +276,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"

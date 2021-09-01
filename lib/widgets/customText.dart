@@ -1,4 +1,7 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
+import 'package:highlight_text/highlight_text.dart';
 
 /// Collection of Widgets to show Text
 
@@ -17,6 +20,7 @@ class CustomParagraph extends StatelessWidget {
   final FontWeight textFontWeight;
   final double titleLetterSpacing;
   final double textHeight;
+  final Map<String, HighlightedWord> words;
 
   ///padding between title and text
   final EdgeInsets padding;
@@ -34,7 +38,9 @@ class CustomParagraph extends StatelessWidget {
     this.titleLetterSpacing = 1.0,
     this.textHeight = 1.0,
     this.padding = const EdgeInsets.only(bottom: 28),
+    this.words,
   });
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,10 +66,11 @@ class CustomParagraph extends StatelessWidget {
           ),
         ),
         Flexible(
-          child: Text(
-            text,
+          child: TextHighlight(
+            text: this.text,
+            words: this.words as LinkedHashMap<String, HighlightedWord>,
             textScaleFactor: textScaleFactor,
-            style: TextStyle(
+            textStyle: TextStyle(
               fontSize: textSize,
               fontFamily: 'Open Sans',
               color: textFontColor,

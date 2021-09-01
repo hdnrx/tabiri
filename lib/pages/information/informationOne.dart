@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/widgets/customText.dart';
+import 'package:highlight_text/highlight_text.dart';
 
 class InformationOne extends StatelessWidget {
   double heightScaleFactor;
@@ -77,6 +78,37 @@ class InformationOne extends StatelessWidget {
   }
 
   Widget paragraph(BuildContext context) {
+
+
+    var boldstyle = TextStyle( // You can set the general style, like a Text()
+        fontSize: 24.0,
+        fontFamily: 'Open Sans',
+        color: Color(0xFF5D584E),
+        height: 1.2,
+        fontWeight: FontWeight.bold,
+    );
+
+    Map<String, HighlightedWord> words = {
+       "weißem Hautkrebs": HighlightedWord(
+        onTap: () {
+          print("\"weißem Hautkrebs\"");
+        },
+        textStyle: boldstyle,
+      ),
+      "schwarzem Hautkrebs": HighlightedWord(
+        onTap: () {
+          print("schwarzem Hautkrebs");
+        },
+          textStyle: boldstyle,
+      ),
+      "häufigste Krebsart": HighlightedWord(
+        onTap: () {
+          print("häufigste Krebsart");
+        },
+        textStyle: boldstyle,
+      ),
+    };
+
     return CustomParagraph(
       title: AppLocalizations.of(context).informationOne_text_one_title,
       text:  AppLocalizations.of(context).informationOne_text_one_content,
@@ -88,6 +120,7 @@ class InformationOne extends StatelessWidget {
       titleFontWeight: FontWeight.w900,
       textHeight: 1.2,
       padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
+      words: words,
     );
   }
 }

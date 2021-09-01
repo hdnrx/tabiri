@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:highlight_text/highlight_text.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/protection/protection.dart';
 import 'package:tabiri_2/widgets/customButton.dart';
@@ -348,6 +349,18 @@ class _HomeState extends State<Home> {
   }
 
   Widget paragraph(String title, String text) {
+    Map<String, HighlightedWord> words = {
+    "none": HighlightedWord(
+    onTap: () {
+    print("noHighlight");
+      },
+    textStyle: TextStyle(
+      fontSize: 20.0,
+      color: Colors.red,
+    ),
+    ),
+    };
+
     return CustomParagraph(
       textScaleFactor: textScaleFactor,
       text: text,
@@ -360,6 +373,8 @@ class _HomeState extends State<Home> {
       padding: EdgeInsets.only(bottom: 24 * heightScaleFactor),
       textFontColor: Colors.white,
       titleFontColor: Colors.white,
+      words: words,
+
     );
   }
 
@@ -409,15 +424,13 @@ class _HomeState extends State<Home> {
                         child: Container(
                           width: 590 * widthScaleFactor,
                           height: 444 * heightScaleFactor,
-                          child: Image.asset(
-                            'assets/images/home/appointment.png',
-                            fit: BoxFit.contain,
-                          ),
+                          child: SizedBox()
                         ),
-                      ),
-                    )
-                  : // right two cards are collapsed
-                  DataManager.instance.avatarPathComplete == true &&
+                        ),
+                      )
+                 :
+                   // right two cards are collapsed
+              DataManager.instance.avatarPathComplete == true &&
                           DataManager.instance.protectionPathComplete == true
                       ? Align(
                           alignment: Alignment.centerRight,
@@ -427,10 +440,7 @@ class _HomeState extends State<Home> {
                             child: Container(
                               width: 590 * widthScaleFactor,
                               height: 444 * heightScaleFactor,
-                              child: Image.asset(
-                                'assets/images/home/appointment.png',
-                                fit: BoxFit.contain,
-                              ),
+                              child: SizedBox()
                             ),
                           ),
                         )
@@ -444,10 +454,8 @@ class _HomeState extends State<Home> {
                               child: Container(
                                 width: 590 * widthScaleFactor,
                                 height: 444 * heightScaleFactor,
-                                child: Image.asset(
-                                  'assets/images/home/appointment.png',
-                                  fit: BoxFit.contain,
-                                ),
+                                child: SizedBox()
+
                               ),
                             )
                           :
@@ -458,10 +466,7 @@ class _HomeState extends State<Home> {
                                   child: Container(
                                     width: 590 * widthScaleFactor,
                                     height: 444 * heightScaleFactor,
-                                    child: Image.asset(
-                                      'assets/images/home/appointment.png',
-                                      fit: BoxFit.contain,
-                                    ),
+                                      child: SizedBox()
                                   ),
                                 )
                               :
@@ -472,10 +477,7 @@ class _HomeState extends State<Home> {
                                       child: Container(
                                         width: 590 * widthScaleFactor,
                                         height: 444 * heightScaleFactor,
-                                        child: Image.asset(
-                                          'assets/images/home/appointment.png',
-                                          fit: BoxFit.contain,
-                                        ),
+                                        child: SizedBox(),
                                       ),
                                     )
                                   :
@@ -487,10 +489,7 @@ class _HomeState extends State<Home> {
                                           child: Container(
                                             width: 590 * widthScaleFactor,
                                             height: 444 * heightScaleFactor,
-                                            child: Image.asset(
-                                              'assets/images/home/appointment.png',
-                                              fit: BoxFit.contain,
-                                            ),
+                                              child: SizedBox()
                                           ),
                                         )
                                       : SizedBox(),
