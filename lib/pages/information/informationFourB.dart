@@ -67,7 +67,7 @@ class InformationFour extends StatelessWidget {
                   flex: 20,
                   child: Padding(
                     padding: EdgeInsets.all(30),
-                    child: Image.asset('assets/images/ABCDrules/Skinspot_A.png',
+                    child: Image.asset('assets/images/ABCDrules/Skinspot_B.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -102,7 +102,7 @@ class InformationFour extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_A_title, () => handleA(), true
+                  child: button(AppLocalizations.of(context).informationFour_A_title, () => handleA(), false
                   ),
                   // Text(
                   //   AppLocalizations.of(context).informationFour_A_title,
@@ -117,15 +117,15 @@ class InformationFour extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_B_title, () => handleB(), false)
+                  child: button(AppLocalizations.of(context).informationFour_B_title, () => handleB(), true),
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_C_title, () => handleC(), false)
+                  child: button(AppLocalizations.of(context).informationFour_C_title, () => handleC(), false),
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_D_title, () => handleD(), false)
+                  child: button(AppLocalizations.of(context).informationFour_D_title, () => handleD(), false),
                 ),
                 Expanded(
                   flex: 30,
@@ -245,8 +245,7 @@ class InformationFour extends StatelessWidget {
     );
   }
 
-  handleA() {//setState()
-     }
+  handleA() {}
   handleB() {}
   handleC() {}
   handleD() {}

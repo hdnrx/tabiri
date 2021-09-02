@@ -44,6 +44,7 @@ class CustomParagraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if  (this.words != null){
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -82,7 +83,47 @@ class CustomParagraph extends StatelessWidget {
       ],
     );
   }
-}
+  else {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            flex: 0,
+            child: Padding(
+              padding: padding,
+              child: Text(
+                title,
+                textScaleFactor: textScaleFactor,
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: titleSize,
+                  fontFamily: 'Open Sans',
+                  color: titleFontColor,
+                  letterSpacing: titleLetterSpacing,
+                  fontWeight: titleFontWeight,
+                ),
+              ),
+            ),
+          ),
+          Flexible(
+            child: Text(
+              this.text,
+              textScaleFactor: textScaleFactor,
+              style: TextStyle(
+                fontSize: textSize,
+                fontFamily: 'Open Sans',
+                color: textFontColor,
+                height: textHeight,
+                fontWeight: textFontWeight,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
+    }
+    }
 
 /// Paragraph for Texts with highlighted words
 /// Needs sufficient space

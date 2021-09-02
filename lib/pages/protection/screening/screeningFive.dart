@@ -36,7 +36,7 @@ class ScreeningFive extends StatelessWidget {
               style: TextStyle(
                 fontSize: 34,
                 fontFamily: 'Open Sans',
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.normal,
                 color: Color(0xFF332E27),
               ),
             ),

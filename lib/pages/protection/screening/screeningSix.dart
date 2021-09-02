@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:tabiri_2/dataManager.dart';
+import 'package:tabiri_2/pages/home.dart';
+import 'package:tabiri_2/widgets/customButton.dart';
+import 'package:tabiri_2/widgets/customText.dart';
+import 'package:tabiri_2/widgets/header.dart';
+import 'package:tabiri_2/widgets/routes.dart';
 
 class ScreeningSix extends StatelessWidget {
   double heightScaleFactor;
@@ -13,11 +19,29 @@ class ScreeningSix extends StatelessWidget {
     textScaleFactor = (heightScaleFactor + widthScaleFactor) / 2;
     return Scaffold(
       body: SafeArea(
-        child: content(context),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 10,
+              child: SizedBox(),
+            ),
+            Expanded(
+              flex: 75,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(60 * widthScaleFactor, 0,
+                    60 * widthScaleFactor, 60 * widthScaleFactor),
+                child: content(context),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
+  Widget header(BuildContext context) {
+    return LogoHeader();
+  }
   Widget content(BuildContext context) {
     return Column(
       children: [
@@ -26,20 +50,31 @@ class ScreeningSix extends StatelessWidget {
           child: SizedBox(),
         ),
         Expanded(
-          flex: 85,
+          flex: 65,
           child: Row(
             children: [
               Expanded(
-                flex: 15,
+                flex: 40,
+                child: Image.asset(
+                  'assets/images/home/placeholder.png',
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Expanded(
+                flex: 3,
                 child: SizedBox(),
               ),
               Expanded(
-                flex: 30,
+                flex: 42,
                 child: Column(
                   children: [
                     Expanded(
-                      flex: 80,
-                      child: picture(),
+                      flex: 20,
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 60,
+                      child: paragraph(context),
                     ),
                     Expanded(
                       flex: 20,
@@ -48,196 +83,72 @@ class ScreeningSix extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(flex: 5, child: SizedBox()),
               Expanded(
-                flex: 40,
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 10,
-                      child: SizedBox(),
-                    ),
-                    Expanded(
-                      flex: 90,
-                      child: textColumn(context),
-                    ),
-                  ],
-                ),
+                flex: 15,
+                child: SizedBox(),
               ),
-              Expanded(flex: 10, child: SizedBox()),
             ],
           ),
         ),
-      ],
-    );
-  }
-
-  Widget picture() {
-    return Stack(
-      children: [
-        Column(
-          children: [
-            Expanded(
-              flex: 80,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Color(0xFF759A67),
-                      width: 10,
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 10,
-                        offset: Offset(0, 6),
-                      ),
-                    ]),
-              ),
-            ),
-            Expanded(
-              flex: 20,
-              child: SizedBox(),
-            ),
-          ],
-        ),
-        Column(
-          children: [
-            Expanded(
-              flex: 10,
-              child: SizedBox(),
-            ),
-            Expanded(
-              flex: 90,
-              child: Center(
-                child: Image.asset('assets/images/screening/krankenhaus.png'),
-              ),
-            ),
-          ],
-        )
-      ],
-    );
-  }
-
-  Widget textColumn(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: EdgeInsets.only(bottom: 50 * heightScaleFactor),
-          child: Text(
-            AppLocalizations.of(context).screeningSix_text_one_title,
-            textScaleFactor: textScaleFactor,
-            style: TextStyle(
-              fontSize: 34,
-              fontFamily: 'Open Sans',
-              fontWeight: FontWeight.w900,
-              color: Color(0xFF332E27),
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointOne(context),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
-          child: pointTwo(context),
+        Expanded(
+          flex: 10,
+          child: SizedBox(),
         ),
       ],
     );
   }
 
-  Widget pointOne(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningSix_text_one_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningSix_text_one_highlightOne,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningSix_text_one_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningSix_text_one_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningSix_text_one_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningSix_text_one_highlightThree,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningSix_text_one_partFour),
-        ],
-      ),
+  Widget paragraph(BuildContext context) {
+    return CustomParagraph(
+      title: AppLocalizations.of(context).endScreen_title,
+      text: AppLocalizations.of(context).endScreen_text,
+      titleSize: 34,
+      textSize: 24,
       textScaleFactor: textScaleFactor,
+      titleFontColor: Color(0xFF5D584E),
+      textFontColor: Color(0xFF5D584E),
+      titleFontWeight: FontWeight.w900,
+      textHeight: 1.2,
+      padding: EdgeInsets.only(bottom: 28 * heightScaleFactor),
     );
   }
 
-  Widget pointTwo(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(text: String.fromCharCode(0x2022) + " "),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningSix_text_two_partOne),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningSix_text_two_highlightOne,
-              style: highlight),
-          TextSpan(
-              text: AppLocalizations.of(context).screeningSix_text_two_partTwo),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningSix_text_two_highlightTwo,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningSix_text_two_partThree),
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningSix_text_two_highlightThree,
-              style: highlight),
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningSix_text_two_partFour),
-        ],
-      ),
+  Widget button(String text, Function buttonFunction) {
+    return CustomElevatedButton(
+      text: text,
+      textSize: 32,
+      //textColor: textColor,
+      buttonFunction: buttonFunction,
       textScaleFactor: textScaleFactor,
+      //    buttonColor: backgroundColor,
+      textWeight: FontWeight.w600,
+      padding: EdgeInsets.fromLTRB(
+          60 * widthScaleFactor,
+          15 * heightScaleFactor,
+          60 * widthScaleFactor,
+          15 * heightScaleFactor),
+    );
+  }
+
+  /// reset data and go back to title screen
+  void handleAgain(BuildContext context) {
+    DataManager.instance.reset();
+    Navigator.push(
+      context,
+      PageRouteWithTransition(
+        builder: (context) => Home(),
+      ),
+    );
+  }
+
+  /// same as handleAgain
+  void handleExit(BuildContext context) {
+    DataManager.instance.reset();
+    Navigator.push(
+      context,
+      PageRouteWithTransition(
+        builder: (context) => Home(),
+      ),
     );
   }
 }
