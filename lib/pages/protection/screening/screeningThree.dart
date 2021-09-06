@@ -122,109 +122,17 @@ class ScreeningThree extends StatelessWidget {
     );
   }
 
-  Widget pointOne(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 26,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningThree_text_one_partOne
-            ),
-
-        ],
-      ),
-      textScaleFactor: textScaleFactor,
-    );
-  }
-
-  Widget pointTwo(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(
-              text:
-                  AppLocalizations.of(context).screeningThree_text_two_partOne)
-        ],
-      ),
-      textScaleFactor: textScaleFactor,
-    );
-  }
-
-  Widget pointThree(BuildContext context) {
-    TextStyle highlight = TextStyle(
-      fontWeight: FontWeight.w900,
-      fontSize: 28,
-      fontFamily: 'Open Sans',
-      height: 1.70,
-      color: Color(0xFF5D584E),
-    );
-    return RichText(
-      text: TextSpan(
-        style: TextStyle(
-          fontSize: 28,
-          fontFamily: 'Open Sans',
-          height: 1.70,
-          color: Color(0xFF5D584E),
-        ),
-        children: [
-          TextSpan(
-              text: AppLocalizations.of(context)
-                  .screeningThree_text_three_partOne),
-        ],
-      ),
-      textScaleFactor: textScaleFactor,
-    );
-  }
-
   Widget textColumn(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Padding(
-        //   padding: EdgeInsets.only(bottom: 50 * heightScaleFactor),
-        //   child: Text(
-        //     AppLocalizations.of(context).screeningThree_text_one_title,
-        //     textScaleFactor: textScaleFactor,
-        //     style: TextStyle(
-        //       fontSize: 34,
-        //       fontFamily: 'Open Sans',
-        //       fontWeight: FontWeight.w900,
-        //       color: Color(0xFF332E27),
-        //     ),
-        //   ),
-        // ),
+
         Padding(
           padding: EdgeInsets.only(bottom: 40 * heightScaleFactor),
           child: Text(
               AppLocalizations.of(context).screeningThree_text_one_partOne,
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 24,
                 fontFamily: 'Open Sans',
                 color: Color(0xFF332E27),
               ),

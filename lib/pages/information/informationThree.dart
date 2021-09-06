@@ -94,21 +94,7 @@ class InformationThree extends StatelessWidget {
         TextSpan(
             text:
                 AppLocalizations.of(context).informationThree_text_one_partOne),
-        TextSpan(
-            text: AppLocalizations.of(context)
-                .informationThree_text_one_highlightOne,
-            style: highlight),
-        TextSpan(
-            text:
-                AppLocalizations.of(context).informationThree_text_one_partTwo),
-        TextSpan(
-            text: AppLocalizations.of(context)
-                .informationThree_text_one_highlightTwo,
-            style: highlight),
-        TextSpan(
-            text: AppLocalizations.of(context)
-                .informationThree_text_one_partThree),
-      ],
+             ],
     );
   }
 }

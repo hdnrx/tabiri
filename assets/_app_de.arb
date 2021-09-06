@@ -74,18 +74,13 @@
     "preventionTwo_text_one_content_5": "• Auf jeden Fall Sonnenbrand vermeiden",
     "preventionTwo_text_one_content_6": "• Auf die Nutzung von Solarien verzichten",
     "preventionTwo_text_one_content_7": "Übrigens: Sie reduzieren dadurch auch Faltenbildung und Hautalterung ",
-    "preventionTwo_uv_info_title":"Für alle, die es genauer wissen möchten",
-    "preventionTwo_uv_info_text": "Der UV-Index beschreibt als Teil der Wettervorhersage die Intensität und damit die Gefährlichkeit der UV-Strahlung. Die Tageswerte werden für jeden Ort in Deutschland vom Deutschen Wetterdienst vorhergesagt und als Karte bereitgestellt. Dazu gibt es Informationen, welche konkreten Schutzmaßnahmen von der Weltgesundheitsorganisation empfohlen werden. ",
-    "preventionTwo_sunscreen_info_title":"Sonnenschutzmittel: Empfehlungen des Bundesamts für Strahlenschutz:",
-    "preventionTwo_sunscreen_info_text": "• Lichtschutzfaktor: Für Kinder mind. 30, für Erwachsenen mind. 20, bei Aufenthalten in großen Höhen, auf Schnee, am und im Wasser und in sonnenreichen Regionen 50 wählen \n• Produkt mit Schutzwirkung gegen UV-B und UV-A-Strahlung wählen \n• Sonnenschutzmittel bereits 20-30 Minuten vor Aufenthalt in der Sonne auftragen \n• Ausreichende Menge auftragen, bei Anwendung am ganzen Körper etwa 40 ml (= ein Fünftel eine normalen Flasche!) \n• mindesten alle 2 Stunden nachcremen und vor allem nach dem Baden und Abtrocknen",
     "preventionTwo_buttonText_home": "Zum Hauptmenü",
     "preventionTwo_buttonText_protection": "Alles klar",
 
     "screeningOne_title": "Früherkennung",
     "screeningOne_text_one_title": "Empfehlung 1: Seien Sie aufmerksam! ",
     "screeningOne_text_one_partOne": "Achten Sie bei sich selbst und bei Ihrem Partner/in auf verdächtige Hautveränderungen. \n\nWollen Sie wissen, was verdächtige Hautveränderungen sind? ",
-    "screeningOne_buttonText_ABCD": "Ja, zur ABCD-Regel",
-    "screeningOne_buttonText": "Nein danke, bereits bekannt",
+    "screeningOne_buttonText": "Ja",
 
     "screeningTwo_title": "Früherkennung",
     "screeningTwo_text_one_title": "Empfehlung 2: Nutzen Sie die Erfahrung von Experten!",
@@ -134,13 +129,18 @@
     "avatarOne_popup_button" : "Verstanden",
 
     "avatarTwo_radio_title" : "Was ist ihre natürliche Haarfarbe?",
-    "avatarTwo_radio_textOne" : "blond",
-    "avatarTwo_radio_textTwo" : "orange\nrot",
-    "avatarTwo_radio_textThree" : "hellbraun",
-    "avatarTwo_radio_textFour" : "dunkelbraun",
-    "avatarTwo_radio_textFive" : "schwarz",
+    "avatarTwo_radio_textOne" : "Blond",
+    "avatarTwo_radio_textTwo" : "Orange\nRot",
+    "avatarTwo_radio_textThree" : "Hellbraun",
+    "avatarTwo_radio_textFour" : "Dunkelbraun",
+    "avatarTwo_radio_textFive" : "Schwarz",
 
     "avatarThree_radio_title" : "Wie viele schwere und schmerzhafte Sonnenbrände hatten Sie?",
+    "avatarThree_radio_textOne" : "Keine",
+    "avatarThree_radio_textTwo" : "Wenige\n1-2",
+    "avatarThree_radio_textThree" : "Mehrere\n3-9",
+    "avatarThree_radio_textFour" : "Viele\nüber 10",
+    "avatarThree_radio_textFive" : "Weiß nicht",
 
     "avatarFour_title": "WIRD ENTFERNT: Muttermale und Hautflecken",
     "avatarFour_text_one_title": "Muttermale",
@@ -172,8 +172,6 @@
     "avatarSix_text_one_partThree": "können ",
     "avatarSix_text_one_highlightThree": "harmlose Muttermale oder Leberflecken krankhaften Veränderungen ",
     "avatarSix_text_one_partFour": "ähneln. Ein Laie kann das kaum unterscheiden.\n\nWenn bereits Metastasen (Tochtergeschwüre) vorhanden sind, ist die Behandlung aufwändiger und die Heilungschancen können schlechter sein.",
-    "avatarSix_text_one_highlightFour": "",
-    "avatarSix_text_one_partFive": "",
     "avatarSix_text_two": "Hautkrebs ist behandelbar. Wenn man ihn schnell findet, sind die Heilungschancen groß. Deshalb ist Vorsorge so wichtig.",
 
     "avatarSeven_text": "Hatte jemand in Ihrer Familie (Eltern, Geschwister) schon einmal schwarzen Hautkrebs?",
@@ -181,7 +179,8 @@
     "avatarSeven_button_yes": "Ja",
     "avatarSeven_actionText": "Keine Angabe",
 
-      "noResult_title" : "Über Hautkrebsrisiko",
+
+    "noResult_title" : "Über Hautkrebsrisiko",
     "noResult_text_partOne" : "Ein Risikowert ist nur eine Statistik. Keine Diagnose. Machen sie einen ",
     "noResult_text_highlightOne" : "Termin ",
     "noResult_text_partTwo" : "bei ihrem Haus- oder Hautarzt!",
@@ -192,7 +191,6 @@
     "resultOne_title_mediumRisk" : "Ihr Risiko ist erhöht",
     "resultOne_title_highRisk" : "Ihr Risiko ist stark erhöht",
     "resultOne_title_veryHighRisk" : "Ihr Risiko ist sehr stark erhöht",
-    "resultOne_text" : "Lassen sie sich gratis untersuchen, indem sie hier in der Praxis einen Termin vereinbaren. Fragen sie einfach einen Mitarbeiter der Praxis!",
 
     "resultTwo_title" : "Ihre Einzelnen Antworten",
     "resultTwo_text_one" : "Ihr Geschlecht",

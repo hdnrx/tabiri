@@ -64,13 +64,17 @@ class ScreeningOne extends StatelessWidget {
                       flex: 10,
                       child: SizedBox(),
                     ),
-                    Expanded(
-                      flex: 80,
+                    Flexible(
+                      flex: 70,
                       child: textColumn(context),
                     ),
-                    Expanded(
+                    Flexible(
                       flex: 10,
-                      child: SizedBox(),//button("Die ABCD-Regel", () => handleABCD()),
+                      child: button(AppLocalizations.of(context).screeningOne_buttonText_ABCD, () => handleABCD(context)),
+                    ),
+                    Flexible(
+                      flex: 10,
+                      child: SizedBox(),
                     ),
                   ],
                 ),
@@ -100,6 +104,33 @@ class ScreeningOne extends StatelessWidget {
           10 * heightScaleFactor,
           30 * widthScaleFactor,
           10 * heightScaleFactor),
+    );
+  }
+  Widget buttonPopUp(String text, Function buttonFunction) {
+    return RaisedButton(
+      color: Color(0xFF295A56),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(36.0),
+      ),
+      onPressed: () => buttonFunction(),
+      child: Padding(
+        padding: EdgeInsets.fromLTRB(
+            80 * widthScaleFactor,
+            10 * heightScaleFactor,
+            80 * widthScaleFactor,
+            10 * heightScaleFactor),
+        child: FittedBox(
+          child: Text(
+            text,
+            textScaleFactor: textScaleFactor,
+            style: TextStyle(
+              fontSize: 32,
+              fontFamily: 'Open Sans',
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -201,18 +232,106 @@ class ScreeningOne extends StatelessWidget {
       textScaleFactor: textScaleFactor,
     );
   }
-}
 
-void handleABCD() {
 
-    // widget.pageController.animateToPage(index + 1,
-    //     duration: Duration(milliseconds: 500), curve: Curves.ease);
-    //
-    // Navigator.push(
-    //   context,
-    //   PageRouteWithTransition(
-    //     builder: (context) => Home(),
-    //   ),
-    // );
+
+void handleABCD(BuildContext context) {
+
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          contentPadding: EdgeInsets.fromLTRB(
+              40 * widthScaleFactor,
+              100 * heightScaleFactor,
+              40 * widthScaleFactor,
+              100 * heightScaleFactor),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(27),
+          ),
+          content: Container(
+            height: MediaQuery.of(context).size.height * 0.7,
+            width: MediaQuery.of(context).size.width * 0.7,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 20,
+                  child: SizedBox()
+                ),
+                Expanded(
+                  flex: 70,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 10,
+                        child: SizedBox(),
+                      ),
+                      Expanded(
+                        flex: 80,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              flex: 10,
+                              child: SizedBox(),
+                            ),
+                            Expanded(
+                              flex: 90,
+                              child: RichText(
+                                text: TextSpan(
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    fontFamily: 'Open Sans',
+                                    height: 1.70,
+                                    color: Color(0xFF5D584E),
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        text:
+                                        AppLocalizations.of(context).informationFour_title
+                                    ),
+                                    TextSpan(
+                                        text:
+                                        AppLocalizations.of(context).informationFour_A_title),
+                                    TextSpan(
+                                        text: AppLocalizations.of(context).informationFour_B_title),
+                                    TextSpan(
+                                        text:
+                                        AppLocalizations.of(context).informationFour_C_title),
+                                    TextSpan(
+                                        text:
+                                        AppLocalizations.of(context).informationFour_D_title),
+                                  ],
+                                ),
+                                textScaleFactor: textScaleFactor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        flex: 10,
+                        child: SizedBox(),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 10,
+                  child: buttonPopUp(
+                    AppLocalizations.of(context).avatarOne_popup_button,
+                        () => Navigator.pop(context),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ));
+
+
+  }
+
   }
 

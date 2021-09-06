@@ -176,7 +176,6 @@ class _ProtectionState extends State<Protection> {
           : expandedCard(
               Color(0xFF759A67),
               AppLocalizations.of(context).protection_card_one_title,
-              AppLocalizations.of(context).protection_card_one_content,
               AppLocalizations.of(context).protection_card_one_button,
               buildRouteFunction(
                 Screening(),
@@ -209,7 +208,6 @@ class _ProtectionState extends State<Protection> {
           : expandedCard(
               Color(0xFF759A67),
               AppLocalizations.of(context).protection_card_two_title,
-              AppLocalizations.of(context).protection_card_two_content,
               AppLocalizations.of(context).protection_card_two_button,
               buildRouteFunction(
                 Prevention(),
@@ -226,7 +224,6 @@ class _ProtectionState extends State<Protection> {
   Widget expandedCard(
       Color color,
       String title,
-      String text,
       String buttonText,
       Function buttonRoute,
       String actionText,
@@ -266,7 +263,6 @@ class _ProtectionState extends State<Protection> {
               flex: 60,
               child: paragraph(
                 title,
-                text,
               ),
             ),
             Expanded(
@@ -364,10 +360,10 @@ class _ProtectionState extends State<Protection> {
     );
   }
 
-  Widget paragraph(String title, String text) {
+  Widget paragraph(String title, ) {
     return CustomParagraph(
       title: title,
-      text: text,
+      text: "",
       titleSize: 34,
       textSize: 28,
       textScaleFactor: textScaleFactor,

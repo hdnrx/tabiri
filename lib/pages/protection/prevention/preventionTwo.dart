@@ -39,14 +39,7 @@ class PreventionTwo extends StatelessWidget {
             children: [
               Expanded(
                 flex: 10,
-                child: IconButton(
-                     //onPressed: showMyDialog,
-                     icon: Image.asset('assets/images/result/downButton.png'),
-                     iconSize: 80 * textScaleFactor,
-                     padding: EdgeInsets.fromLTRB(
-                         0, 0, 60 * widthScaleFactor, 60 * heightScaleFactor),
-                     autofocus: true,
-                   ),
+                child: SizedBox()
               ),
               Expanded(
                 flex: 90,
@@ -67,20 +60,115 @@ class PreventionTwo extends StatelessWidget {
     return Column(
       children: [
         Flexible(
-          flex: 30,
-          child: paragraph(
-              AppLocalizations.of(context).preventionTwo_text_one_title,
-              AppLocalizations.of(context).preventionTwo_text_one_content),
+          flex: 90,
+          child:
+              Column(
+                children:[
+                  Expanded(
+                    flex: 10,
+                    child:
+                      RowNoInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_1),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child:
+                      RowWithInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_2, AppLocalizations.of(context).preventionTwo_uv_info_title, AppLocalizations.of(context).preventionTwo_uv_info_text, "assets/images/prevention/Uv-Index.png"),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child:
+                      RowNoInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_3),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child:
+                    RowWithInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_2, AppLocalizations.of(context).preventionTwo_sunscreen_info_title, AppLocalizations.of(context).preventionTwo_sunscreen_info_text, "assets/images/prevention/suncreme.png"),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child:
+                      RowNoInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_5),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child:
+                      RowNoInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_6),
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child:
+                      RowNoInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_7),
+                  )
+
+                ]
+              )
+
         ),
         Expanded(
-          flex: 4,
+          flex: 10,
           child: SizedBox(),
         ),
       ],
     );
   }
 
-  Widget paragraph(String title, String text) {
+  Widget RowWithInfo(context, text, title, info, logo)
+  {return Row(
+      children:[
+        Flexible(
+          flex: 85,
+          child:
+          Text(
+            text,
+            textScaleFactor: textScaleFactor,
+            style: TextStyle(
+              color: Color(0xFF5D584E),
+              fontSize: 24,
+              fontFamily: 'Open Sans',
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+        ),
+        Flexible(
+          flex:15,
+          child:
+          IconButton(
+            onPressed: () { showMyDialog(context, title, info, logo); },
+            icon: Image.asset('assets/images/header/Info_I.png'),
+            iconSize: 24,
+            padding: EdgeInsets.fromLTRB(
+                0, 0, 60 * widthScaleFactor, 60 * heightScaleFactor),
+            autofocus: true,
+          ),
+        )]
+  );
+  }
+
+  Widget RowNoInfo(context, text)
+  {return Row(
+      children:[
+        Expanded(
+          flex: 99,
+          child:
+          Text(
+            text,
+            textScaleFactor: textScaleFactor,
+            style: TextStyle(
+              color: Color(0xFF5D584E),
+              fontSize: 24,
+              fontFamily: 'Open Sans',
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+        ),
+        Flexible(
+          flex:1,
+          child:
+            SizedBox(),
+        )]
+  );}
+
+  Widget paragraph(String title, String text, logo) {
     return CustomParagraph(
       title: title,
       text: text,
@@ -95,7 +183,7 @@ class PreventionTwo extends StatelessWidget {
     );
   }
 
-  void showMyDialog(BuildContext context) {
+  void showMyDialog(BuildContext context, title, info, logo) {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -108,18 +196,18 @@ class PreventionTwo extends StatelessWidget {
             borderRadius: BorderRadius.circular(27),
           ),
           content: Container(
-            height: MediaQuery.of(context).size.height * 0.5,
-            width: MediaQuery.of(context).size.width * 0.5,
+            height: MediaQuery.of(context).size.height * 0.7,
+            width: MediaQuery.of(context).size.width * 0.7,
             child: Column(
               children: [
                 Expanded(
                   flex: 20,
                   child: Text(
-                    AppLocalizations.of(context).avatarOne_popup_title,
+                    title,
                     textScaleFactor: textScaleFactor,
                     style: TextStyle(
                       color: Color(0xFF5D584E),
-                      fontSize: 34,
+                      fontSize: 28,
                       fontFamily: 'Open Sans',
                       fontWeight: FontWeight.w900,
                     ),
@@ -133,7 +221,7 @@ class PreventionTwo extends StatelessWidget {
                       Expanded(
                         flex: 40,
                         child: Image.asset(
-                            'assets/images/avatar/drawingBlock.png'),
+                           logo),
                       ),
                       Expanded(
                         flex: 3,
@@ -150,12 +238,11 @@ class PreventionTwo extends StatelessWidget {
                             Expanded(
                               flex: 90,
                               child: Text(
-                                AppLocalizations.of(context)
-                                    .avatarOne_popup_text,
+                                info,
                                 textScaleFactor: textScaleFactor,
                                 style: TextStyle(
                                   color: Color(0xFF5D584E),
-                                  fontSize: 24,
+                                  fontSize: 22,
                                   fontFamily: 'Open Sans',
                                   height: 1.78,
                                 ),
