@@ -56,17 +56,17 @@ class ResultOne extends StatelessWidget {
   String getTitle(BuildContext context, int score) {
     switch (score) {
       case 0:
-        return AppLocalizations.of(context).resultOne_title_unknownRisk;
+        return AppLocalizations.of(context).result_veryLow;
       case 1:
-        return AppLocalizations.of(context).resultOne_title_lowRisk;
+        return AppLocalizations.of(context).result_Low;
       case 2:
-        return AppLocalizations.of(context).resultOne_title_mediumRisk;
+        return AppLocalizations.of(context).result_medium;
       case 3:
-        return AppLocalizations.of(context).resultOne_title_highRisk;
+        return AppLocalizations.of(context).result_high;
       case 4:
-        return AppLocalizations.of(context).resultOne_title_veryHighRisk;
+        return AppLocalizations.of(context).result_veryHigh;
       default:
-        return AppLocalizations.of(context).resultOne_title_unknownRisk;
+        return AppLocalizations.of(context).result_none;
     }
   }
 

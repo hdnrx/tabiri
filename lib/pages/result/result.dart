@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tabiri_2/dataManager.dart';
 import 'package:tabiri_2/pages/endScreen.dart';
 import 'package:tabiri_2/pages/result/resultOne.dart';
-import 'package:tabiri_2/pages/result/resultThree.dart';
-import 'package:tabiri_2/pages/result/resultTwo.dart';
 import 'package:tabiri_2/widgets/routes.dart';
 
 import '../home.dart';

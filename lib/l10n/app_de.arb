@@ -10,7 +10,7 @@
     "home_card_one_buttonText": "Interessiert mich",
     "home_card_one_actionText": "Nein, danke",
     "home_card_two_title": "Ihr persönliches Hautkrebsrisiko",
-    "home_card_two_content": "Ein paar Fragen zur Einschätzung Ihres persönlichen Risikos",
+    "home_card_two_content": "Sechs Fragen zur Einschätzung Ihres persönlichen Risikos",
     "home_card_two_buttonText": "Interessiert mich",
     "home_card_two_actionText": "Nein, danke",
     "home_card_three_title": "Wie Sie sich schützen können",
@@ -130,7 +130,7 @@
     "avatarOne_slider_textFour" : "65",
     "avatarOne_slider_textFive" : "über\n75",
     "avatarOne_popup_title" : "Ihr persönliches Risiko",
-    "avatarOne_popup_text" : "Es folgen einige Fragen zu persönlichen Risikofaktoren für Hautkrebs. Ermittelt wird das Risiko für den besonders gefährlichen schwarzen Hautkrebs. \nFür Menschen mit schwarzer Hautfarbe ist der Rechner nicht anwendbar. Ihr Risiko an schwarzem Hautkrebs zu erkranken ist sehr gering.",
+    "avatarOne_popup_text" : "Es folgen sechs Fragen zu persönlichen Risikofaktoren für Hautkrebs. Ermittelt wird das Risiko für den besonders gefährlichen schwarzen Hautkrebs. \nFür Menschen mit schwarzer Hautfarbe ist der Rechner nicht anwendbar. Ihr Risiko an schwarzem Hautkrebs zu erkranken ist sehr gering.",
     "avatarOne_popup_button" : "Verstanden",
 
     "avatarTwo_radio_title" : "Was ist ihre natürliche Haarfarbe?",
@@ -172,8 +172,6 @@
     "avatarSix_text_one_partThree": "können ",
     "avatarSix_text_one_highlightThree": "harmlose Muttermale oder Leberflecken krankhaften Veränderungen ",
     "avatarSix_text_one_partFour": "ähneln. Ein Laie kann das kaum unterscheiden.\n\nWenn bereits Metastasen (Tochtergeschwüre) vorhanden sind, ist die Behandlung aufwändiger und die Heilungschancen können schlechter sein.",
-    "avatarSix_text_one_highlightFour": "",
-    "avatarSix_text_one_partFive": "",
     "avatarSix_text_two": "Hautkrebs ist behandelbar. Wenn man ihn schnell findet, sind die Heilungschancen groß. Deshalb ist Vorsorge so wichtig.",
 
     "avatarSeven_text": "Hatte jemand in Ihrer Familie (Eltern, Geschwister) schon einmal schwarzen Hautkrebs?",
@@ -181,28 +179,43 @@
     "avatarSeven_button_yes": "Ja",
     "avatarSeven_actionText": "Keine Angabe",
 
-      "noResult_title" : "Über Hautkrebsrisiko",
-    "noResult_text_partOne" : "Ein Risikowert ist nur eine Statistik. Keine Diagnose. Machen sie einen ",
-    "noResult_text_highlightOne" : "Termin ",
-    "noResult_text_partTwo" : "bei ihrem Haus- oder Hautarzt!",
-    "noResult_button" : "Risiko doch ansehen",
+    "result_intro" : "Sie haben folgende Angaben gemacht:",
 
-    "resultOne_title_unknownRisk" : "Ihr Risiko ist unbekannt",
-    "resultOne_title_lowRisk" : "Ihr Risiko ist leicht erhöht",
-    "resultOne_title_mediumRisk" : "Ihr Risiko ist erhöht",
-    "resultOne_title_highRisk" : "Ihr Risiko ist stark erhöht",
-    "resultOne_title_veryHighRisk" : "Ihr Risiko ist sehr stark erhöht",
-    "resultOne_text" : "Lassen sie sich gratis untersuchen, indem sie hier in der Praxis einen Termin vereinbaren. Fragen sie einfach einen Mitarbeiter der Praxis!",
+    "result_risk_title" : " Aufgrund dieser Angaben ist Ihr Risiko für schwarzen Hautkrebs im Vergleich zu Gesamtbevölkerung: ",
+    "result_veryLow" : "niedrig",
+    "result_Low" : "eher niedrig",
+    "result_medium" : "durchschnittlich",
+    "result_high" : "etwas erhöht",
+    "result_veryHigh" : "deutlich erhöht",
+    "result_none" : "auf Grund unzureichender Angaben kann Ihr Risiko nicht bestimmt werden",
 
-    "resultTwo_title" : "Ihre Einzelnen Antworten",
-    "resultTwo_text_one" : "Ihr Geschlecht",
-    "resultTwo_text_two" : "Ihr Alter",
-    "resultTwo_text_three" : "Ihre Haarfarbe",
-    "resultTwo_text_four" : "Starke Sonnenbrände",
-    "resultTwo_text_five" : "Anzahl ihrer Muttermale",
-    "resultTwo_text_six" : "Hautkrebs in der Familie",
+    "result_sex_m": "männliches Geschlecht",
+    "result_sex_f": "weibliches Geschlecht",
+    "result_sex_x": "diverses Geschlecht",
+    "result_sex_none": "kein Geschlecht angegeben",
 
-    "resultThree_title" : "Ihre Risiko-Punkte",
-    "resultThree_text_one_title" : "Sprechen sie mit ihrem Arzt über Hautkrebs!",
-    "resultThree_text_one_text" : "Termine können sie telefonisch oder direkt in ihrem bei ihrem Praxispersonal vereinbaren!"
+    "result_melanom": "kein Melanom in der Familie, ",
+    "result_no_melanom": "Melanome in der Familie, ",
+    "result_no_answer": "keine Angabe zu Melanomen",
+
+    "result_sunburn_none":  "keine schmerzhafte Sonnenbrände, ",
+    "result_sunburn_few" :  "wenige schmerzhafte Sonnenbrände, ",
+    "result_sunburn_some":  "einige schmerzhafte Sonnenbrände, ",
+    "result_sunburn_many" : "viele schmerzhafte Sonnenbrände, ",
+    "result_sunburn_no_answer": "keine Angabe zu schmerzhaften Sonnenbränden, ",
+
+    "result_birthmarks_none": "keine Muttermale auf dem linken Arm, ",
+    "result_birthmarks_few": "keine Muttermale auf dem linken Arm, ",
+    "result_birthmarks_some": "keine Muttermale auf dem linken Arm, ",
+    "result_birthmarks_many": "keine Muttermale auf dem linken Arm, ",
+    "result_birthmarks_no_answer": "keine Angabe zu Muttermalen auf dem linken Arm, ",
+
+    "result_hair_blond"  : "blonde Haare, ",
+    "result_hair_red"  : "orange oder rote Haare, ",
+    "result_hair_brown"  : "hellbraun, ",
+    "result_hair_dark_brown"  : "dunkelbraune Haare, ",
+    "result_hair_black"  : "schwarze Haare, ",
+    "result_hair_no_answer": "keine Angabe zur Haarfarbe, "
+
 }
+
