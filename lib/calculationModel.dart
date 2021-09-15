@@ -16,13 +16,13 @@ class CalculationModel {
 
   /// 0 - male, 1 - female, 2 - diverse,
   Map<int, double> genderFactor = {
-    0: 0.5527,
-    1: 0,
+    0: 0.2764,
+    1: -0.2764,
     2: 0,
   };
 
   /// ageRisk per ageNumber
-  /// example by age of 20: 1.0166 * 20
+  /// example by age of 20: "0.0165 * (20-45)" 45 is the average age of Germans and taken as reference
   double ageFactor = 0.0165;
 
   /// 0 - no, 1 - yes
@@ -35,21 +35,21 @@ class CalculationModel {
   /// -1 - no selection, 0 - none, 1 - few(1-2), 2 - several(3-9), 3 - many(10+), 4 - don't know
   Map<int, double> sunburnFactor = {
     -1: 0,
-    0: 0,
-    1: 0.3358,
-    2: 0.5758,
-    3: 0.8574,
-    4: 0.3358,
+    0: -0.4558,
+    1: -0.12,
+    2: 0.12,
+    3: 0.4016,
+    4: 0,
   };
 
   /// -1 - no selection, 0 - none, 1 - few(1-2), 2 - several(3-9), 3 - many(10+), 4 - don't know
   Map<int, double> birthmarkFactor = {
     -1: 0,
-    0: 0,
-    1: 0.1517,
-    2: 1.0154,
-    3: 1.1238,
-    4: 0.1517,
+    0: -0.5836,
+    1: -0.4319,
+    2: 0.4319,
+    3: 0.5402,
+    4: 0,
   };
 
   /// -1 - no selection, 0 - blond, 1 - orangeRed, 2 - lightBrown, 3 - darkBrown, 4 - black
@@ -171,18 +171,20 @@ class CalculationModel {
   }
 
   /// Place the risk score in 5 groups
-  /// 0 - unknown risk, 1 - low risk, 2 - medium risk, 3 - high risk, 4 - very high risk
+  /// 0 - unknown risk, 1 - low risk, 2 - lower risk, 3 - average risk, 4 - higher risk, 5 - high risk
   int getRiskPlacement() {
     double score = _calculateRiskValue();
     print("final score " + score.toString());
-    if (score <= 10) {
+    if (score <= -0.916) {
       return 1;
-    } else if (score > 10 && score <= 25) {
+    } else if (score > -0.916 && score <= -0.405) {
       return 2;
-    } else if (score > 25 && score <= 50) {
+    } else if (score > -0.405 && score <= 0.405) {
       return 3;
-    } else if (score > 50) {
+    } else if (score > 0.405 && score <= 0.916) {
       return 4;
+    } else if (score > 0.916) {
+      return 5;
     } else {
       return 0;
     }
