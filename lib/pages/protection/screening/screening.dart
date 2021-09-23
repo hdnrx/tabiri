@@ -247,13 +247,13 @@ class _ScreeningState extends State<Screening> {
       case 0:
         return AppLocalizations.of(context).screeningOne_buttonText;
       case 1:
-        return AppLocalizations.of(context).screeningTwo_buttonText;
+        return AppLocalizations.of(context).screeningOne_buttonText;
       case 2:
-        return AppLocalizations.of(context).screeningThree_buttonText;
+        return AppLocalizations.of(context).screeningOne_buttonText;
       case 3:
-        return AppLocalizations.of(context).screeningFour_buttonText;
+        return AppLocalizations.of(context).screeningOne_buttonText;
       case 4:
-        return AppLocalizations.of(context).screeningFive_buttonText;
+        return AppLocalizations.of(context).screeningOne_buttonText;
       case 5:
         if (DataManager.instance.preventionPathComplete)
           return AppLocalizations.of(context).screeningSix_buttonText_home;

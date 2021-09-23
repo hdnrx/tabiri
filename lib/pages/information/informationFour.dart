@@ -9,6 +9,7 @@ class InformationFour extends StatelessWidget {
   double widthScaleFactor;
   double textScaleFactor;
 
+
   @override
   Widget build(BuildContext context) {
     heightScaleFactor = MediaQuery.of(context).size.height / 1200;
@@ -102,7 +103,7 @@ class InformationFour extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_A_title, () => handleA(), true
+                  child:SizedBox(),//button(AppLocalizations.of(context).informationFour_A_title, () => handleA(), true
                   ),
                   // Text(
                   //   AppLocalizations.of(context).informationFour_A_title,
@@ -114,21 +115,21 @@ class InformationFour extends StatelessWidget {
                   //     fontSize: 20,
                   //   ),
                   // ),
-                ),
+                //),
+                // Expanded(
+                //   flex: 10,
+                //   child: button(AppLocalizations.of(context).informationFour_B_title, () => handleB(), false)
+                // ),
+                // Expanded(
+                //   flex: 10,
+                //   child: button(AppLocalizations.of(context).informationFour_C_title, () => handleC(), false)
+                // ),
+                // Expanded(
+                //   flex: 10,
+                //   child: button(AppLocalizations.of(context).informationFour_D_title, () => handleD(), false)
+                // ),
                 Expanded(
-                  flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_B_title, () => handleB(), false)
-                ),
-                Expanded(
-                  flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_C_title, () => handleC(), false)
-                ),
-                Expanded(
-                  flex: 10,
-                  child: button(AppLocalizations.of(context).informationFour_D_title, () => handleD(), false)
-                ),
-                Expanded(
-                  flex: 30,
+                  flex: 60,
                   child: SizedBox(),
                 ),
               ],
@@ -245,7 +246,8 @@ class InformationFour extends StatelessWidget {
     );
   }
 
-  handleA() {//setState()
+  handleA() {
+
      }
   handleB() {}
   handleC() {}

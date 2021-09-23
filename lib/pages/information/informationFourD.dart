@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/customText.dart';
 
-class InformationFourB extends StatelessWidget {
+class InformationFourD extends StatelessWidget {
   double heightScaleFactor;
   double widthScaleFactor;
   double textScaleFactor;
@@ -45,7 +45,7 @@ class InformationFourB extends StatelessWidget {
         Expanded(
           flex: 9,
           child: Text(
-            AppLocalizations.of(context).informationFour_B_title,
+            AppLocalizations.of(context).informationFour_D_title,
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w800,
@@ -67,7 +67,7 @@ class InformationFourB extends StatelessWidget {
                   flex: 20,
                   child: Padding(
                     padding: EdgeInsets.all(30),
-                    child: Image.asset('assets/images/ABCDrules/Skinspot_B.png',
+                    child: Image.asset('assets/images/ABCDrules/Skinspot_D.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -75,7 +75,7 @@ class InformationFourB extends StatelessWidget {
                 Expanded(
                   flex: 20,
                   child: Text(
-                    AppLocalizations.of(context).informationFour_B_text,
+                    AppLocalizations.of(context).informationFour_D_text,
                     style: TextStyle(
                       color: Colors.black,
                       //fontWeight: FontWeight.w800,
@@ -117,7 +117,7 @@ class InformationFourB extends StatelessWidget {
                 //),
                 // Expanded(
                 //   flex: 10,
-                //   child: button(AppLocalizations.of(context).informationFour_B_title, () => handleB(), true),
+                //   child: button(AppLocalizations.of(context).informationFour_B_title, () => handleB(), false),
                 // ),
                 // Expanded(
                 //   flex: 10,
@@ -125,7 +125,7 @@ class InformationFourB extends StatelessWidget {
                 // ),
                 // Expanded(
                 //   flex: 10,
-                //   child: button(AppLocalizations.of(context).informationFour_D_title, () => handleD(), false),
+                //   child: button(AppLocalizations.of(context).informationFour_D_title, () => handleD(), true),
                 // ),
                 Expanded(
                   flex: 60,
@@ -219,7 +219,7 @@ class InformationFourB extends StatelessWidget {
 
         TextSpan(
             text:
-                AppLocalizations.of(context).informationFour_text_title),
+                AppLocalizations.of(context).informationFour_text_title), 
       ],
     );
   }

@@ -9,6 +9,9 @@ import 'package:tabiri_2/pages/information/informationOne.dart';
 import 'package:tabiri_2/pages/information/informationThree.dart';
 import 'package:tabiri_2/pages/information/informationTwo.dart';
 import 'package:tabiri_2/pages/information/informationFour.dart';
+import 'package:tabiri_2/pages/information/informationFourB.dart';
+import 'package:tabiri_2/pages/information/informationFourC.dart';
+import 'package:tabiri_2/pages/information/informationFourD.dart';
 import 'package:tabiri_2/widgets/customButton.dart';
 import 'package:tabiri_2/widgets/header.dart';
 import 'package:tabiri_2/widgets/routes.dart';
@@ -20,7 +23,7 @@ double textScaleFactor;
 class Information extends StatefulWidget {
   final pageController = PageController();
 
-  final int numberOfPages = 5;
+  final int numberOfPages = 8;
 
   @override
   _InformationState createState() => _InformationState();
@@ -75,6 +78,9 @@ class _InformationState extends State<Information> {
                         InformationTwo(),
                         InformationThree(),
                         InformationFour(),
+                        InformationFourB(),
+                        InformationFourC(),
+                        InformationFourD(),
                         InformationFive(),
                       ],
                     ),
@@ -112,7 +118,7 @@ class _InformationState extends State<Information> {
       case 4:
         return AppLocalizations.of(context).informationFive_title;
       default:
-        return "";
+        return AppLocalizations.of(context).informationFour_title;
     }
   }
 
@@ -294,13 +300,13 @@ class _InformationState extends State<Information> {
       case 1:
         return AppLocalizations.of(context).informationTwo_buttonText;
       case 2:
-        return AppLocalizations.of(context).informationThree_button_two_text;
+        return AppLocalizations.of(context).informationOne_buttonText;
       case 3:
-        return AppLocalizations.of(context).informationThree_button_two_text;
+        return AppLocalizations.of(context).informationOne_buttonText;
       case 4:
-        return AppLocalizations.of(context).informationThree_button_two_text;
+        return AppLocalizations.of(context).informationOne_buttonText ;
       default:
-        return "";
+        return AppLocalizations.of(context).informationOne_buttonText;
     }
   }
 }

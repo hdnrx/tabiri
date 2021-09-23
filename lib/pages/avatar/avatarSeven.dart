@@ -135,16 +135,16 @@ class _AvatarSeven extends State<AvatarSeven> {
     List<RadioItem> listOne = [
       new RadioItem(
           isSelected: false,
-          value: 1,
-          buttonText: AppLocalizations.of(context).avatarSeven_button_yes,
+          value: 0,
+          buttonText: AppLocalizations.of(context).avatarSeven_button_no,
           backgroundColor: Colors.white,
           borderColor: Color(0xFF295A56),
           height: 60 * widthScaleFactor,
           width: 60 * widthScaleFactor),
       new RadioItem(
           isSelected: false,
-          value: 0,
-          buttonText: AppLocalizations.of(context).avatarSeven_button_no,
+          value: 1,
+          buttonText: AppLocalizations.of(context).avatarSeven_button_yes,
           backgroundColor: Colors.white,
           borderColor: Color(0xFF295A56),
           height: 60 * widthScaleFactor,
@@ -172,8 +172,9 @@ class _AvatarSeven extends State<AvatarSeven> {
       onChanged: (value) {
         setState(() {
           DataManager.instance.familySickness = value;
+          print(value);
           listOne.elementAt(value).isSelected = true;
-          widget.notifyParent();
+          //widget.notifyParent();
         });
       },
       radioButtons: listOne,

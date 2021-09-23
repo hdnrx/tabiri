@@ -408,8 +408,8 @@ class _HomeState extends State<Home> {
                   child: Container(
                     width: 590 * widthScaleFactor,
                     height: 444 * heightScaleFactor,
-                    child: SizedBox(),//Image.asset('assets/images/home/appointment.png',
-                      // fit: BoxFit.contain,
+                    child: Image.asset('assets/images/home/appointment.png'),
+                      //fit: BoxFit.contain,
 
                   ),
                 )
@@ -424,7 +424,7 @@ class _HomeState extends State<Home> {
                         child: Container(
                           width: 590 * widthScaleFactor,
                           height: 444 * heightScaleFactor,
-                          child: SizedBox()
+                          child:Image.asset('assets/images/home/appointment.png'),
                         ),
                         ),
                       )
@@ -440,7 +440,7 @@ class _HomeState extends State<Home> {
                             child: Container(
                               width: 590 * widthScaleFactor,
                               height: 444 * heightScaleFactor,
-                              child: SizedBox()
+                              child: Image.asset('assets/images/home/appointment.png'),
                             ),
                           ),
                         )
@@ -454,7 +454,7 @@ class _HomeState extends State<Home> {
                               child: Container(
                                 width: 590 * widthScaleFactor,
                                 height: 444 * heightScaleFactor,
-                                child: SizedBox()
+                                child: Image.asset('assets/images/home/appointment.png'),
 
                               ),
                             )
@@ -466,7 +466,7 @@ class _HomeState extends State<Home> {
                                   child: Container(
                                     width: 590 * widthScaleFactor,
                                     height: 444 * heightScaleFactor,
-                                      child: SizedBox()
+                                      child: Image.asset('assets/images/home/appointment.png'),
                                   ),
                                 )
                               :
@@ -477,7 +477,7 @@ class _HomeState extends State<Home> {
                                       child: Container(
                                         width: 590 * widthScaleFactor,
                                         height: 444 * heightScaleFactor,
-                                        child: SizedBox(),
+                                        child: Image.asset('assets/images/home/appointment.png'),
                                       ),
                                     )
                                   :
@@ -489,7 +489,7 @@ class _HomeState extends State<Home> {
                                           child: Container(
                                             width: 590 * widthScaleFactor,
                                             height: 444 * heightScaleFactor,
-                                              child: SizedBox()
+                                              child: Image.asset('assets/images/home/appointment.png'),
                                           ),
                                         )
                                       : SizedBox(),

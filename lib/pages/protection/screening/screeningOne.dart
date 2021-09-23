@@ -254,11 +254,11 @@ void handleABCD(BuildContext context) {
             child: Column(
               children: [
                 Expanded(
-                  flex: 20,
+                  flex: 5,
                   child: SizedBox()
                 ),
                 Expanded(
-                  flex: 70,
+                  flex: 95,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -276,38 +276,127 @@ void handleABCD(BuildContext context) {
                             ),
                             Expanded(
                               flex: 90,
-                              child: RichText(
-                                text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    fontFamily: 'Open Sans',
-                                    height: 1.70,
-                                    color: Color(0xFF5D584E),
-                                  ),
-                                  children: [
-                                    TextSpan(
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
+                              child: Column(
+                                  children:[
+                                    Expanded(
+                                      flex: 10,
+                                      child:
+                                      RichText(
+                                        text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: 'Open Sans',
+                                            height: 1.70,
+                                            color: Color(0xFF5D584E),
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                text:
+                                                AppLocalizations.of(context).informationFour_A_title + "\n"
+                                            ),
+                                            TextSpan(
+                                                text:
+                                                AppLocalizations.of(context).informationFour_A_text),
+
+                                          ],
                                         ),
-                                        text:
-                                        AppLocalizations.of(context).informationFour_title
+                                        textScaleFactor: textScaleFactor,
+                                      ),
                                     ),
-                                    TextSpan(
-                                        text:
-                                        AppLocalizations.of(context).informationFour_A_title),
-                                    TextSpan(
-                                        text: AppLocalizations.of(context).informationFour_B_title),
-                                    TextSpan(
-                                        text:
-                                        AppLocalizations.of(context).informationFour_C_title),
-                                    TextSpan(
-                                        text:
-                                        AppLocalizations.of(context).informationFour_D_title),
-                                  ],
-                                ),
-                                textScaleFactor: textScaleFactor,
+                                    Expanded(
+                                      flex: 10,
+                                      child:
+                                      RichText(
+                                        text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: 'Open Sans',
+                                            height: 1.70,
+                                            color: Color(0xFF5D584E),
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                text:
+                                                AppLocalizations.of(context).informationFour_B_title + "\n"
+                                            ),
+                                            TextSpan(
+                                                text:
+                                                AppLocalizations.of(context).informationFour_B_text),
+
+                                          ],
+                                        ),
+                                        textScaleFactor: textScaleFactor,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 10,
+                                      child:
+                                      RichText(
+                                        text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: 'Open Sans',
+                                            height: 1.70,
+                                            color: Color(0xFF5D584E),
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                text:
+                                                AppLocalizations.of(context).informationFour_C_title + "\n"
+                                            ),
+                                            TextSpan(
+                                                text:
+                                                AppLocalizations.of(context).informationFour_C_text),
+
+                                          ],
+                                        ),
+                                        textScaleFactor: textScaleFactor,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 10,
+                                      child:
+                                      RichText(
+                                        text: TextSpan(
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: 'Open Sans',
+                                            height: 1.70,
+                                            color: Color(0xFF5D584E),
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                                text:
+                                                AppLocalizations.of(context).informationFour_D_title  + "\n"
+                                            ),
+                                            TextSpan(
+                                                text:
+                                                AppLocalizations.of(context).informationFour_D_text),
+
+                                          ],
+                                        ),
+                                        textScaleFactor: textScaleFactor,
+                                      ),
+                                    ),
+
+
+                                  ]
+                              )
+
                               ),
-                            ),
+
                           ],
                         ),
                       ),
@@ -319,7 +408,7 @@ void handleABCD(BuildContext context) {
                   ),
                 ),
                 Expanded(
-                  flex: 10,
+                  flex: 5,
                   child: buttonPopUp(
                     AppLocalizations.of(context).avatarOne_popup_button,
                         () => Navigator.pop(context),

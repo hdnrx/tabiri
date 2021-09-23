@@ -119,9 +119,8 @@ class InformationFive extends StatelessWidget {
               ),
               Expanded(
                 flex: 20,
-                child: FittedBox(
-                  fit: BoxFit.fill,
-                  child:Text(
+                child:
+                  Text(
                   AppLocalizations.of(context).informationFive_text_2,
                   style: TextStyle(
                     color: Colors.black,
@@ -129,7 +128,7 @@ class InformationFive extends StatelessWidget {
                     fontFamily: 'Open Sans',
                     letterSpacing: 0.5,
                     fontSize: 20,
-                  ),
+
                 ),
               ),
               ),

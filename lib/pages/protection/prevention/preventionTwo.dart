@@ -82,7 +82,7 @@ class PreventionTwo extends StatelessWidget {
                   Expanded(
                     flex: 10,
                     child:
-                    RowWithInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_2, AppLocalizations.of(context).preventionTwo_sunscreen_info_title, AppLocalizations.of(context).preventionTwo_sunscreen_info_text, "assets/images/prevention/suncreme.png"),
+                    RowWithInfo(context, AppLocalizations.of(context).preventionTwo_text_one_content_4, AppLocalizations.of(context).preventionTwo_sunscreen_info_title, AppLocalizations.of(context).preventionTwo_sunscreen_info_text, "assets/images/prevention/Suncreme.png"),
                   ),
                   Expanded(
                     flex: 10,

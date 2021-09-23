@@ -47,13 +47,14 @@ class ResultOne extends StatelessWidget {
   Widget header(BuildContext context) {
     print(CalculationModel().getRiskPlacement());
     return ResultHeader(
-      title: getTitle(context, CalculationModel().getRiskPlacement()),
+      title: AppLocalizations.of(context).result_title,
       dividerLineColor: Color(0xFF418D87),
     );
   }
 
   /// title according to risk score of calculation model
   String getTitle(BuildContext context, int score) {
+
     switch (score) {
       case 0:
         return AppLocalizations.of(context).result_veryLow;
@@ -82,15 +83,15 @@ class ResultOne extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                flex: 10,
+                flex: 5,
                 child: SizedBox(),
               ),
               Expanded(
-                flex: 35,
+                flex: 55,
                 child: text(context),
               ),
               Expanded(
-                flex: 50,
+                flex: 35,
                 child: image(CalculationModel().getRiskPlacement()),
               ),
               Expanded(
@@ -111,7 +112,7 @@ class ResultOne extends StatelessWidget {
   Widget text(BuildContext context) {
     return Text(
       //AppLocalizations.of(context).resultOne_text,
-      getPersonalText(),
+      getPersonalText(context),
       textScaleFactor: textScaleFactor,
       style: TextStyle(
         color: Color(0xFF3E2A1E),
@@ -172,11 +173,11 @@ class ResultOne extends StatelessWidget {
     );
   }
 
-String getPersonalText()
+String getPersonalText(context)
 {
-  String Text = "Aufgrund Ihrer persönlichen Angaben: ";
+  String Text = AppLocalizations.of(context).result_intro;
   String sex;
-  String age = "Alter " + DataManager.instance.age.toString()  + " Jahre, ";
+  String age = AppLocalizations.of(context).result_age + DataManager.instance.age.toString()  + AppLocalizations.of(context).result_years;
   String family;
   String sunburn;
   String birthmarks;
@@ -185,113 +186,120 @@ String getPersonalText()
 
 
   switch (DataManager.instance.gender){
-    case 0:
-      sex = "weibliches Geschlecht, ";
-      break;
     case 1:
-      sex = "männliches Geschlecht, ";
+      sex = AppLocalizations.of(context).result_sex_f;
+      break;
+    case 0:
+      sex = AppLocalizations.of(context).result_sex_m;
       break;
     case 2:
-      sex = "diverses Geschlecht, ";
+      sex = AppLocalizations.of(context).result_sex_x;
       break;
     default:
-      sex = "kein Geschlecht angegeben, ";
+      sex = AppLocalizations.of(context).result_sex_none;
       break;
   }
 
-  if (DataManager.instance.familySickness == 0)
-    family = "kein Melanom in der Familie, ";
-  else
-    family = "Melanome in der Familie, ";
+  switch (DataManager.instance.familySickness) {
+    case 0:
+      family = AppLocalizations.of(context).result_melanom;
+      break;
+    case 1:
+      family = AppLocalizations.of(context).result_no_melanom;
+      break;
+    default:
+      family = AppLocalizations.of(context).result_no_answer;
+      break;
+  }
 
   switch(DataManager.instance.numberSunburns){
     case 0:
-        sunburn = "keine schmerzhaften Sonnenbrände, ";
+        sunburn = AppLocalizations.of(context).result_sunburn_none;
         break;
     case 1:
-      sunburn = "wenige schmerzhafte Sonnenbrände, ";
+      sunburn = AppLocalizations.of(context).result_sunburn_few;
       break;
     case 2:
-      sunburn = "einige schmerzhafte Sonnenbrände, ";
+      sunburn = AppLocalizations.of(context).result_sunburn_some;
       break;
     case 3:
-      sunburn = "viele schmerzhafte Sonnenbrände, ";
+      sunburn = AppLocalizations.of(context).result_sunburn_many;
       break;
     case 4:
-      sunburn = "keine Angabe zu schmerzhaften Sonnenbränden, ";
+      sunburn = AppLocalizations.of(context).result_sunburn_no_answer;
       break;
     default:
-      sunburn = "keine Angabe zu schmerzhaften  Sonnenbränden, ";
+      sunburn = AppLocalizations.of(context).result_sunburn_no_answer;
       break;
   }
 
   switch(DataManager.instance.numberBirthmarks){
     case 0:
-      birthmarks = "keine Muttermale auf dem linken Arm, ";
+      birthmarks = AppLocalizations.of(context).result_birthmarks_none;
       break;
     case 1:
-      birthmarks = "wenige Muttermale auf dem linken Arm, ";
+      birthmarks = AppLocalizations.of(context).result_birthmarks_few;
       break;
     case 2:
-      birthmarks = "einige Muttermale auf dem linken Arm, ";
+      birthmarks = AppLocalizations.of(context).result_birthmarks_some;
       break;
     case 3:
-      birthmarks = "viele Muttermale auf dem linken Arm, ";
+      birthmarks = AppLocalizations.of(context).result_birthmarks_many;
       break;
     case 4:
-      birthmarks = "keine Angabe zu Muttermalen auf dem linken Arm, ";
+      birthmarks = AppLocalizations.of(context).result_birthmarks_no_answer;
       break;
     default:
-      birthmarks = "keine Angabe zu Muttermalen auf dem linken Arm, ";
+      birthmarks = AppLocalizations.of(context).result_birthmarks_no_answer;
       break;
   }
 
 
   switch(DataManager.instance.hairColor){
     case 0:
-      hair = "blonde Haare, ";
+      hair = AppLocalizations.of(context).result_hair_blond;
       break;
     case 1:
-      hair = "orange oder rote Haare, ";
+      hair = AppLocalizations.of(context).result_hair_red;
       break;
     case 2:
-      hair = "hellbraune Haare, ";
+      hair = AppLocalizations.of(context).result_hair_brown;
       break;
     case 3:
-      hair = "dunkelbraune Haare, ";
+      hair = AppLocalizations.of(context).result_hair_dark_brown;
       break;
     case 4:
-      hair = "schwarze Haare, ";
+      hair = AppLocalizations.of(context).result_hair_black;
       break;
     default:
-      hair = "keine Angabe zur Haarfarbe, ";
+      hair = AppLocalizations.of(context).result_hair_no_answer;
       break;
   }
 
   switch(CalculationModel.instance.getRiskPlacement()){
-    case 1:
-      risk = "niedriges ";
+    case 0:
+      risk = AppLocalizations.of(context).result_veryLow;
       break;
-    // case TODO:
-    //   risk = "eher niedriges ";
-    //   break;
+    case 1:
+       risk = AppLocalizations.of(context).result_Low;
+       break;
     case 2:
-      risk = "moderates ";
+      risk = AppLocalizations.of(context).result_medium;
       break;
     case 3:
-      risk = "erhöhtes ";
+      risk = AppLocalizations.of(context).result_high;
       break;
     case 4:
-      risk = "deutlisch erhöhtes ";
+      risk = AppLocalizations.of(context).result_veryHigh;;
       break;
     default:
-      risk = "auf Grund unzureichender Angaben ein unbestimmtes ";
+      risk = AppLocalizations.of(context).result_none;
       break;
   }
 
-  String riskStatement = "haben Sie ein " + risk + "Risiko an schwarzem Hautkrebs zu erkranken.";
+  String riskStatement =  AppLocalizations.of(context).result_risk_title + risk;
 
-  return Text + sex + age +family+sunburn+birthmarks+hair+riskStatement;
+  return Text + sex + age +family + sunburn + birthmarks +hair + riskStatement;
 
 }
 
